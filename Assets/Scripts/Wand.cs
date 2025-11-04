@@ -6,7 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 public class Wand : MonoBehaviour {
     [SerializeField] private float holdDistance = 0.05f;  // The maximum distance at which the wand is considered "held"
     
-    [SerializeField] private float rotateSpeed = 0.25f;
+    [SerializeField] private float rotateSpeed = 5f;
     [SerializeField] private float oscillateSpeed = 1.0f;
     [SerializeField] private float oscillateAmplitude = 0.05f;
 
@@ -15,6 +15,8 @@ public class Wand : MonoBehaviour {
 
     private GameObject wandModel;
     private IXRSelectInteractor currentInteractor = null;
+
+    private float animationTimeOffset = 0.0f;
 
     private bool isGrabbed = false;  // Whether the wand has been grabbed ("selected")
     private bool isHeld = false;     // Whether the wand is actually in the player's hand
@@ -45,6 +47,7 @@ public class Wand : MonoBehaviour {
     }
 
     void Start() {
+        animationTimeOffset = Random.Range(0.0f, 10f);
         // Fill angular velocity buffer with zeroed vectors
         for (int i = 0; i < ANGULAR_VELOCITY_BUFFER_SIZE; i++) {
             angularVelocityBuffer.Enqueue(Vector3.zero);
@@ -76,10 +79,11 @@ public class Wand : MonoBehaviour {
 
     void Update() {
         if (!isGrabbed) {
-            Vector3 rotateVector = new Vector3(0, rotateSpeed, 0);
-            wandModel.transform.Rotate(rotateVector);
+            float time = Time.fixedTime + animationTimeOffset;
+            Vector3 rotateVector = new Vector3(0, time * rotateSpeed, 0);
+            wandModel.transform.localEulerAngles = rotateVector;
 
-            float oscillateY = oscillateAmplitude * Mathf.Sin(Time.fixedTime * oscillateSpeed);
+            float oscillateY = oscillateAmplitude * Mathf.Sin(time * oscillateSpeed);
             Vector3 oscillatePosition = new Vector3(0, oscillateY, 0);
             wandModel.transform.localPosition = oscillatePosition;
         }

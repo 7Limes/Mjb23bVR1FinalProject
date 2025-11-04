@@ -31,8 +31,9 @@ public class WandSpawner : MonoBehaviour {
             wandScript.SetWandModel(wandModel);
         }
     }
-    
-    void Update() {
-        
+
+    public void OnButtonPress() {
+        Debug.Log("poked");
+        SpawnNewWand();
     }
 }
