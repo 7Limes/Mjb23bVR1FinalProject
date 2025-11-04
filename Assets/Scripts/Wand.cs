@@ -12,6 +12,7 @@ public class Wand : MonoBehaviour {
 
     [SerializeField] private float flickThreshold = 250f;
     [SerializeField] private float castCooldown = 1.0f;
+    [SerializeField] private int capacity = 10;
 
     private GameObject wandModel;
     private Rigidbody rigidBody;
@@ -30,12 +31,20 @@ public class Wand : MonoBehaviour {
 
     private float castTimer = 0.0f;
 
-    public void SetWandModel(GameObject wandModel) {
-        this.wandModel = wandModel;
+    public void SetWandModel(GameObject model) {
+        wandModel = model;
     }
 
     public void SetIdleAnimation(bool enabled) {
         doIdleAnimation = enabled;
+    }
+
+    public void SetCapacity(int newCapacity) {
+        capacity = newCapacity;
+    }
+
+    public int GetCapacity() {
+        return capacity;
     }
     
     public void OnGrab() {

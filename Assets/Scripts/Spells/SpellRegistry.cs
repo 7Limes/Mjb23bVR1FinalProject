@@ -23,8 +23,4 @@ public class SpellRegistry : ScriptableObject {
 
         return spellLookup.TryGetValue(spellId, out var spell) ? spell : null;
     }
-    
-    public Material GetSpellIcon(string spellId) {
-        return GetSpellEntry(spellId)?.material;
-    }
 }

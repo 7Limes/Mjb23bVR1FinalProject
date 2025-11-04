@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SpellCube : MonoBehaviour {
     [SerializeField] private GameObject iconQuad = null;
@@ -7,9 +8,15 @@ public class SpellCube : MonoBehaviour {
 
     private Camera playerCamera;
 
-    public void SetIconMaterial(Material iconMaterial) {
-        Debug.Log($"Setting material: {iconMaterial}");
-        iconQuad.GetComponent<MeshRenderer>().material = iconMaterial;
+    private SpellEntry spellEntry = null;
+
+    public void SetSpell(SpellEntry entry) {
+        spellEntry = entry;
+        iconQuad.GetComponent<MeshRenderer>().material = spellEntry.material;
+    }
+
+    public UnityEvent GetSpellCastEvent() {
+        return spellEntry.onCast;
     }
 
     void Start() {

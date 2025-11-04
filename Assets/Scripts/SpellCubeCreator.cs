@@ -14,8 +14,8 @@ public class SpellCubeCreator : MonoBehaviour {
         GameObject spellCube = Instantiate(spellCubePrefab, parent.position, parent.rotation);
 
         SpellCube spellCubeScript = spellCube.GetComponent<SpellCube>();
-        Material spellIconMaterial = registry.GetSpellIcon(spellId);
-        spellCubeScript.SetIconMaterial(spellIconMaterial);
+        SpellEntry spellEntry = registry.GetSpellEntry(spellId);
+        spellCubeScript.SetSpell(spellEntry);
 
         return spellCube;
     }

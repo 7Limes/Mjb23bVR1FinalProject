@@ -10,7 +10,6 @@ public class DebugSpellCube : MonoBehaviour {
     }
 
     public void SpawnSpellCube() {
-        Debug.Log("Spawned new cube");
         spellCubeCreator.CreateSpellCube("spark_bolt", spawnPosition);
     }
 }
