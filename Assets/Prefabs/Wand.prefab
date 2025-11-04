@@ -282,5 +282,5 @@ MonoBehaviour:
   rotateSpeed: 50
   oscillateSpeed: 2
   oscillateAmplitude: 0.025
-  flickThreshold: 300
+  flickThreshold: 325
   castCooldown: 1

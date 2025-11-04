@@ -14,6 +14,7 @@ public class Wand : MonoBehaviour {
     [SerializeField] private float castCooldown = 1.0f;
 
     private GameObject wandModel;
+    private Rigidbody rigidBody;
     private IXRSelectInteractor currentInteractor = null;
 
     private float animationTimeOffset = 0.0f;
@@ -47,6 +48,7 @@ public class Wand : MonoBehaviour {
     }
 
     void Start() {
+        rigidBody = GetComponent<Rigidbody>();
         animationTimeOffset = Random.Range(0.0f, 10f);
         // Fill angular velocity buffer with zeroed vectors
         for (int i = 0; i < ANGULAR_VELOCITY_BUFFER_SIZE; i++) {
@@ -78,6 +80,7 @@ public class Wand : MonoBehaviour {
     }
 
     void Update() {
+        rigidBody.freezeRotation = !isGrabbed;
         if (!isGrabbed) {
             float time = Time.fixedTime + animationTimeOffset;
             Vector3 rotateVector = new Vector3(0, time * rotateSpeed, 0);
