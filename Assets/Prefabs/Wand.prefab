@@ -278,6 +278,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a74f65ed0a9b9e3f91b24bbe8f74629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holdDistance: 0.05
   rotateSpeed: 0.25
   oscillateSpeed: 2
   oscillateAmplitude: 0.025
+  flickThreshold: 300
+  castCooldown: 1
