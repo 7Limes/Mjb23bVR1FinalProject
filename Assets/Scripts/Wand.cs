@@ -21,6 +21,7 @@ public class Wand : MonoBehaviour {
 
     private bool isGrabbed = false;  // Whether the wand has been grabbed ("selected")
     private bool isHeld = false;     // Whether the wand is actually in the player's hand
+    private bool doIdleAnimation = true;
 
     const int ANGULAR_VELOCITY_BUFFER_SIZE = 10;
     private Queue<Vector3> angularVelocityBuffer = new Queue<Vector3>(ANGULAR_VELOCITY_BUFFER_SIZE);
@@ -32,6 +33,10 @@ public class Wand : MonoBehaviour {
     public void SetWandModel(GameObject wandModel) {
         this.wandModel = wandModel;
     }
+
+    public void SetIdleAnimation(bool enabled) {
+        doIdleAnimation = enabled;
+    }
     
     public void OnGrab() {
         isGrabbed = true;
@@ -41,6 +46,7 @@ public class Wand : MonoBehaviour {
     public void OnRelease() {
         isGrabbed = false;
         isHeld = false;
+        doIdleAnimation = true;
         currentInteractor = null;
         wandModel.transform.localPosition = Vector3.zero;
         wandModel.transform.localRotation = Quaternion.Euler(0, 0, 0);
@@ -81,7 +87,7 @@ public class Wand : MonoBehaviour {
 
     void Update() {
         rigidBody.freezeRotation = !isGrabbed;
-        if (!isGrabbed) {
+        if (doIdleAnimation) {
             float time = Time.fixedTime + animationTimeOffset;
             Vector3 rotateVector = new Vector3(0, time * rotateSpeed, 0);
             wandModel.transform.localEulerAngles = rotateVector;
