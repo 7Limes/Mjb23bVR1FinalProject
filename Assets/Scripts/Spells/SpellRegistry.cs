@@ -10,7 +10,6 @@ public class SpellRegistry : ScriptableObject {
         spellLookup = new Dictionary<string, SpellEntry>();
         foreach (var spellEntry in spellEntries) {
             if (!string.IsNullOrEmpty(spellEntry.spellID)) {
-                Debug.Log($"Added {spellEntry.spellID}");
                 spellLookup[spellEntry.spellID] = spellEntry;
             }
         }

@@ -16,7 +16,11 @@ public class SpellSlot : MonoBehaviour {
         spellCube = (interactable as MonoBehaviour)?.gameObject;
         SpellCube spellCubeScript = spellCube.GetComponent<SpellCube>();
         spellEntry = spellCubeScript.GetSpell();
-        Debug.Log($"Attached spell {spellEntry.spellID}");
+    }
+
+    public void OnDetach() {
+        spellCube = null;
+        spellEntry = null;
     }
 
     public SpellEntry GetSpell() {

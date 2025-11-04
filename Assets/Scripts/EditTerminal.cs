@@ -45,9 +45,6 @@ public class EditTerminal : MonoBehaviour {
             GameObject slotObject = slotObjects[i];
             SpellSlot spellSlotScript = slotObject.GetComponent<SpellSlot>();
             SpellEntry spell = spellSlotScript.GetSpell();
-            if (spell != null) {
-                Debug.Log($"Set {spell.spellID} at {i}");
-            }
             attachedWand.SetSpell(spell, i);
         }
     }
