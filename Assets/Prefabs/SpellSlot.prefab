@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5932529205900493098}
   - component: {fileID: 5042483055589151719}
   - component: {fileID: 318644893508587873}
+  - component: {fileID: 5573508696659964560}
   m_Layer: 0
   m_Name: SpellSlot
   m_TagString: Untagged
@@ -64,7 +65,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5573508696659964560}
+        m_TargetAssemblyTypeName: SpellSlot, Assembly-CSharp
+        m_MethodName: OnAttach
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -102,6 +115,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.2, y: 0.4, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5573508696659964560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290513354971893999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d1efbcbe0f77d6980e08f9a0f568c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachTransform: {fileID: 3301922975132818673}
 --- !u!1 &3531601229039040311
 GameObject:
   m_ObjectHideFlags: 0

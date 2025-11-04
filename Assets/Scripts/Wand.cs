@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
+using UnityEngine.XR.Interaction.Toolkit.UI.BodyUI;
 
 public class Wand : MonoBehaviour {
     [SerializeField] private float holdDistance = 0.05f;  // The maximum distance at which the wand is considered "held"
@@ -31,6 +32,8 @@ public class Wand : MonoBehaviour {
 
     private float castTimer = 0.0f;
 
+    List<SpellEntry> spells = new List<SpellEntry>();
+
     public void SetWandModel(GameObject model) {
         wandModel = model;
     }
@@ -46,9 +49,18 @@ public class Wand : MonoBehaviour {
     public int GetCapacity() {
         return capacity;
     }
+
+    public SpellEntry GetSpell(int index) {
+        return spells[index];
+    }
+
+    public void SetSpell(SpellEntry spellEntry, int index) {
+        spells[index] = spellEntry;
+    }
     
     public void OnGrab() {
         isGrabbed = true;
+        doIdleAnimation = false;
         currentInteractor = GetComponent<XRGrabInteractable>().firstInteractorSelecting;
     }
 
@@ -65,9 +77,15 @@ public class Wand : MonoBehaviour {
     void Start() {
         rigidBody = GetComponent<Rigidbody>();
         animationTimeOffset = Random.Range(0.0f, 10f);
+
         // Fill angular velocity buffer with zeroed vectors
         for (int i = 0; i < ANGULAR_VELOCITY_BUFFER_SIZE; i++) {
             angularVelocityBuffer.Enqueue(Vector3.zero);
+        }
+
+        // Fill spells list with null to indicate empty
+        for (int i = 0; i < capacity; i++) {
+            spells.Add(null);
         }
     }
     
@@ -124,7 +142,12 @@ public class Wand : MonoBehaviour {
 
             // Check for flick
             if (isHeld && smoothedAngularVelocity.magnitude > flickThreshold && castTimer == 0) {
-                Debug.Log("flicked!");
+                for (int i = 0; i < spells.Count; i++) {
+                    SpellEntry spell = spells[i];
+                    if (spell != null) {
+                        Debug.Log($"{i}: {spell.spellID}");
+                    }
+                }
                 castTimer = castCooldown;
             }
         }

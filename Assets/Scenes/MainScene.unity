@@ -179,6 +179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc83d86228f4b0b08c33a9a3dfef18d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minWandCapacity: 2
+  maxWandCapacity: 10
   wandPrefab: {fileID: 8431600529432964056, guid: 778ccdf9d3da36cc8ad0a94553aab037, type: 3}
   wandModelPrefabs:
   - {fileID: 171316, guid: 14a1089dfc8b2f949937da50bf38bc90, type: 3}
@@ -303,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab15ef0b49b8d88fa27c70e3799e07c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  socketInteractor: {fileID: 1485948866}
+  wandSocketInteractor: {fileID: 1485948866}
   slotsBasePosition: {fileID: 426401191}
   spellSlotPrefab: {fileID: 290513354971893999, guid: 4ce26902f52eaf734ab1245ca9635143, type: 3}
   spellSlotSpacing: 0.3

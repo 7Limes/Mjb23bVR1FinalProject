@@ -10,6 +10,10 @@ public class SpellCube : MonoBehaviour {
 
     private SpellEntry spellEntry = null;
 
+    public SpellEntry GetSpell() {
+        return spellEntry;
+    }
+
     public void SetSpell(SpellEntry entry) {
         spellEntry = entry;
         iconQuad.GetComponent<MeshRenderer>().material = spellEntry.material;

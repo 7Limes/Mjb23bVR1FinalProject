@@ -5,20 +5,21 @@ using System.Collections.Generic;
 
 public class EditTerminal : MonoBehaviour {
 
-    [SerializeField] private XRSocketInteractor socketInteractor;
+    [SerializeField] private XRSocketInteractor wandSocketInteractor;
     [SerializeField] private Transform slotsBasePosition;
     [SerializeField] private GameObject spellSlotPrefab;
     [SerializeField] private float spellSlotSpacing = 0.5f;
+
+    SpellCubeCreator spellCubeCreator;
 
     GameObject attachedWandObject = null;
     Wand attachedWand = null;
 
     List<GameObject> slotObjects = new List<GameObject>();
-    List<SpellEntry> spells = new List<SpellEntry>();
 
     public void OnWandSocketAttach() {
-        if (socketInteractor.hasSelection) {
-            IXRSelectInteractable interactable = socketInteractor.firstInteractableSelected;
+        if (wandSocketInteractor.hasSelection) {
+            IXRSelectInteractable interactable = wandSocketInteractor.firstInteractableSelected;
             attachedWandObject = (interactable as MonoBehaviour)?.gameObject;
             attachedWand = attachedWandObject.GetComponent<Wand>();
             attachedWand.SetIdleAnimation(true);
@@ -27,28 +28,58 @@ public class EditTerminal : MonoBehaviour {
     }
 
     public void OnWandSocketDetach() {
-        attachedWand.SetIdleAnimation(false);
+        UpdateWandSpells();
         ClearSlots();
 
+        attachedWand.SetIdleAnimation(false);
         attachedWandObject = null;
         attachedWand = null;
+    }
+
+    void Start() {
+        spellCubeCreator = GetComponent<SpellCubeCreator>();
+    }
+
+    private void UpdateWandSpells() {
+        for (int i = 0; i < slotObjects.Count; i++) {
+            GameObject slotObject = slotObjects[i];
+            SpellSlot spellSlotScript = slotObject.GetComponent<SpellSlot>();
+            SpellEntry spell = spellSlotScript.GetSpell();
+            if (spell != null) {
+                Debug.Log($"Set {spell.spellID} at {i}");
+            }
+            attachedWand.SetSpell(spell, i);
+        }
     }
 
     private void CreateSlots() {
         int wandCapacity = attachedWand.GetCapacity();
         for (int i = 0; i < wandCapacity; i++) {
             GameObject slotObject = Instantiate(spellSlotPrefab, slotsBasePosition);
+
+            // Move slot
             Vector3 slotPosition = slotObject.transform.localPosition;
             slotPosition.x += i * spellSlotSpacing;
             slotObject.transform.localPosition = slotPosition;
+
+            // Create spell cube
+            SpellEntry spellEntry = attachedWand.GetSpell(i);
+            if (spellEntry != null) {
+                SpellSlot spellSlotScript = slotObject.GetComponent<SpellSlot>();
+                spellCubeCreator.CreateSpellCube(spellEntry.spellID, spellSlotScript.GetAttachTransform());
+            }
+
             slotObjects.Add(slotObject);
         }
     }
-    
 
     private void ClearSlots() {
         foreach (GameObject slotObject in slotObjects) {
+            SpellSlot spellSlotScript = slotObject.GetComponent<SpellSlot>();
+            GameObject spellCube = spellSlotScript.GetSpellCube();
             Destroy(slotObject);
+            Destroy(spellCube);
         }
+        slotObjects.Clear();
     }
 }
