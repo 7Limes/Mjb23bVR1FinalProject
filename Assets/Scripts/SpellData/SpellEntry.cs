@@ -5,5 +5,4 @@ using UnityEngine.Events;
 public class SpellEntry : ScriptableObject {
     public string spellID;
     public Material material;
-    public UnityEvent onCast;
 }

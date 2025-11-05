@@ -10,10 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 285c7b56dff103ef4b6d7e62f1f793a3, type: 3}
-  m_Name: SparkBolt
+  m_Name: SparkBoltTrigger
   m_EditorClassIdentifier: 
-  spellID: spark_bolt
-  material: {fileID: 2100000, guid: d1ef7e99a1f88864c8d23de32f992a14, type: 2}
-  onUse:
-    m_PersistentCalls:
-      m_Calls: []
+  spellID: spark_bolt_trigger
+  material: {fileID: 2100000, guid: 7d937bbf591832e6fb087016d857403f, type: 2}

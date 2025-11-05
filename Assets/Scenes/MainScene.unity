@@ -693,6 +693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {fileID: 1230474391}
+  spellId: spark_bolt
 --- !u!114 &934332239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1576,6 +1577,7 @@ GameObject:
   - component: {fileID: 2057850058}
   - component: {fileID: 2057850061}
   - component: {fileID: 2057850060}
+  - component: {fileID: 2057850062}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -1651,6 +1653,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057850057}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &2057850062
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057850057}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &2060053459
 GameObject:
   m_ObjectHideFlags: 0

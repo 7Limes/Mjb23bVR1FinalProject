@@ -19,10 +19,6 @@ public class SpellCube : MonoBehaviour {
         iconQuad.GetComponent<MeshRenderer>().material = spellEntry.material;
     }
 
-    public UnityEvent GetSpellCastEvent() {
-        return spellEntry.onCast;
-    }
-
     void Start() {
         playerCamera = Camera.main;
     }

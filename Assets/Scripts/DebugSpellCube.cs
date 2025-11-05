@@ -3,6 +3,8 @@ using UnityEngine;
 public class DebugSpellCube : MonoBehaviour {
 
     [SerializeField] private Transform spawnPosition;
+    [SerializeField] private string spellId = "spark_bolt";
+    
     private SpellCubeCreator spellCubeCreator;
 
     void Start() {
@@ -10,7 +12,7 @@ public class DebugSpellCube : MonoBehaviour {
     }
 
     public void SpawnSpellCube() {
-        spellCubeCreator.CreateSpellCube("spark_bolt", spawnPosition);
+        spellCubeCreator.CreateSpellCube(spellId, spawnPosition);
     }
 }
 
