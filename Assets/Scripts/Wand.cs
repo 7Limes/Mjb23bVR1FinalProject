@@ -2,18 +2,19 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
-using UnityEngine.XR.Interaction.Toolkit.UI.BodyUI;
+using UnityEngine.InputSystem;
 
 public class Wand : MonoBehaviour {
-    [SerializeField] private float holdDistance = 0.05f;  // The maximum distance at which the wand is considered "held"
-    
     [SerializeField] private float rotateSpeed = 5f;
     [SerializeField] private float oscillateSpeed = 1.0f;
     [SerializeField] private float oscillateAmplitude = 0.05f;
 
+    [SerializeField] private float holdDistance = 0.05f;  // The maximum distance at which the wand is considered "held"
     [SerializeField] private float flickThreshold = 250f;
     [SerializeField] private float castCooldown = 1.0f;
     [SerializeField] private int capacity = 10;
+
+    [SerializeField] private Transform castPosition;
 
     private GameObject wandModel;
     private Rigidbody rigidBody;
@@ -32,7 +33,9 @@ public class Wand : MonoBehaviour {
 
     private float castTimer = 0.0f;
 
-    List<SpellEntry> spells = new List<SpellEntry>();
+    private List<SpellEntry> spells = new List<SpellEntry>();
+    private List<SpellGroup> groups = new List<SpellGroup>();
+    private int groupIndex = 0;
 
     public void SetWandModel(GameObject model) {
         wandModel = model;
@@ -56,6 +59,7 @@ public class Wand : MonoBehaviour {
 
     public void SetSpell(SpellEntry spellEntry, int index) {
         spells[index] = spellEntry;
+        UpdateSpellGroups();
     }
     
     public void OnGrab() {
@@ -72,6 +76,28 @@ public class Wand : MonoBehaviour {
         wandModel.transform.localPosition = Vector3.zero;
         wandModel.transform.localRotation = Quaternion.Euler(0, 0, 0);
         transform.rotation = Quaternion.Euler(0, 0, 0);
+    }
+
+    void UpdateSpellGroups() {
+        groups.Clear();
+        int index = 0;
+        while (index < spells.Count) {
+            var group = new SpellGroup(spells, index);
+            group.Build();
+            index = group.GetIndex();
+            groups.Add(group);
+        }
+    }
+
+    void Cast() {
+        if (groups.Count > 0) {
+            groups[groupIndex].Cast(castPosition);
+            groupIndex = (groupIndex + 1) % groups.Count;
+            castTimer = castCooldown;
+        }
+        else {
+            Debug.Log("Wand is empty.");
+        }
     }
 
     void Start() {
@@ -124,7 +150,6 @@ public class Wand : MonoBehaviour {
             wandModel.transform.localPosition = oscillatePosition;
         }
     }
-    
 
     void FixedUpdate() {
         if (castTimer > 0) {
@@ -142,13 +167,7 @@ public class Wand : MonoBehaviour {
 
             // Check for flick
             if (isHeld && smoothedAngularVelocity.magnitude > flickThreshold && castTimer == 0) {
-                for (int i = 0; i < spells.Count; i++) {
-                    SpellEntry spell = spells[i];
-                    if (spell != null) {
-                        Debug.Log($"{i}: {spell.spellID}");
-                    }
-                }
-                castTimer = castCooldown;
+                Cast();
             }
         }
     }
