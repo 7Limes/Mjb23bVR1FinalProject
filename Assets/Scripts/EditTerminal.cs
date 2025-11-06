@@ -47,6 +47,7 @@ public class EditTerminal : MonoBehaviour {
             SpellEntry spell = spellSlotScript.GetSpell();
             attachedWand.SetSpell(spell, i);
         }
+        attachedWand.UpdateSpellGroups();
     }
 
     private void CreateSlots() {

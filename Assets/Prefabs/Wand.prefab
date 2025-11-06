@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 4316108684749996340}
   - component: {fileID: 2453880844155285432}
   - component: {fileID: 2467289338457542639}
+  - component: {fileID: 2865147255231639982}
   m_Layer: 0
   m_Name: Wand
   m_TagString: Untagged
@@ -310,11 +311,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a74f65ed0a9b9e3f91b24bbe8f74629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdDistance: 0.05
   rotateSpeed: 50
   oscillateSpeed: 2
   oscillateAmplitude: 0.025
+  holdDistance: 0.05
   flickThreshold: 325
   castCooldown: 1
   capacity: 10
   castPosition: {fileID: 6629456609166225078}
+--- !u!114 &2865147255231639982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8431600529432964056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45efa14dc2dd47fb2b4b6763ca50d955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

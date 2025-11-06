@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
-using UnityEngine.InputSystem;
+using UnityEngine.XR;
 
 public class Wand : MonoBehaviour {
     [SerializeField] private float rotateSpeed = 5f;
@@ -19,6 +19,7 @@ public class Wand : MonoBehaviour {
     private GameObject wandModel;
     private Rigidbody rigidBody;
     private IXRSelectInteractor currentInteractor = null;
+    private XRInputData inputData = null;
 
     private float animationTimeOffset = 0.0f;
 
@@ -59,13 +60,13 @@ public class Wand : MonoBehaviour {
 
     public void SetSpell(SpellEntry spellEntry, int index) {
         spells[index] = spellEntry;
-        UpdateSpellGroups();
     }
     
     public void OnGrab() {
         isGrabbed = true;
         doIdleAnimation = false;
         currentInteractor = GetComponent<XRGrabInteractable>().firstInteractorSelecting;
+        castTimer = 0.5f;
     }
 
     public void OnRelease() {
@@ -78,30 +79,40 @@ public class Wand : MonoBehaviour {
         transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
-    void UpdateSpellGroups() {
+    public void UpdateSpellGroups() {
         groups.Clear();
+        groupIndex = 0;
+
         int index = 0;
         while (index < spells.Count) {
             var group = new SpellGroup(spells, index);
             group.Build();
+            if (group.IsEmpty()) {
+                break;
+            }
+            
             index = group.GetIndex();
+            Debug.Log("Index: " + index);
             groups.Add(group);
         }
     }
 
     void Cast() {
         if (groups.Count > 0) {
+            Debug.Log("Casting group " + groupIndex);
             groups[groupIndex].Cast(castPosition);
             groupIndex = (groupIndex + 1) % groups.Count;
-            castTimer = castCooldown;
         }
         else {
             Debug.Log("Wand is empty.");
         }
+        castTimer = castCooldown;
     }
 
     void Start() {
         rigidBody = GetComponent<Rigidbody>();
+        inputData = GetComponent<XRInputData>();
+
         animationTimeOffset = Random.Range(0.0f, 10f);
 
         // Fill angular velocity buffer with zeroed vectors

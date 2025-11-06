@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: Spark Bolt Factory
   m_EditorClassIdentifier: 
   prefab: {fileID: 3731478976670700291, guid: e908651121bc93b379fcacd65dc269d3, type: 3}
+  gravity: 0
+  speed: 0.01
+  minLifetime: 2.5
+  maxLifetime: 3.5

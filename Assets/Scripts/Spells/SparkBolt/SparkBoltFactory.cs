@@ -2,13 +2,12 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Spark Bolt Factory", menuName = "Scriptable Objects/SparkBoltFactory")]
 public class SparkBoltFactory : ProjectileFactory {
-    const float GRAVITY = 1.0f;
-    const float SPEED = 0.5f;
-    const float MIN_LIFETIME = 2.5f;
-    const float MAX_LIFETIME = 3.5f;
+    [SerializeField] private float gravity = 0.0f;
+    [SerializeField] private float speed = 0.01f;
+    [SerializeField] private float minLifetime = 2.5f;
+    [SerializeField] private float maxLifetime = 3.5f;
 
     public override void AddToGroup(SpellGroup group) {
-        Debug.Log("Added new spark bolt to group!");
         var factory = CreateInstance<SparkBoltFactory>();
         factory.prefab = prefab;
         group.AddProjectile(factory);
@@ -20,10 +19,10 @@ public class SparkBoltFactory : ProjectileFactory {
 
         var script = obj.GetComponent<SparkBolt>();
 
-        Vector3 projVelocity = castTransform.rotation * Vector3.forward * SPEED;
+        Vector3 projVelocity = castTransform.rotation * Vector3.forward * speed;
         script.Initialize(
             castTransform.position, castTransform.rotation,
-            projVelocity, GRAVITY, MIN_LIFETIME, MAX_LIFETIME
+            projVelocity, gravity, minLifetime, maxLifetime
         );
 
         return obj;

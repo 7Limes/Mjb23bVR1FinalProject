@@ -32,6 +32,10 @@ public class SpellGroup {
         return spellIndex;
     }
 
+    public bool IsEmpty() {
+        return projectiles.Count == 0;
+    }
+
     public SpellGroup CreateChild() {
         SpellGroup childGroup = new SpellGroup(spells, spellIndex);
         childGroup.Build();
