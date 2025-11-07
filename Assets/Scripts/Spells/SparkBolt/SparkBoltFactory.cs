@@ -19,7 +19,8 @@ public class SparkBoltFactory : ProjectileFactory {
         SparkBolt script = obj.AddComponent<SparkBolt>();
         script.Initialize(
             castPosition, castRotation,
-            projVelocity, gravity, minLifetime, maxLifetime
+            projVelocity, gravity, minLifetime, maxLifetime,
+            null
         );
 
         return obj;

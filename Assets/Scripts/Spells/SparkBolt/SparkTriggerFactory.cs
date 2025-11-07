@@ -7,6 +7,7 @@ public class SparkTriggerFactory : SparkBoltFactory {
     public override void AddToGroup(SpellGroup group) {
         var factory = (SparkTriggerFactory)MemberwiseClone();
         payloadGroup = group.CreateSubgroup();
+        factory.payloadGroup = payloadGroup;
         group.AddProjectile(factory);
         group.DecrementCastable();
     }
@@ -14,9 +15,8 @@ public class SparkTriggerFactory : SparkBoltFactory {
     override public GameObject Cast(Vector3 castPosition, Quaternion castRotation) {
         GameObject obj = base.Cast(castPosition, castRotation);
 
-        Destroy(obj.GetComponent<SparkBolt>());
-        SparkTrigger script = obj.AddComponent<SparkTrigger>();
-        script.Initialize(payloadGroup);
+        SparkBolt script = obj.GetComponent<SparkBolt>();
+        script.SetPayload(payloadGroup);
 
         return obj;
     }
