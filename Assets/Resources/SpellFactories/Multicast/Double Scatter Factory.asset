@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1db1fabc53949dc7be1947010a8446d, type: 3}
   m_Name: Double Scatter Factory
   m_EditorClassIdentifier: 
+  spreadDegrees: 3

@@ -8,14 +8,14 @@ public class SpellGroup {
     private int spellIndex;
 
     private int castableCount;
-    private float spread;
+    private Vector2 spread;
 
     public SpellGroup(List<SpellEntry> spells, int startIndex) {
         projectiles = new List<ProjectileFactory>();
         this.spells = spells;
         spellIndex = startIndex;
         castableCount = 1;
-        spread = 0.0f;
+        spread = Vector2.zero;
     }
 
     public void Build() {
@@ -55,24 +55,26 @@ public class SpellGroup {
         castableCount -= 1;
     }
 
-    public void AddSpread(float spreadAmount) {
+    public void AddSpread(Vector2 spreadAmount) {
         spread += spreadAmount;
     }
 
-    Quaternion RandomRotateWithSpread(Quaternion original, float spreadDegrees) {
-        // Generate random rotation within a cone
-        float angle = Random.Range(0f, spreadDegrees);
-        float randomRotation = Random.Range(0f, 360f);
-
-        // Create a random axis perpendicular to forward
-        Vector3 axis = Quaternion.Euler(0, randomRotation, 0) * Vector3.right;
-
-        // Create rotation around that axis
-        Quaternion spread = Quaternion.AngleAxis(angle, axis);
-
-        return spread * original;
+    public void AddSpread(float spreadAmount) {
+        spread.x += spreadAmount;
+        spread.y += spreadAmount;
     }
 
+    Quaternion RandomRotateWithSpread(Quaternion original, Vector2 spread) {
+        spread.x = Mathf.Clamp(spread.x, 0, 360);
+        spread.y = Mathf.Clamp(spread.y, 0, 360);
+        float horizontalAngle = Random.Range(-spread.x, spread.x);
+        float verticalAngle = Random.Range(-spread.y, spread.y);
+
+        Quaternion horizontalRotation = Quaternion.AngleAxis(horizontalAngle, Vector3.up);
+        Quaternion verticalRotation = Quaternion.AngleAxis(verticalAngle, Vector3.right);
+
+        return original * horizontalRotation * verticalRotation;
+    }
 
     public void Cast(Vector3 castPosition, Quaternion castRotation) {
         foreach (var projectile in projectiles) {
