@@ -9,7 +9,7 @@ public class Wand : MonoBehaviour {
     [SerializeField] private float oscillateAmplitude = 0.05f;
 
     [SerializeField] private float holdDistance = 0.05f;  // The maximum distance at which the wand is considered "held"
-    [SerializeField] private float castCooldown = 1.0f;
+    [SerializeField] private float castCooldown = 0.5f;
     [SerializeField] private int capacity = 10;
 
     [SerializeField] private Transform castPosition;
@@ -72,12 +72,6 @@ public class Wand : MonoBehaviour {
         transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
-    public void OnFlick() {
-        if (isHeld && castTimer == 0.0f) {
-            Cast();
-        }
-    }
-
     public void UpdateSpellGroups() {
         groups.Clear();
         groupIndex = 0;
@@ -96,16 +90,18 @@ public class Wand : MonoBehaviour {
         }
     }
 
-    void Cast() {
-        if (groups.Count > 0) {
-            Debug.Log("Casting group " + groupIndex);
-            groups[groupIndex].Cast(castPosition.position, castPosition.rotation);
-            groupIndex = (groupIndex + 1) % groups.Count;
+    public void Cast() {
+        if (isHeld && castTimer == 0.0f) {
+            if (groups.Count > 0) {
+                Debug.Log("Casting group " + groupIndex);
+                groups[groupIndex].Cast(castPosition.position, castPosition.rotation);
+                groupIndex = (groupIndex + 1) % groups.Count;
+            }
+            else {
+                Debug.Log("Wand is empty.");
+            }
+            castTimer = castCooldown;
         }
-        else {
-            Debug.Log("Wand is empty.");
-        }
-        castTimer = castCooldown;
     }
 
     void Start() {

@@ -220,7 +220,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2467289338457542639}
         m_TargetAssemblyTypeName: Wand, Assembly-CSharp
-        m_MethodName: OnFlick
+        m_MethodName: Cast
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -343,9 +343,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cb9960a495bd40208d84b5dda7f315e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highThreshold: 325
-  lowThreshold: 20
-  sampleCount: 16
+  highThreshold: 550
+  lowThreshold: 50
+  sampleCount: 10
   samplePercentage: 0.5
   cooldown: 0.25
   flickEvent:
@@ -353,7 +353,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2467289338457542639}
         m_TargetAssemblyTypeName: Wand, Assembly-CSharp
-        m_MethodName: OnFlick
+        m_MethodName: Cast
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
