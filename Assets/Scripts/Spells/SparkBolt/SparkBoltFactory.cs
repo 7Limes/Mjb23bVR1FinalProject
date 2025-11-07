@@ -3,14 +3,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Spark Bolt Factory", menuName = "Scriptable Objects/SparkBoltFactory")]
 public class SparkBoltFactory : ProjectileFactory {
     [SerializeField] private float gravity = 0.0f;
-    [SerializeField] private float speed = 0.01f;
+    [SerializeField] private float speed = 0.1f;
     [SerializeField] private float minLifetime = 2.5f;
     [SerializeField] private float maxLifetime = 3.5f;
 
     public override void AddToGroup(SpellGroup group) {
-        var factory = CreateInstance<SparkBoltFactory>();
-        factory.prefab = prefab;
-        group.AddProjectile(factory);
+        group.AddProjectile(this);
         group.DecrementCastable();
     }
 
