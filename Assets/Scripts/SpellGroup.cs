@@ -55,13 +55,29 @@ public class SpellGroup {
         castableCount -= 1;
     }
 
-    public void AddSpread(int spreadAmount) {
+    public void AddSpread(float spreadAmount) {
         spread += spreadAmount;
     }
 
+    Quaternion RandomRotateWithSpread(Quaternion original, float spreadDegrees) {
+        // Generate random rotation within a cone
+        float angle = Random.Range(0f, spreadDegrees);
+        float randomRotation = Random.Range(0f, 360f);
+
+        // Create a random axis perpendicular to forward
+        Vector3 axis = Quaternion.Euler(0, randomRotation, 0) * Vector3.right;
+
+        // Create rotation around that axis
+        Quaternion spread = Quaternion.AngleAxis(angle, axis);
+
+        return spread * original;
+    }
+
+
     public void Cast(Vector3 castPosition, Quaternion castRotation) {
         foreach (var projectile in projectiles) {
-            projectile.Cast(castPosition, castRotation);
+            Quaternion spreadRotation = RandomRotateWithSpread(castRotation, spread);
+            projectile.Cast(castPosition, spreadRotation);
         }
     }
 }

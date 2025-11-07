@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2523807328571507997}
   - component: {fileID: 7190125941491067253}
   - component: {fileID: 2756866519859063263}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SparkBolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,6 +93,10 @@ PrefabInstance:
     - target: {fileID: 129348, guid: e753cdb0f185de742825663e5775c193, type: 3}
       propertyPath: m_Name
       value: orb02_purple
+      objectReference: {fileID: 0}
+    - target: {fileID: 129348, guid: e753cdb0f185de742825663e5775c193, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 461446, guid: e753cdb0f185de742825663e5775c193, type: 3}
       propertyPath: m_LocalScale.x
