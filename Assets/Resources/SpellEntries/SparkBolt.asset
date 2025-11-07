@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SparkBolt
   m_EditorClassIdentifier: 
   spellID: spark_bolt
-  material: {fileID: 2100000, guid: d1ef7e99a1f88864c8d23de32f992a14, type: 2}
+  iconMaterial: {fileID: 2100000, guid: d1ef7e99a1f88864c8d23de32f992a14, type: 2}
   spellFactory: {fileID: 11400000, guid: 501909548cf22da47be980632dd4a114, type: 2}

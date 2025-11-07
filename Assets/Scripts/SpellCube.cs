@@ -16,7 +16,7 @@ public class SpellCube : MonoBehaviour {
 
     public void SetSpell(SpellEntry entry) {
         spellEntry = entry;
-        iconQuad.GetComponent<MeshRenderer>().material = spellEntry.material;
+        iconQuad.GetComponent<MeshRenderer>().material = spellEntry.iconMaterial;
     }
 
     void Start() {
