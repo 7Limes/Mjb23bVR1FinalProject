@@ -36,11 +36,11 @@ public class SpellGroup {
         return projectiles.Count == 0;
     }
 
-    public SpellGroup CreateChild() {
-        SpellGroup childGroup = new SpellGroup(spells, spellIndex);
-        childGroup.Build();
-        spellIndex = childGroup.spellIndex;
-        return childGroup;
+    public SpellGroup CreateSubgroup() {
+        SpellGroup subGroup = new SpellGroup(spells, spellIndex+1);
+        subGroup.Build();
+        spellIndex = subGroup.spellIndex;
+        return subGroup;
     }
 
     public void AddProjectile(ProjectileFactory proj) {
@@ -59,9 +59,9 @@ public class SpellGroup {
         spread += spreadAmount;
     }
 
-    public void Cast(Transform castTransform) {
+    public void Cast(Vector3 castPosition, Quaternion castRotation) {
         foreach (var projectile in projectiles) {
-            projectile.Cast(castTransform);
+            projectile.Cast(castPosition, castRotation);
         }
     }
 }

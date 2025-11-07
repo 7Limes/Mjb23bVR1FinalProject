@@ -2,8 +2,14 @@ using UnityEngine;
 
 public class SparkBolt : LifetimeProjectile {
     protected override void OnExpire() {
-        Debug.Log("Spark bolt expired, summon small explosion");
+        // TODO: summon small explosion here
         base.OnExpire();
+    }
+
+    void OnCollisionEnter(Collision collision) {
+        if (!collision.gameObject.CompareTag("Wand")) {
+            OnExpire();
+        }
     }
 }
 

@@ -99,7 +99,7 @@ public class Wand : MonoBehaviour {
     void Cast() {
         if (groups.Count > 0) {
             Debug.Log("Casting group " + groupIndex);
-            groups[groupIndex].Cast(castPosition);
+            groups[groupIndex].Cast(castPosition.position, castPosition.rotation);
             groupIndex = (groupIndex + 1) % groups.Count;
         }
         else {

@@ -12,14 +12,13 @@ public class SparkBoltFactory : ProjectileFactory {
         group.DecrementCastable();
     }
 
-    override public GameObject Cast(Transform castTransform) {
+    override public GameObject Cast(Vector3 castPosition, Quaternion castRotation) {
         GameObject obj = Instantiate(prefab);
 
-        var script = obj.GetComponent<SparkBolt>();
-
-        Vector3 projVelocity = castTransform.rotation * Vector3.forward * speed;
+        Vector3 projVelocity = castRotation * Vector3.forward * speed;
+        SparkBolt script = obj.AddComponent<SparkBolt>();
         script.Initialize(
-            castTransform.position, castTransform.rotation,
+            castPosition, castRotation,
             projVelocity, gravity, minLifetime, maxLifetime
         );
 
