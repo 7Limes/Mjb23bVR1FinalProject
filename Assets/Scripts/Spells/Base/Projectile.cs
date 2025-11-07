@@ -1,12 +1,16 @@
+using System;
 using UnityEngine;
 
 abstract public class Projectile : MonoBehaviour {
     protected float gravity;
     protected float lifetime;
     protected Rigidbody rb;
+    protected int invulnerableTicks = 5;
 
     protected virtual void OnExpire() {
-        Destroy(gameObject);
+        if (!IsInvulnerable()) {
+            Destroy(gameObject);
+        }
     }
 
     public void Initialize(Vector3 position, Quaternion rotation, Vector3 velocity, float gravity, float lifetime) {
@@ -23,7 +27,15 @@ abstract public class Projectile : MonoBehaviour {
         this.lifetime = lifetime;
     }
 
+    public bool IsInvulnerable() {
+        return invulnerableTicks > 0;
+    }
+
     void FixedUpdate() {
+        if (invulnerableTicks > 0) {
+            invulnerableTicks -= 1;
+        }
+
         Vector3 newVelocity = rb.linearVelocity + new Vector3(0, gravity, 0);
         rb.linearVelocity = newVelocity;
 
