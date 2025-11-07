@@ -39,7 +39,7 @@ public class SpellGroup {
     public SpellGroup CreateSubgroup() {
         SpellGroup subGroup = new SpellGroup(spells, spellIndex+1);
         subGroup.Build();
-        spellIndex = subGroup.spellIndex;
+        spellIndex = subGroup.spellIndex - 1;
         return subGroup;
     }
 
