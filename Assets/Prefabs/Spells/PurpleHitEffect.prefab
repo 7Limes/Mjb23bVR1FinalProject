@@ -4912,9 +4912,10 @@ GameObject:
   - component: {fileID: 5921503524509567793}
   - component: {fileID: 6077129578221607035}
   - component: {fileID: 8808968110466344422}
+  - component: {fileID: 4830550414242252551}
   m_Layer: 0
   m_Name: PurpleHitEffect
-  m_TagString: Untagged
+  m_TagString: ProjectileNoCollide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9816,6 +9817,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 721cd35c0384b8b1f84dbe0617874497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4830550414242252551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878711192140978616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d23f4bb85490223f7a65f57bd0a2f2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceStrength: 5
+  radius: 0.5
+  forceMode: 1
+  falloffExponent: 2
+  applyOnce: 1
+  excludedLayers:
+    serializedVersion: 2
+    m_Bits: 1024
+  showGizmo: 1
+  gizmoColor: {r: 1, g: 0.5, b: 0, a: 0.3}
 --- !u!1 &8092525935808318404
 GameObject:
   m_ObjectHideFlags: 0

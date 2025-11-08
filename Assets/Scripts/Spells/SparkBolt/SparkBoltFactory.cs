@@ -4,7 +4,7 @@ using UnityEngine;
 public class SparkBoltFactory : LifetimeProjectileFactory {
     [SerializeField] private GameObject hitEffectPrefab;
 
-    override public GameObject Cast(Vector3 castPosition, Quaternion castRotation) {
+    public override GameObject Cast(Vector3 castPosition, Quaternion castRotation) {
         GameObject obj = base.Cast(castPosition, castRotation);
 
         SpellGroup group = new SpellGroup();

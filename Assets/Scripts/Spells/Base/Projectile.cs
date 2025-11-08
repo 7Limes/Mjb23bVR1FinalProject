@@ -5,6 +5,8 @@ abstract public class Projectile : MonoBehaviour {
     protected float gravity;
     protected float lifetime;
     protected Rigidbody rb;
+    protected Vector3 velocity;
+
     protected int invulnerableTicks = 5;
 
     protected virtual void OnExpire() {
@@ -22,7 +24,7 @@ abstract public class Projectile : MonoBehaviour {
 
         transform.position = position;
         transform.rotation = rotation;
-        rb.linearVelocity = velocity;
+        this.velocity = velocity;
         this.gravity = gravity;
         this.lifetime = lifetime;
     }
@@ -40,8 +42,9 @@ abstract public class Projectile : MonoBehaviour {
             invulnerableTicks -= 1;
         }
 
-        Vector3 newVelocity = rb.linearVelocity + new Vector3(0, gravity, 0);
-        rb.linearVelocity = newVelocity;
+        velocity.y += gravity * Time.fixedDeltaTime;
+        transform.position += velocity * Time.fixedDeltaTime;
+
 
         lifetime = Mathf.MoveTowards(lifetime, 0.0f, Time.fixedDeltaTime);
         if (lifetime == 0) {
