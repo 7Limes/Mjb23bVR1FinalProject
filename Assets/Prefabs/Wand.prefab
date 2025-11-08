@@ -71,12 +71,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1908970959501876136}
-  - component: {fileID: 6542567380366026996}
-  - component: {fileID: 4316108684749996340}
-  - component: {fileID: 2453880844155285432}
   - component: {fileID: 2467289338457542639}
   - component: {fileID: 1809453074726830529}
   - component: {fileID: 2865147255231639982}
+  - component: {fileID: 2453880844155285432}
+  - component: {fileID: 6542567380366026996}
+  - component: {fileID: 4316108684749996340}
   m_Layer: 0
   m_Name: Wand
   m_TagString: Wand
@@ -101,6 +101,90 @@ Transform:
   - {fileID: 6629456609166225078}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2467289338457542639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8431600529432964056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a74f65ed0a9b9e3f91b24bbe8f74629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 50
+  oscillateSpeed: 2
+  oscillateAmplitude: 0.025
+  holdDistance: 0.05
+  castCooldown: 0.25
+  capacity: 10
+  castPosition: {fileID: 6629456609166225078}
+--- !u!114 &1809453074726830529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8431600529432964056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb9960a495bd40208d84b5dda7f315e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highThreshold: 550
+  lowThreshold: 50
+  sampleCount: 10
+  samplePercentage: 0.5
+  cooldown: 0.25
+  flickEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2467289338457542639}
+        m_TargetAssemblyTypeName: Wand, Assembly-CSharp
+        m_MethodName: Cast
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2865147255231639982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8431600529432964056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45efa14dc2dd47fb2b4b6763ca50d955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2453880844155285432
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8431600529432964056}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.075, y: 0.5, z: 0.075}
+  m_Center: {x: 0, y: 0.15, z: 0}
 --- !u!54 &6542567380366026996
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -291,87 +375,3 @@ MonoBehaviour:
   m_LimitAngularVelocity: 0
   m_MaxLinearVelocityDelta: 10
   m_MaxAngularVelocityDelta: 20
---- !u!65 &2453880844155285432
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8431600529432964056}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 8
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.075, y: 0.5, z: 0.075}
-  m_Center: {x: 0, y: 0.15, z: 0}
---- !u!114 &2467289338457542639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8431600529432964056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a74f65ed0a9b9e3f91b24bbe8f74629, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotateSpeed: 50
-  oscillateSpeed: 2
-  oscillateAmplitude: 0.025
-  holdDistance: 0.05
-  castCooldown: 1
-  capacity: 10
-  castPosition: {fileID: 6629456609166225078}
---- !u!114 &1809453074726830529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8431600529432964056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cb9960a495bd40208d84b5dda7f315e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highThreshold: 550
-  lowThreshold: 50
-  sampleCount: 10
-  samplePercentage: 0.5
-  cooldown: 0.25
-  flickEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2467289338457542639}
-        m_TargetAssemblyTypeName: Wand, Assembly-CSharp
-        m_MethodName: Cast
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2865147255231639982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8431600529432964056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45efa14dc2dd47fb2b4b6763ca50d955, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

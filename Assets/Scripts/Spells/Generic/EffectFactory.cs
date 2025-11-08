@@ -14,8 +14,8 @@ public class EffectFactory : ProjectileFactory {
 
     public override GameObject Cast(Vector3 castPosition, Quaternion castRotation) {
         GameObject obj = Instantiate(effectPrefab, castPosition, castRotation);
-        
-        obj.AddComponent<Effect>();
+
+        obj.AddComponent<AutoDestroyParticle>();
 
         return obj;
     }

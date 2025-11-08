@@ -784,7 +784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {fileID: 719317657}
-  spellId: flatten_vertical
+  spellId: explosion
 --- !u!114 &273952801
 MonoBehaviour:
   m_ObjectHideFlags: 0

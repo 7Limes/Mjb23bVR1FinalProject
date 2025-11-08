@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Effect : MonoBehaviour {
+public class AutoDestroyParticle : MonoBehaviour {
     private ParticleSystem ps;
 
     void Awake() {
