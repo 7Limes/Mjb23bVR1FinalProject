@@ -8,10 +8,22 @@ public class SpellRegistry : ScriptableObject {
 
     public void Initialize() {
         spellLookup = new Dictionary<string, SpellEntry>();
-        foreach (var spellEntry in spellEntries) {
-            if (!string.IsNullOrEmpty(spellEntry.spellID)) {
-                spellLookup[spellEntry.spellID] = spellEntry;
+        for (int i = 0; i < spellEntries.Count; i++) {
+            SpellEntry spellEntry = spellEntries[i];
+
+            if (string.IsNullOrEmpty(spellEntry.spellID)) {
+                Debug.LogError($"Spell entry at index {i} does not have an ID");
+                continue;
             }
+
+            if (spellEntry.iconMaterial == null) {
+                Debug.LogError($"Spell entry {spellEntry.spellID} has not been assigned an icon");
+            }
+            if (spellEntry.spellFactory == null) {
+                Debug.LogError($"Spell entry {spellEntry.spellID} has not been assigned a SpellFactory");
+            }
+
+            spellLookup[spellEntry.spellID] = spellEntry;
         }
     }
 
@@ -20,6 +32,11 @@ public class SpellRegistry : ScriptableObject {
             Initialize();
         }
 
-        return spellLookup.TryGetValue(spellId, out var spell) ? spell : null;
+        if (spellLookup.TryGetValue(spellId, out var spell)) {
+            return spell;
+        }
+
+        Debug.LogError($"Could not find a SpellEntry with ID {spellId} in the registry. Maybe you forgot to add it?");
+        return null;
     }
 }

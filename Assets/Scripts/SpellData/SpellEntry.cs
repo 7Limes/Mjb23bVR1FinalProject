@@ -4,7 +4,7 @@ using UnityEngine;
 public class SpellEntry : ScriptableObject {
     public string spellID;
     public Material iconMaterial;
-    [SerializeField] private SpellFactory spellFactory;
+    public SpellFactory spellFactory;
 
     public void AddToGroup(SpellGroup group) {
         spellFactory.AddToGroup(group);
