@@ -15,3 +15,5 @@ MonoBehaviour:
   spellID: double
   iconMaterial: {fileID: 2100000, guid: 97cac5e56378dc70b81c5ea2dd915395, type: 2}
   spellFactory: {fileID: 11400000, guid: 8155184e031b86babb884f7c485db9bc, type: 2}
+  spellName: Double Spell
+  spellDescription: Casts 2 spells at once

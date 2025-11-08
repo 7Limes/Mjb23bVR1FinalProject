@@ -15,3 +15,5 @@ MonoBehaviour:
   spellID: teleport_bolt
   iconMaterial: {fileID: 2100000, guid: ea029e07356e0b4a191c362313079f14, type: 2}
   spellFactory: {fileID: 11400000, guid: b6ba0cb74377271a18f81c789797c33d, type: 2}
+  spellName: Teleport Bolt
+  spellDescription: A magical bolt that moves you wherever it ends up flying

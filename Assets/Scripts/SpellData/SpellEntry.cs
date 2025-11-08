@@ -6,6 +6,11 @@ public class SpellEntry : ScriptableObject {
     public Material iconMaterial;
     public SpellFactory spellFactory;
 
+    public string spellName;
+
+    [TextArea(3, 10)]
+    public string spellDescription;
+
     public void AddToGroup(SpellGroup group) {
         spellFactory.AddToGroup(group);
     }

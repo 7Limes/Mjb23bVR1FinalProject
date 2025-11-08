@@ -15,3 +15,5 @@ MonoBehaviour:
   spellID: spark_bolt
   iconMaterial: {fileID: 2100000, guid: d1ef7e99a1f88864c8d23de32f992a14, type: 2}
   spellFactory: {fileID: 11400000, guid: 5669802c2e43e79cdb34d8aaab9827d9, type: 2}
+  spellName: Spark Bolt
+  spellDescription: A weak sparkling projectile

@@ -15,3 +15,5 @@ MonoBehaviour:
   spellID: flatten_horizontal
   iconMaterial: {fileID: 2100000, guid: ab50f97f4bcd1fc3990c6c13cec8f6e2, type: 2}
   spellFactory: {fileID: 11400000, guid: cc28105d05cba341e91847a7a0d33f62, type: 2}
+  spellName: Flatten (Horizontal)
+  spellDescription: Removes vertical spread

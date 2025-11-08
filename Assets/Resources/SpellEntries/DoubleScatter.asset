@@ -15,3 +15,5 @@ MonoBehaviour:
   spellID: double_scatter
   iconMaterial: {fileID: 2100000, guid: fe8fa87a017d22818a9f68d87e5caa76, type: 2}
   spellFactory: {fileID: 11400000, guid: d1acc5ef0658ed80cbefa4b3bcd52a8a, type: 2}
+  spellName: Double Scatter
+  spellDescription: Cast 2 spells with low accuracy
