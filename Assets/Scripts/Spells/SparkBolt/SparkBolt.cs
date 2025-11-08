@@ -3,13 +3,6 @@ using UnityEngine;
 public class SparkBolt : Projectile {
     public SpellGroup payloadGroup = null;
 
-    protected override void OnExpire() {
-        if (!IsInvulnerable()) {
-            // TODO: summon small explosion here
-            base.OnExpire();
-        }
-    }
-
     void OnCollisionEnter(Collision collision) {
         if (IsInvulnerable()) {
             return;
