@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {fileID: 1542933085}
-  spellId: flatten-horizontal
+  spellId: flatten_horizontal
 --- !u!114 &75748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -784,7 +784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {fileID: 719317657}
-  spellId: flatten-vertical
+  spellId: flatten_vertical
 --- !u!114 &273952801
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,9 +10,17 @@ public class SpellGroup {
     private int castableCount;
     private Vector2 spread;
 
-    public SpellGroup(List<SpellEntry> spells, int startIndex) {
+    public SpellGroup() {
         projectiles = new List<ProjectileFactory>();
-        this.spells = spells;
+        spells = new List<SpellEntry>();
+        spellIndex = 0;
+        castableCount = 0;
+        spread = Vector2.zero;
+    }
+
+    public SpellGroup(List<SpellEntry> spellList, int startIndex) {
+        projectiles = new List<ProjectileFactory>();
+        spells = spellList;
         spellIndex = startIndex;
         castableCount = 1;
         spread = Vector2.zero;
@@ -81,6 +89,10 @@ public class SpellGroup {
             Quaternion spreadRotation = RandomRotateWithSpread(castRotation, spread);
             projectile.Cast(castPosition, spreadRotation);
         }
+    }
+
+    public void Extend(SpellGroup other) {
+        projectiles.AddRange(other.projectiles);
     }
 }
 

@@ -1,14 +1,10 @@
 using UnityEngine;
 
 public class SparkBolt : LifetimeProjectile {
-    SpellGroup payloadGroup = null;
+    public SpellGroup payloadGroup = null;
 
     public void Initialize(Vector3 position, Quaternion rotation, Vector3 velocity, float gravity, float minLifetime, float maxLifetime, SpellGroup payload) {
         Initialize(position, rotation, velocity, gravity, minLifetime, maxLifetime);
-        payloadGroup = payload;
-    }
-
-    public void SetPayload(SpellGroup payload) {
         payloadGroup = payload;
     }
 

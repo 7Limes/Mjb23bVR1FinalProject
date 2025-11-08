@@ -7,6 +7,8 @@ public class SparkBoltFactory : ProjectileFactory {
     [SerializeField] private float minLifetime = 2.5f;
     [SerializeField] private float maxLifetime = 3.5f;
 
+    [SerializeField] private GameObject hitEffectPrefab;
+
     public override void AddToGroup(SpellGroup group) {
         group.AddProjectile(this);
         group.DecrementCastable();
@@ -15,12 +17,17 @@ public class SparkBoltFactory : ProjectileFactory {
     override public GameObject Cast(Vector3 castPosition, Quaternion castRotation) {
         GameObject obj = Instantiate(prefab);
 
+        SpellGroup group = new SpellGroup();
+        EffectFactory effectSpell = CreateInstance<EffectFactory>();
+        effectSpell.SetEffectPrefab(hitEffectPrefab);
+        group.AddProjectile(effectSpell);
+
         Vector3 projVelocity = castRotation * Vector3.forward * speed;
         SparkBolt script = obj.AddComponent<SparkBolt>();
         script.Initialize(
             castPosition, castRotation,
             projVelocity, gravity, minLifetime, maxLifetime,
-            null
+            group
         );
 
         return obj;

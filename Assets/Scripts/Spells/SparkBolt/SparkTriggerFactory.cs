@@ -16,7 +16,7 @@ public class SparkTriggerFactory : SparkBoltFactory {
         GameObject obj = base.Cast(castPosition, castRotation);
 
         SparkBolt script = obj.GetComponent<SparkBolt>();
-        script.SetPayload(payloadGroup);
+        script.payloadGroup.Extend(payloadGroup);
 
         return obj;
     }
