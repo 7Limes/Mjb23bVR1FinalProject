@@ -1,12 +1,7 @@
 using UnityEngine;
 
-public class SparkBolt : LifetimeProjectile {
+public class SparkBolt : Projectile {
     public SpellGroup payloadGroup = null;
-
-    public void Initialize(Vector3 position, Quaternion rotation, Vector3 velocity, float gravity, float minLifetime, float maxLifetime, SpellGroup payload) {
-        Initialize(position, rotation, velocity, gravity, minLifetime, maxLifetime);
-        payloadGroup = payload;
-    }
 
     protected override void OnExpire() {
         if (!IsInvulnerable()) {

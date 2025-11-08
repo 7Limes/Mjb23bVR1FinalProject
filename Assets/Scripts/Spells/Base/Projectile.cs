@@ -31,6 +31,10 @@ abstract public class Projectile : MonoBehaviour {
         return invulnerableTicks > 0;
     }
 
+    public void SetLifetime(float newLifetime) {
+        lifetime = newLifetime;
+    }
+
     void FixedUpdate() {
         if (invulnerableTicks > 0) {
             invulnerableTicks -= 1;

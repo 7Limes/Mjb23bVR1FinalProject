@@ -8,10 +8,6 @@ public class EffectFactory : ProjectileFactory {
         effectPrefab = prefab;
     }
 
-    public override void AddToGroup(SpellGroup group) {
-        return;
-    }
-
     public override GameObject Cast(Vector3 castPosition, Quaternion castRotation) {
         GameObject obj = Instantiate(effectPrefab, castPosition, castRotation);
 
