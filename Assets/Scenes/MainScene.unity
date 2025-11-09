@@ -1991,7 +1991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {fileID: 320988216}
-  spellId: double_scatter
+  spellId: triple_scatter
 --- !u!114 &665195153
 MonoBehaviour:
   m_ObjectHideFlags: 0

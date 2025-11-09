@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 285c7b56dff103ef4b6d7e62f1f793a3, type: 3}
-  m_Name: DoubleScatter
+  m_Name: QuadrupleScatter
   m_EditorClassIdentifier: 
-  spellID: double_scatter
-  iconMaterial: {fileID: 2100000, guid: fe8fa87a017d22818a9f68d87e5caa76, type: 2}
-  spellFactory: {fileID: 11400000, guid: d1acc5ef0658ed80cbefa4b3bcd52a8a, type: 2}
-  spellName: Double Scatter
-  spellDescription: Casts 2 spells with low accuracy
+  spellID: quadruple_scatter
+  iconMaterial: {fileID: 2100000, guid: 0199cdb8032aaa21fb8bd391a986fc8c, type: 2}
+  spellFactory: {fileID: 11400000, guid: e55be4b695eceb2508f6d0d369329757, type: 2}
+  spellName: Quadruple Scatter
+  spellDescription: Casts 4 spells with low accuracy

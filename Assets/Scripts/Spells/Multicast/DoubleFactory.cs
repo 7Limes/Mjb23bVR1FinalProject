@@ -1,9 +1,10 @@
 using UnityEngine;
-[CreateAssetMenu(fileName = "Double Factory", menuName = "Scriptable Objects/DoubleFactory")]
+[CreateAssetMenu(fileName = "Multicast Factory", menuName = "Scriptable Objects/MulticastFactory")]
 
-public class DoubleFactory : SpellFactory {
+public class MulticastFactory : SpellFactory {
+    [SerializeField] protected int multicastAmount = 2;
     public override void AddToGroup(SpellGroup group) {
-        group.AddMulticast(2);
+        group.AddMulticast(multicastAmount);
         group.DecrementCastable();
     }
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48bdf980794283f57874ef95c9c72252, type: 3}
-  m_Name: Spark Trigger Factory
+  m_Name: SparkTriggerFactory
   m_EditorClassIdentifier: 
   prefab: {fileID: 3731478976670700291, guid: e908651121bc93b379fcacd65dc269d3, type: 3}
   gravity: -2
