@@ -1,9 +1,10 @@
 using UnityEngine;
 
-abstract public class ProjectileFactory : SpellFactory {
-    [SerializeField] protected GameObject prefab;
-    [SerializeField] protected float gravity = 0.0f;
-    [SerializeField] protected float speed = 10.0f;
+[CreateAssetMenu(fileName = "ProjectileFactory", menuName = "Scriptable Objects/ProjectileFactory")]
+public class ProjectileFactory : SpellFactory {
+    [SerializeField] private GameObject prefab;
+    [SerializeField] protected float lifetime = 1.0f;
+    [SerializeField] protected float lifetimeVariance = 0.0f;
 
     public override void AddToGroup(SpellGroup group) {
         group.AddProjectile(this);
@@ -11,11 +12,11 @@ abstract public class ProjectileFactory : SpellFactory {
     }
 
     public virtual GameObject Cast(Vector3 castPosition, Quaternion castRotation) {
-        GameObject obj = Instantiate(prefab);
+        GameObject obj = Instantiate(prefab, castPosition, castRotation);
 
         var script = obj.GetComponent<Projectile>();
-        Vector3 projVelocity = castRotation * Vector3.forward * speed;
-        script.Initialize(castPosition, castRotation, projVelocity, gravity, 1.0f);
+        float newLifetime = Random.Range(lifetime-lifetimeVariance, lifetime+lifetimeVariance);
+        script.Initialize(newLifetime);
 
         return obj;
     }

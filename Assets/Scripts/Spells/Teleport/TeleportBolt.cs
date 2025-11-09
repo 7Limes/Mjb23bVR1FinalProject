@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TeleportBolt : Projectile {
+public class TeleportBolt : DynamicProjectile {
     protected override void OnExpire() {
         GameObject caster = GameObject.FindGameObjectWithTag("Player");
         if (caster != null) {
@@ -11,9 +11,6 @@ public class TeleportBolt : Projectile {
     }
 
     void OnCollisionEnter(Collision collision) {
-        if (IsInvulnerable()) {
-            return;
-        }
         if (collision.gameObject.CompareTag("Wand")) {
             return;
         }

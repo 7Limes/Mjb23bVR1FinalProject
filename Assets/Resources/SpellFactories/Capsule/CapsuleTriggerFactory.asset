@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56dfdae0dcdb60ca48f6b0dda7ae7c77, type: 3}
-  m_Name: ExplosionFactory
+  m_Script: {fileID: 11500000, guid: 6c5ff0c0552b0a72ea66384f91f3feec, type: 3}
+  m_Name: CapsuleTriggerFactory
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1383609312662471101, guid: 4bc2122601aa5de71abd612c4a0c318a, type: 3}
-  lifetime: 3
-  lifetimeVariance: 0

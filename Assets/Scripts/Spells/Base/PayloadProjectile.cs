@@ -1,13 +1,18 @@
 using UnityEngine;
 
-public class SparkBolt : Projectile {
-    public SpellGroup payloadGroup = null;
+public class PayloadProjectile : DynamicProjectile {
+    private SpellGroup payloadGroup = null;
     private bool castedPayload = false;
 
-    void OnCollisionEnter(Collision collision) {
-        if (IsInvulnerable()) {
-            return;
-        }
+    public void SetPayload(SpellGroup group) {
+        payloadGroup = group;
+    }
+
+    public void ExtendPayload(SpellGroup group) {
+        payloadGroup.Extend(group);
+    }
+
+    protected virtual void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("ProjectileNoCollide")) {
             return;
         }
@@ -28,4 +33,3 @@ public class SparkBolt : Projectile {
         OnExpire();
     }
 }
-

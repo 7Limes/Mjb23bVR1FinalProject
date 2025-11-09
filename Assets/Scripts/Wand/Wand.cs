@@ -92,7 +92,6 @@ public class Wand : MonoBehaviour {
             }
             
             index = group.GetIndex();
-            Debug.Log("Index: " + index);
             groups.Add(group);
         }
     }

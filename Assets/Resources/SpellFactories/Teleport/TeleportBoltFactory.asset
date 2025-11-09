@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TeleportBoltFactory
   m_EditorClassIdentifier: 
   prefab: {fileID: 410878962516760959, guid: 857ce47d7a7ad2a1aa6f5368d68d4821, type: 3}
+  lifetime: 2
+  lifetimeVariance: 0.25
   gravity: 0
   speed: 25
-  minLifetime: 2.5
-  maxLifetime: 3

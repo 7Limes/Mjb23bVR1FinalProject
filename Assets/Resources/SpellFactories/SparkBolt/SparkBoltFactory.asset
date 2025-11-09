@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: SparkBoltFactory
   m_EditorClassIdentifier: 
   prefab: {fileID: 3731478976670700291, guid: e908651121bc93b379fcacd65dc269d3, type: 3}
+  lifetime: 1
+  lifetimeVariance: 0
   gravity: -2
   speed: 20
-  minLifetime: 1.5
-  maxLifetime: 2
+  enableSubgroup: 0
   hitEffectPrefab: {fileID: 5878711192140978616, guid: b77cd4cb4458a77b6baabf0f0c11e256, type: 3}

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1466902040679964277}
-  - component: {fileID: -3730007105602418772}
+  - component: {fileID: 7733630917651502609}
   - component: {fileID: 1692618966525461018}
   m_Layer: 0
   m_Name: ExplosionSpell
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 2286950164666735347}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-3730007105602418772
+--- !u!114 &7733630917651502609
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1383609312662471101}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9adbfcc1212f70c539151d7304a9a52c, type: 3}
+  m_Script: {fileID: 11500000, guid: e6256362c2f57e7afa16e9ac041fa923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1692618966525461018
