@@ -8,7 +8,9 @@ public class SpellGroup {
     private int spellIndex;
 
     private int castableCount;
+
     private Vector2 spread;
+    private float castDelay;
 
     public SpellGroup() {
         projectiles = new List<ProjectileFactory>();
@@ -16,6 +18,7 @@ public class SpellGroup {
         spellIndex = 0;
         castableCount = 0;
         spread = Vector2.zero;
+        castDelay = 0;
     }
 
     public SpellGroup(List<SpellEntry> spellList, int startIndex) {
@@ -24,6 +27,7 @@ public class SpellGroup {
         spellIndex = startIndex;
         castableCount = 1;
         spread = Vector2.zero;
+        castDelay = 0;
     }
 
     public void Build() {
@@ -36,10 +40,16 @@ public class SpellGroup {
         }
     }
 
+    // Getters
     public int GetIndex() {
         return spellIndex;
     }
 
+    public float GetCastDelay() {
+        return castDelay;
+    }
+
+    // Public methods
     public bool IsEmpty() {
         return projectiles.Count == 0;
     }
@@ -63,13 +73,17 @@ public class SpellGroup {
         castableCount -= 1;
     }
 
-    public void AddSpread(Vector2 spreadAmount) {
-        spread += spreadAmount;
+    public void AddSpread(Vector2 amount) {
+        spread += amount;
     }
 
-    public void AddSpread(float spreadAmount) {
-        spread.x += spreadAmount;
-        spread.y += spreadAmount;
+    public void AddSpread(float amount) {
+        spread.x += amount;
+        spread.y += amount;
+    }
+
+    public void AddCastDelay(float amount) {
+        castDelay += amount;
     }
 
     Quaternion RandomRotateWithSpread(Quaternion original, Vector2 spread) {

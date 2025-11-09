@@ -2,8 +2,11 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public class WandSpawner : MonoBehaviour {
-    [SerializeField] private int minWandCapacity = 2;
-    [SerializeField] private int maxWandCapacity = 10;
+    [SerializeField] private int minCapacity = 2;
+    [SerializeField] private int maxCapacity = 10;
+
+    [SerializeField] private float minCastDelay = 0.1f;
+    [SerializeField] private float maxCastDelay = 0.75f;
 
     [SerializeField] private GameObject wandPrefab;
     [SerializeField] private List<GameObject> wandModelPrefabs;
@@ -32,7 +35,8 @@ public class WandSpawner : MonoBehaviour {
         Wand wandScript = wand.GetComponent<Wand>();
         if (wandScript != null) {
             wandScript.SetWandModel(wandModel);
-            wandScript.SetCapacity(Random.Range(minWandCapacity, maxWandCapacity+1));
+            wandScript.SetCapacity(Random.Range(minCapacity, maxCapacity+1));
+            wandScript.SetCastDelay(Random.Range(minCastDelay, maxCastDelay));
         }
     }
 

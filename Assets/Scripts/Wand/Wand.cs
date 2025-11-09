@@ -9,7 +9,7 @@ public class Wand : MonoBehaviour {
     [SerializeField] private float oscillateAmplitude = 0.05f;
 
     [SerializeField] private float holdDistance = 0.05f;  // The maximum distance at which the wand is considered "held"
-    [SerializeField] private float castCooldown = 0.5f;
+    [SerializeField] private float castDelay = 0.5f;
     [SerializeField] private int capacity = 10;
 
     [SerializeField] private Transform castPosition;
@@ -17,7 +17,6 @@ public class Wand : MonoBehaviour {
     private GameObject wandModel;
     private Rigidbody rigidBody;
     private IXRSelectInteractor currentInteractor = null;
-    private XRInputData inputData = null;
 
     private float animationTimeOffset = 0.0f;
 
@@ -25,7 +24,7 @@ public class Wand : MonoBehaviour {
     private bool isHeld = false;     // Whether the wand is actually in the player's hand
     private bool doIdleAnimation = true;
 
-    private float castTimer = 0.0f;
+    private float castDelayTimer = 0.0f;
 
     private List<SpellEntry> spells = new List<SpellEntry>();
     private List<SpellGroup> groups = new List<SpellGroup>();
@@ -43,10 +42,18 @@ public class Wand : MonoBehaviour {
         capacity = newCapacity;
     }
 
+    public void SetCastDelay(float newCastDelay) {
+        castDelay = newCastDelay;
+    }
+
     public int GetCapacity() {
         return capacity;
     }
 
+    public float GetCastDelay() {
+        return castDelay;
+    }
+ 
     public SpellEntry GetSpell(int index) {
         return spells[index];
     }
@@ -59,7 +66,7 @@ public class Wand : MonoBehaviour {
         isGrabbed = true;
         doIdleAnimation = false;
         currentInteractor = GetComponent<XRGrabInteractable>().firstInteractorSelecting;
-        castTimer = 0.5f;
+        castDelayTimer = castDelay;
     }
 
     public void OnRelease() {
@@ -91,22 +98,24 @@ public class Wand : MonoBehaviour {
     }
 
     public void Cast() {
-        if (isHeld && castTimer == 0.0f) {
+        if (isHeld && castDelayTimer == 0.0f) {
             if (groups.Count > 0) {
                 Debug.Log("Casting group " + groupIndex);
-                groups[groupIndex].Cast(castPosition.position, castPosition.rotation);
+                SpellGroup currentGroup = groups[groupIndex];
+                currentGroup.Cast(castPosition.position, castPosition.rotation);
+                castDelayTimer = castDelay + currentGroup.GetCastDelay();
+                castDelayTimer = Mathf.Clamp(castDelayTimer, 0, 999);
                 groupIndex = (groupIndex + 1) % groups.Count;
             }
             else {
                 Debug.Log("Wand is empty.");
+                castDelayTimer = castDelay;
             }
-            castTimer = castCooldown;
         }
     }
 
     void Start() {
         rigidBody = GetComponent<Rigidbody>();
-        inputData = GetComponent<XRInputData>();
 
         animationTimeOffset = Random.Range(0.0f, 10f);
 
@@ -130,8 +139,8 @@ public class Wand : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        if (castTimer > 0) {
-            castTimer = Mathf.MoveTowards(castTimer, 0.0f, Time.fixedDeltaTime);
+        if (castDelayTimer > 0) {
+            castDelayTimer = Mathf.MoveTowards(castDelayTimer, 0.0f, Time.fixedDeltaTime);
         }
         
         if (isGrabbed) {

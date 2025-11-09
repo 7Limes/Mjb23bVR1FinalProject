@@ -2,13 +2,17 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 using System.Collections.Generic;
+using TMPro;
 
 public class EditTerminal : MonoBehaviour {
 
     [SerializeField] private XRSocketInteractor wandSocketInteractor;
+    [SerializeField] private TextMeshProUGUI capacityLabel;
+    [SerializeField] private TextMeshProUGUI castDelayLabel;
     [SerializeField] private Transform slotsBasePosition;
     [SerializeField] private GameObject spellSlotPrefab;
     [SerializeField] private float spellSlotSpacing = 0.5f;
+
 
     SpellCubeCreator spellCubeCreator;
 
@@ -24,6 +28,7 @@ public class EditTerminal : MonoBehaviour {
             attachedWand = attachedWandObject.GetComponent<Wand>();
             attachedWand.SetIdleAnimation(true);
             CreateSlots();
+            UpdateLabels();
         }
     }
 
@@ -34,6 +39,11 @@ public class EditTerminal : MonoBehaviour {
         attachedWand.SetIdleAnimation(false);
         attachedWandObject = null;
         attachedWand = null;
+    }
+
+    private void UpdateLabels() {
+        capacityLabel.SetText($"Capacity: {attachedWand.GetCapacity()}");
+        castDelayLabel.SetText($"Cast Delay: {attachedWand.GetCastDelay():0.00}s");
     }
 
     void Start() {

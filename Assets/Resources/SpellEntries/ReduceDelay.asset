@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285c7b56dff103ef4b6d7e62f1f793a3, type: 3}
+  m_Name: ReduceDelay
+  m_EditorClassIdentifier: 
+  spellID: reduce_delay
+  iconMaterial: {fileID: 2100000, guid: 8bc76ddca846bea9aa1109d9664e6a6d, type: 2}
+  spellFactory: {fileID: 11400000, guid: 1d48d9a227d55d4ea9d0b63f22e188d2, type: 2}
+  spellName: Reduce Delay
+  spellDescription: 'Reduces the time between spell casts
+
+
+    Cast Delay: -0.25s'
