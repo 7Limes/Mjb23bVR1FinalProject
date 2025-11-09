@@ -8,6 +8,7 @@ public class CapsuleTrigger : PayloadProjectile {
     }
 
     protected override void OnCollisionEnter(Collision collision) {
+        Debug.Log("Impulse: " + collision.impulse.magnitude);
         if (collision.impulse.magnitude >= breakForce) {
             base.OnCollisionEnter(collision); 
         }

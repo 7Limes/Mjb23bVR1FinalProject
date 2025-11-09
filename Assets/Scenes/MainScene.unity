@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {fileID: 1542933085}
-  spellId: flatten_horizontal
+  spellId: capsule_trigger
 --- !u!114 &75748
 MonoBehaviour:
   m_ObjectHideFlags: 0

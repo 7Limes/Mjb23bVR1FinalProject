@@ -12,3 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5ff0c0552b0a72ea66384f91f3feec, type: 3}
   m_Name: CapsuleTriggerFactory
   m_EditorClassIdentifier: 
+  prefab: {fileID: 1975313497227065341, guid: b05a4e632c269c0508646bc9040c1e4f, type: 3}
+  lifetime: -1
+  lifetimeVariance: 0
+  gravity: 0
+  speed: 8
+  useRigidbodyPhysics: 1
+  enableSubgroup: 1
+  breakForce: 5
