@@ -17,5 +17,5 @@ MonoBehaviour:
   lifetimeVariance: 0
   gravity: -2
   speed: 20
-  enableSubgroup: 0
+  enableSubgroup: 1
   hitEffectPrefab: {fileID: 5878711192140978616, guid: b77cd4cb4458a77b6baabf0f0c11e256, type: 3}

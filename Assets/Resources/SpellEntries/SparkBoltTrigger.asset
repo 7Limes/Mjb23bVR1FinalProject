@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellID: spark_bolt_trigger
   iconMaterial: {fileID: 2100000, guid: 7d937bbf591832e6fb087016d857403f, type: 2}
-  spellFactory: {fileID: 11400000, guid: 501909548cf22da47be980632dd4a114, type: 2}
+  spellFactory: {fileID: 11400000, guid: 486933d116d2206b6943b6602535a397, type: 2}
   spellName: Spark Bolt With Trigger
   spellDescription: A spark bolt that casts another spell upon collision
