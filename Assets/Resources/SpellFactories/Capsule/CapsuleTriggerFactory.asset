@@ -19,4 +19,4 @@ MonoBehaviour:
   speed: 8
   useRigidbodyPhysics: 1
   enableSubgroup: 1
-  breakForce: 5
+  breakForce: 4

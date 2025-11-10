@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CapsuleTrigger
   m_EditorClassIdentifier: 
   spellID: capsule_trigger
-  iconMaterial: {fileID: 2100000, guid: f799e24fbaeb4c3d79bda556434592a1, type: 2}
+  iconMaterial: {fileID: 2100000, guid: bf376137b79adb1cab0115c7e1ce4b4f, type: 2}
   spellFactory: {fileID: 11400000, guid: af9b2a0ae907b915786efc49062ff8d9, type: 2}
   spellName: Capsule With Trigger
   spellDescription: Summons a magical capsule that casts another spell upon collision
