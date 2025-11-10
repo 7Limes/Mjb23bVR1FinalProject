@@ -76,7 +76,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -187,6 +187,14 @@ PrefabInstance:
     - target: {fileID: 919012162133337528, guid: e4a831baccba453479bb744202efc891, type: 3}
       propertyPath: m_Name
       value: Sparks pink
+      objectReference: {fileID: 0}
+    - target: {fileID: 2271762939967217129, guid: e4a831baccba453479bb744202efc891, type: 3}
+      propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2271762939967217129, guid: e4a831baccba453479bb744202efc891, type: 3}
+      propertyPath: stopAction
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2271762939967217129, guid: e4a831baccba453479bb744202efc891, type: 3}
       propertyPath: ShapeModule.angle
