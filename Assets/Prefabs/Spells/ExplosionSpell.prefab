@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceStrength: 40
-  radius: 2
+  radius: 1.5
   forceMode: 1
   falloffExponent: 2
   applyOnce: 1

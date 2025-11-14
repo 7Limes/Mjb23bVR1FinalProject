@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 842156daae475c01391a2e3e1b84106d, type: 3}
-  m_Name: SparkTriggerFactory
+  m_Name: FireballFactory
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3731478976670700291, guid: e908651121bc93b379fcacd65dc269d3, type: 3}
-  lifetime: 1
-  lifetimeVariance: 0
-  gravity: -2
-  speed: 20
+  prefab: {fileID: 5277346943588678919, guid: fae711f00ab8db6b3a8c395ca4ea5c96, type: 3}
+  lifetime: 5
+  lifetimeVariance: 0.2
+  gravity: -3
+  speed: 9
   useRigidbodyPhysics: 0
-  enableSubgroup: 1
+  enableSubgroup: 0
   autoPayloadSpells:
-  - {fileID: 11400000, guid: 8c44b4f49692ab42aa533cc558d071ba, type: 2}
+  - {fileID: 11400000, guid: 218d0e506587f149eb332fa0534e62f9, type: 2}
