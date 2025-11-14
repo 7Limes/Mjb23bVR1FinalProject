@@ -117,7 +117,7 @@ MonoBehaviour:
   oscillateSpeed: 2
   oscillateAmplitude: 0.025
   holdDistance: 0.05
-  castCooldown: 0.25
+  castDelay: 0.5
   capacity: 10
   castPosition: {fileID: 6629456609166225078}
 --- !u!114 &1809453074726830529

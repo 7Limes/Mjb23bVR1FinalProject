@@ -74,7 +74,7 @@ public class EditTerminal : MonoBehaviour {
             SpellEntry spellEntry = attachedWand.GetSpell(i);
             if (spellEntry != null) {
                 SpellSlot spellSlotScript = slotObject.GetComponent<SpellSlot>();
-                spellCubeCreator.CreateSpellCube(spellEntry.spellID, spellSlotScript.GetAttachTransform());
+                spellCubeCreator.CreateSpellCube(spellEntry, spellSlotScript.GetAttachTransform());
             }
 
             slotObjects.Add(slotObject);

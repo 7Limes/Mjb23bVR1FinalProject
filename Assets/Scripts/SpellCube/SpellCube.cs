@@ -14,6 +14,9 @@ public class SpellCube : MonoBehaviour {
     private Camera playerCamera;
 
     private SpellEntry spellEntry = null;
+    private Rigidbody rb;
+
+    private bool isSuspended = true;
 
     public SpellEntry GetSpell() {
         return spellEntry;
@@ -29,17 +32,37 @@ public class SpellCube : MonoBehaviour {
         spellDescriptionText.SetText(spellDescription);
     }
 
+    public void SetSuspended(bool isEnabled) {
+        isSuspended = isEnabled;
+    }
+
     void Start() {
         playerCamera = Camera.main;
+        rb = GetComponent<Rigidbody>();
+        rb.isKinematic = isSuspended;
+
+        // Apply random rotation
+        transform.Rotate(new Vector3(
+            Random.Range(0, 360),
+            Random.Range(0, 360),
+            Random.Range(0, 360)
+        ));
     }
 
     void Update() {
         float oscillateY = iconOscillateAmplitude * Mathf.Sin(Time.time * iconOscillateSpeed);
-        Vector3 iconOscillateVector = new Vector3(0, oscillateY, 0);
-        iconQuad.transform.localPosition = iconOscillateVector;
+        Vector3 worldUpOffset = Vector3.up * oscillateY;
+        Vector3 localOffset = iconQuad.transform.parent.InverseTransformDirection(worldUpOffset);
+        iconQuad.transform.localPosition = localOffset;
         iconQuad.transform.rotation = playerCamera.transform.rotation;
 
         spellInfoTarget.LookAt(playerCamera.transform);
         spellInfoTarget.Rotate(0, 180, 0);
+
+        rb.isKinematic = isSuspended;
+        if (isSuspended) {
+            Vector3 rotateAngles = new Vector3(0.05f, 0.07f, 0.09f);
+            transform.Rotate(rotateAngles);
+        }
     }
 }
