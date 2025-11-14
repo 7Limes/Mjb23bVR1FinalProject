@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Events;
-using UnityEditor.PackageManager.UI;
 using System.Linq;
 
 public class FlickDetector : MonoBehaviour {
@@ -18,6 +17,8 @@ public class FlickDetector : MonoBehaviour {
     private Vector3 lowAngularVelocity = Vector3.zero;
 
     private float cooldownTimer = 0.0f;
+
+    private GlobalSettings settings;
 
     Vector3 AverageVelocities(int index, int amount) {
         Vector3 sum = Vector3.zero;
@@ -50,6 +51,8 @@ public class FlickDetector : MonoBehaviour {
     }
     
     void Start() {
+        settings = Resources.Load<GlobalSettings>("GlobalSettings");
+
         // Fill buffer with zeroed vectors
         for (int i = 0; i < sampleCount; i++) {
             angularVelocityBuffer.Enqueue(Vector3.zero);
@@ -62,7 +65,7 @@ public class FlickDetector : MonoBehaviour {
 
         cooldownTimer = Mathf.MoveTowards(cooldownTimer, 0.0f, Time.fixedDeltaTime);
         
-        if (cooldownTimer == 0.0f) {   
+        if (cooldownTimer == 0.0f && settings.flickToCastEnabled) {   
             // Check for flick
             if (highAngularVelocity.magnitude >= highThreshold && lowAngularVelocity.magnitude <= lowThreshold) {
                 cooldownTimer = cooldown;
