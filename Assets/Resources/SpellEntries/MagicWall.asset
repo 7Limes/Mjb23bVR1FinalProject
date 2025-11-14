@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 285c7b56dff103ef4b6d7e62f1f793a3, type: 3}
-  m_Name: FlattenHorizontal
+  m_Name: MagicWall
   m_EditorClassIdentifier: 
-  spellID: flatten_horizontal
-  iconMaterial: {fileID: 2100000, guid: ab50f97f4bcd1fc3990c6c13cec8f6e2, type: 2}
-  spellFactory: {fileID: 11400000, guid: cc28105d05cba341e91847a7a0d33f62, type: 2}
-  spellName: Flatten (Horizontal)
-  spellDescription: Removes vertical spread from projectilles
+  spellID: magic_wall
+  iconMaterial: {fileID: 2100000, guid: 4cd9fa6a6aad4cae18d8f1794c33b458, type: 2}
+  spellFactory: {fileID: 11400000, guid: dece28b38ca1493008fe0dec7e86bd2e, type: 2}
+  spellName: Summon Wall
+  spellDescription: Summon a temporary magical wall

@@ -598,7 +598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {fileID: 1116204855}
-  spellId: flatten_vertical
+  spellId: magic_platform
 --- !u!114 &39325073
 MonoBehaviour:
   m_ObjectHideFlags: 0

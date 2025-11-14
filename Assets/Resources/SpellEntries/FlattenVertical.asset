@@ -16,4 +16,4 @@ MonoBehaviour:
   iconMaterial: {fileID: 2100000, guid: dc41ce6a1e03f49a2ac33c52038aa2e7, type: 2}
   spellFactory: {fileID: 11400000, guid: ab6cc787859d10f8c8ebed90bea4bc79, type: 2}
   spellName: Flatten (Vertical)
-  spellDescription: Removes horizontal spread
+  spellDescription: Removes horizontal spread from projectiles
