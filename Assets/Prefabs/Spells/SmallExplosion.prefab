@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3542697036893565317}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.0453167, y: 1.7267625, z: 1.0099645}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -59,14 +59,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d23f4bb85490223f7a65f57bd0a2f2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceStrength: 100
-  radius: 0.5
-  forceMode: 0
+  forceStrength: 20
+  radius: 0.6
+  forceMode: 1
+  duration: 0.25
   falloffExponent: 2
-  applyOnce: 0
+  applyOnce: 1
   excludedLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   showGizmo: 1
   gizmoColor: {r: 1, g: 0.5, b: 0, a: 0.3}
 --- !u!114 &-4797337399161017605

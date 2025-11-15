@@ -2,14 +2,11 @@ using UnityEngine;
 using System.Collections.Generic;
 using Unity.XR.CoreUtils;
 
-/// <summary>
-/// Applies a repulsive force to all rigid bodies within a specified radius.
-/// The force strength decreases with distance from the center.
-/// </summary>
 public class ForceSphere : MonoBehaviour {
     [SerializeField] private float forceStrength = 100f;
     [SerializeField] private float radius = 5f;
     [SerializeField] private ForceMode forceMode = ForceMode.Force;
+    [SerializeField] private float duration = 0.5f;
 
     [Tooltip("How the force decreases with distance (1 = linear, 2 = quadratic)")]
     [SerializeField] private float falloffExponent = 2f;
@@ -24,9 +21,15 @@ public class ForceSphere : MonoBehaviour {
     [SerializeField] private Color gizmoColor = new Color(1f, 0.5f, 0f, 0.3f);
 
     private HashSet<Rigidbody> affectedRigidbodies = new HashSet<Rigidbody>();
+    private float deactivateTimer = 0.0f;
 
     private void FixedUpdate() {
         ApplyForceToNearbyRigidbodies();
+
+        deactivateTimer = Mathf.MoveTowards(deactivateTimer, duration, Time.fixedDeltaTime);
+        if (deactivateTimer == duration) {
+            enabled = false;
+        }
     }
 
     private void ApplyForceToNearbyRigidbodies() {

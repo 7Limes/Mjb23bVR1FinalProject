@@ -15,8 +15,8 @@ MonoBehaviour:
   prefab: {fileID: 5277346943588678919, guid: fae711f00ab8db6b3a8c395ca4ea5c96, type: 3}
   lifetime: 5
   lifetimeVariance: 0.2
-  gravity: -3
-  speed: 9
+  gravity: -1.5
+  speed: 11
   useRigidbodyPhysics: 0
   enableSubgroup: 0
   autoPayloadSpells:
