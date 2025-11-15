@@ -15,5 +15,6 @@ MonoBehaviour:
   spellID: quadruple
   iconMaterial: {fileID: 2100000, guid: 4499ee291477c52adb8b28330d0bd10d, type: 2}
   spellFactory: {fileID: 11400000, guid: 52ed82b03134994d08953669799faca7, type: 2}
+  spellType: 3
   spellName: Quadruple Spell
   spellDescription: Casts 4 spells at once

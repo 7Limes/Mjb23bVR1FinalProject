@@ -15,5 +15,6 @@ MonoBehaviour:
   spellID: explosion
   iconMaterial: {fileID: 2100000, guid: 1cac55358605ff766a1803268c97dabe, type: 2}
   spellFactory: {fileID: 11400000, guid: 5c1c63cfd5d414263975226a03676121, type: 2}
+  spellType: 2
   spellName: Explosion
   spellDescription: Summon an explosion

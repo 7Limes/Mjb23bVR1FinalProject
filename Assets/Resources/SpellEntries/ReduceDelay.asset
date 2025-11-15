@@ -15,6 +15,7 @@ MonoBehaviour:
   spellID: reduce_delay
   iconMaterial: {fileID: 2100000, guid: 8bc76ddca846bea9aa1109d9664e6a6d, type: 2}
   spellFactory: {fileID: 11400000, guid: 1d48d9a227d55d4ea9d0b63f22e188d2, type: 2}
+  spellType: 1
   spellName: Reduce Delay
   spellDescription: 'Reduces the time between spell casts
 

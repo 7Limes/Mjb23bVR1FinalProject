@@ -15,5 +15,6 @@ MonoBehaviour:
   spellID: quadruple_scatter
   iconMaterial: {fileID: 2100000, guid: 0199cdb8032aaa21fb8bd391a986fc8c, type: 2}
   spellFactory: {fileID: 11400000, guid: e55be4b695eceb2508f6d0d369329757, type: 2}
+  spellType: 3
   spellName: Quadruple Scatter
   spellDescription: Casts 4 spells with low accuracy

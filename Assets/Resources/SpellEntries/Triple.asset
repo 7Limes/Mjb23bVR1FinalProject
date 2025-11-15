@@ -15,5 +15,6 @@ MonoBehaviour:
   spellID: triple
   iconMaterial: {fileID: 2100000, guid: ae2999738fbd64109a7cac2bba663843, type: 2}
   spellFactory: {fileID: 11400000, guid: ca6d28248d3d764f8925cc5ef33a23d5, type: 2}
+  spellType: 3
   spellName: Triple Spell
   spellDescription: Casts 3 spells at once

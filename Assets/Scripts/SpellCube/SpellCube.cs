@@ -2,7 +2,8 @@ using TMPro;
 using UnityEngine;
 
 public class SpellCube : MonoBehaviour {
-    [SerializeField] private GameObject iconQuad = null;
+    [SerializeField] private GameObject iconMesh;
+    [SerializeField] private GameObject cubeMesh;
     [SerializeField] private float iconOscillateSpeed = 1.0f;
     [SerializeField] private float iconOscillateAmplitude = 0.001f;
 
@@ -22,9 +23,10 @@ public class SpellCube : MonoBehaviour {
         return spellEntry;
     }
 
-    public void SetSpell(SpellEntry entry) {
+    public void SetSpell(SpellEntry entry, Material cubeMaterial) {
         spellEntry = entry;
-        iconQuad.GetComponent<MeshRenderer>().material = spellEntry.iconMaterial;
+        iconMesh.GetComponent<MeshRenderer>().material = spellEntry.iconMaterial;
+        cubeMesh.GetComponent<MeshRenderer>().material = cubeMaterial;
 
         string spellName = spellEntry?.spellName ?? "Unnamed Spell";
         string spellDescription = spellEntry?.spellDescription ?? "No description provided";
@@ -52,9 +54,9 @@ public class SpellCube : MonoBehaviour {
     void Update() {
         float oscillateY = iconOscillateAmplitude * Mathf.Sin(Time.time * iconOscillateSpeed);
         Vector3 worldUpOffset = Vector3.up * oscillateY;
-        Vector3 localOffset = iconQuad.transform.parent.InverseTransformDirection(worldUpOffset);
-        iconQuad.transform.localPosition = localOffset;
-        iconQuad.transform.rotation = playerCamera.transform.rotation;
+        Vector3 localOffset = iconMesh.transform.parent.InverseTransformDirection(worldUpOffset);
+        iconMesh.transform.localPosition = localOffset;
+        iconMesh.transform.rotation = playerCamera.transform.rotation;
 
         spellInfoTarget.LookAt(playerCamera.transform);
         spellInfoTarget.Rotate(0, 180, 0);

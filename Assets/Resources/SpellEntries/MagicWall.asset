@@ -15,5 +15,6 @@ MonoBehaviour:
   spellID: magic_wall
   iconMaterial: {fileID: 2100000, guid: 4cd9fa6a6aad4cae18d8f1794c33b458, type: 2}
   spellFactory: {fileID: 11400000, guid: dece28b38ca1493008fe0dec7e86bd2e, type: 2}
+  spellType: 2
   spellName: Summon Wall
   spellDescription: Summon a temporary magical wall

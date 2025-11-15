@@ -15,5 +15,6 @@ MonoBehaviour:
   spellID: magic_platform
   iconMaterial: {fileID: 2100000, guid: 43348e3a8df756d15b407a3d619f73fd, type: 2}
   spellFactory: {fileID: 11400000, guid: 78b8fb1d9828bb373849175170759c31, type: 2}
+  spellType: 2
   spellName: Summon Platform
   spellDescription: Summon a temporary magical platform

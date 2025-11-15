@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2502411286daf463bb0780a2571695b, type: 3}
+  m_Name: SpellCubeMaterials
+  m_EditorClassIdentifier: 
+  spellTypes: 00000000010000000200000003000000
+  cubeMaterials:
+  - {fileID: 2100000, guid: 1a6a70d4f3a897c5f8fdcf81c4cd14c0, type: 2}
+  - {fileID: 2100000, guid: 1dc0f77f1db71bd358ca428013d648c8, type: 2}
+  - {fileID: 2100000, guid: 0127677fe4aad91b1bc3251bfb0e9107, type: 2}
+  - {fileID: 2100000, guid: df4078c388e781c49bbfbf8ebb0cd1cd, type: 2}

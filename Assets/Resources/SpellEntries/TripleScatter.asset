@@ -15,5 +15,6 @@ MonoBehaviour:
   spellID: triple_scatter
   iconMaterial: {fileID: 2100000, guid: 88c31737cfd3367a8af713aabb204f8b, type: 2}
   spellFactory: {fileID: 11400000, guid: dfb45cc79d3505345a451789dad49c7b, type: 2}
+  spellType: 3
   spellName: Triple Scatter
   spellDescription: Casts 3 spells with low accuracy

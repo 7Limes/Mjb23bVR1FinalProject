@@ -516,7 +516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50216b8e20a313206820920e2cba371b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iconQuad: {fileID: 7226503936620884592}
+  iconMesh: {fileID: 7226503936620884592}
+  cubeMesh: {fileID: 5807904156961694893}
   iconOscillateSpeed: 2
   iconOscillateAmplitude: 0.0075
   spellInfoTarget: {fileID: 2660942436245642103}
