@@ -73,7 +73,12 @@ public class EditTerminal : MonoBehaviour {
             Vector3 slotPosition = slotObject.transform.localPosition;
             slotPosition.x += i % slotsPerRow * spellSlotSpacing;
             slotPosition.y -= i / slotsPerRow * spellSlotSpacing;
-            Debug.Log(slotPosition);
+
+            if (wandCapacity <= slotsPerRow) {
+                // Shift down if there's only 1 row
+                slotPosition.y -= spellSlotSpacing / 2;
+            }
+
             slotObject.transform.localPosition = slotPosition;
 
             // Create spell cube
