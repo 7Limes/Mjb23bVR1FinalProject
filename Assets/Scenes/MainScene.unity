@@ -827,7 +827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minCapacity: 2
-  maxCapacity: 10
+  maxCapacity: 16
   minCastDelay: 0.1
   maxCastDelay: 0.75
   wandPrefab: {fileID: 8431600529432964056, guid: 778ccdf9d3da36cc8ad0a94553aab037, type: 3}
@@ -1493,7 +1493,7 @@ Transform:
   m_GameObject: {fileID: 426401190}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 1.07, y: 0.53, z: 0.07800007}
+  m_LocalPosition: {x: 1.07, y: 0.9, z: 0.07800007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2580,7 +2580,7 @@ MonoBehaviour:
   castDelayLabel: {fileID: 1143359854}
   slotsBasePosition: {fileID: 426401191}
   spellSlotPrefab: {fileID: 290513354971893999, guid: 4ce26902f52eaf734ab1245ca9635143, type: 3}
-  spellSlotSpacing: 0.3
+  spellSlotSpacing: 0.25
 --- !u!114 &837883218
 MonoBehaviour:
   m_ObjectHideFlags: 0

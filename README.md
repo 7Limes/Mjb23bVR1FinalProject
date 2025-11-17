@@ -15,3 +15,4 @@
 - assetstore.unity.com/packages/p/magic-effects-free-247933
 - assetstore.unity.com/packages/p/particle-pack-127325
 - https://assetstore.unity.com/packages/3d/props/weapons/3d-items-free-wand-pack-46225
+- https://assetstore.unity.com/packages/p/quick-outline-115488

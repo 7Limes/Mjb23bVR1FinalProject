@@ -12,6 +12,7 @@ public class EditTerminal : MonoBehaviour {
     [SerializeField] private Transform slotsBasePosition;
     [SerializeField] private GameObject spellSlotPrefab;
     [SerializeField] private float spellSlotSpacing = 0.5f;
+    [SerializeField] private readonly int slotsPerRow = 8;
 
 
     SpellCubeCreator spellCubeCreator;
@@ -65,15 +66,19 @@ public class EditTerminal : MonoBehaviour {
         for (int i = 0; i < wandCapacity; i++) {
             GameObject slotObject = Instantiate(spellSlotPrefab, slotsBasePosition);
 
+            SpellSlot spellSlotScript = slotObject.GetComponent<SpellSlot>();
+            spellSlotScript.SetOscillateOffset(i * 0.5f);
+
             // Move slot
             Vector3 slotPosition = slotObject.transform.localPosition;
-            slotPosition.x += i * spellSlotSpacing;
+            slotPosition.x += i % slotsPerRow * spellSlotSpacing;
+            slotPosition.y -= i / slotsPerRow * spellSlotSpacing;
+            Debug.Log(slotPosition);
             slotObject.transform.localPosition = slotPosition;
 
             // Create spell cube
             SpellEntry spellEntry = attachedWand.GetSpell(i);
             if (spellEntry != null) {
-                SpellSlot spellSlotScript = slotObject.GetComponent<SpellSlot>();
                 spellCubeCreator.CreateSpellCube(spellEntry, spellSlotScript.GetAttachTransform());
             }
 
