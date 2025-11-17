@@ -12,11 +12,10 @@ public class PayloadProjectile : DynamicProjectile {
         payloadGroup.Extend(group);
     }
 
-    protected virtual void OnCollisionEnter(Collision collision) {
+    protected override void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("ProjectileNoCollide")) {
             return;
         }
-
 
         if (payloadGroup != null && !castedPayload) {
             ContactPoint contact = collision.GetContact(0);
@@ -24,10 +23,9 @@ public class PayloadProjectile : DynamicProjectile {
             Vector3 reflected = Vector3.Reflect(transform.forward, normal);
             Quaternion reflectedRotation = Quaternion.LookRotation(reflected);
 
-            // Vector3 castPosition = contact.point + normal * 0.05f;
-            payloadGroup?.Cast(transform.position, reflectedRotation);
+            Vector3 castPosition = contact.point + normal * 0.2f;
+            payloadGroup?.Cast(castPosition, reflectedRotation);
             castedPayload = true;
-            Debug.Log("Casted payload");
         }
 
         OnExpire();

@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3731478976670700291, guid: e908651121bc93b379fcacd65dc269d3, type: 3}
   lifetime: 1
-  lifetimeVariance: 0
-  gravity: -2
-  speed: 20
-  useRigidbodyPhysics: 0
+  lifetimeVariance: 0.1
+  gravity: -0.1
+  speed: 15
+  useRigidbodyPhysics: 1
   enableSubgroup: 1
   autoPayloadSpells:
   - {fileID: 11400000, guid: 8c44b4f49692ab42aa533cc558d071ba, type: 2}

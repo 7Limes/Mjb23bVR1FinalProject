@@ -1,9 +1,10 @@
 using UnityEngine;
 
-abstract public class DynamicProjectileFactory : ProjectileFactory {
+[CreateAssetMenu(fileName = "Dynamic Projectile Factory", menuName = "Scriptable Objects/DynamicProjectileFactory")]
+public class DynamicProjectileFactory : ProjectileFactory {
     [SerializeField] protected float gravity = 0.0f;
     [SerializeField] protected float speed = 10.0f;
-    [SerializeField] protected bool useRigidbodyPhysics = false;
+    [SerializeField] protected bool useRigidbodyPhysics = true;
 
     public override GameObject Cast(Vector3 castPosition, Quaternion castRotation) {
         GameObject obj = base.Cast(castPosition, castRotation);

@@ -34,4 +34,12 @@ abstract public class DynamicProjectile : Projectile {
 
         base.FixedUpdate();
     }
+
+    protected virtual void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.CompareTag("ProjectileNoCollide")) {
+            return;
+        }
+
+        OnExpire();
+    }
 }

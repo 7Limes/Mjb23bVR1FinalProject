@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 482244763550595860}
   - component: {fileID: 6311506912663215268}
   - component: {fileID: 7688557481050360082}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4914,7 +4914,7 @@ GameObject:
   - component: {fileID: 8808968110466344422}
   - component: {fileID: 4830550414242252551}
   - component: {fileID: 4542804463792953708}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PurpleHitEffect
   m_TagString: ProjectileNoCollide
   m_Icon: {fileID: 0}
@@ -9833,6 +9833,7 @@ MonoBehaviour:
   forceStrength: 5
   radius: 0.5
   forceMode: 1
+  duration: 0.5
   falloffExponent: 2
   applyOnce: 1
   excludedLayers:
@@ -9863,7 +9864,7 @@ GameObject:
   - component: {fileID: 7830478124146774587}
   - component: {fileID: 4619201142952174235}
   - component: {fileID: 8120141497044344844}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14763,7 +14764,7 @@ GameObject:
   - component: {fileID: 6104758902780744508}
   - component: {fileID: 520709203249558463}
   - component: {fileID: 7347358309987753797}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}

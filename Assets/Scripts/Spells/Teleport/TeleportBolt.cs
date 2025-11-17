@@ -9,13 +9,5 @@ public class TeleportBolt : DynamicProjectile {
 
         base.OnExpire();
     }
-
-    void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.CompareTag("Wand")) {
-            return;
-        }
-
-        OnExpire();
-    }
 }
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Spark Trigger Factory", menuName = "Scriptable Objects/SparkTriggerFactory")]
+[CreateAssetMenu(fileName = "Payload Projectile Factory", menuName = "Scriptable Objects/PayloadProjectileFactory")]
 public class PayloadProjectileFactory : DynamicProjectileFactory {
     [SerializeField] private bool enableSubgroup = true;
     protected SpellGroup payloadGroup = null;

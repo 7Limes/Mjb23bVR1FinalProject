@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1466902040679964277}
   - component: {fileID: 7733630917651502609}
   - component: {fileID: 1692618966525461018}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ExplosionSpell
-  m_TagString: ProjectileNoCollide
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,6 +61,7 @@ MonoBehaviour:
   forceStrength: 40
   radius: 1.5
   forceMode: 1
+  duration: 0.5
   falloffExponent: 2
   applyOnce: 1
   excludedLayers:
@@ -76,9 +77,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1466902040679964277}
     m_Modifications:
+    - target: {fileID: 1636448248926476, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1756283545428916, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
       propertyPath: m_Name
       value: SmallExplosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834016579923706, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4361801158873524, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
       propertyPath: m_LocalPosition.x
