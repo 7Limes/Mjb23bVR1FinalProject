@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class SpellGroup {
     private List<ProjectileFactory> projectiles;
+    private List<Modifier> modifiers;
 
     private List<SpellEntry> spells;
     private int spellIndex;
@@ -14,6 +15,7 @@ public class SpellGroup {
 
     public SpellGroup() {
         projectiles = new List<ProjectileFactory>();
+        modifiers = new List<Modifier>();
         spells = new List<SpellEntry>();
         spellIndex = 0;
         castableCount = 0;
@@ -23,6 +25,7 @@ public class SpellGroup {
 
     public SpellGroup(List<SpellEntry> spellList, int startIndex) {
         projectiles = new List<ProjectileFactory>();
+        modifiers = new List<Modifier>();
         spells = spellList;
         spellIndex = startIndex;
         castableCount = 1;
@@ -86,6 +89,10 @@ public class SpellGroup {
         castDelay += amount;
     }
 
+    public void AddModifier(Modifier mod) {
+        modifiers.Add(mod);
+    }
+
     Quaternion RandomRotateWithSpread(Quaternion original, Vector2 spread) {
         spread.x = Mathf.Clamp(spread.x, 0, 360);
         spread.y = Mathf.Clamp(spread.y, 0, 360);
@@ -101,7 +108,10 @@ public class SpellGroup {
     public void Cast(Vector3 castPosition, Quaternion castRotation) {
         foreach (var projectile in projectiles) {
             Quaternion spreadRotation = RandomRotateWithSpread(castRotation, spread);
-            projectile.Cast(castPosition, spreadRotation);
+            GameObject projectileObj = projectile.Cast(castPosition, spreadRotation);
+            foreach (var modifier in modifiers) {
+                modifier.Apply(projectileObj);
+            }
         }
     }
 
