@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellID: speed_up
   iconMaterial: {fileID: 2100000, guid: 4216ff93a45b6a611b0aa29ab7399bcc, type: 2}
-  spellFactory: {fileID: 0}
+  spellFactory: {fileID: 11400000, guid: 8008d51333b34fd749aa2f9cb52ca007, type: 2}
   spellType: 1
   spellName: Speed Up
   spellDescription: 'Increases the speed of a projectile.
