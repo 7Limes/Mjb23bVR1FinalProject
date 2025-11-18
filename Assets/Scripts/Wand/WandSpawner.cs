@@ -8,13 +8,15 @@ public class WandSpawner : MonoBehaviour {
     [SerializeField] private float minCastDelay = 0.1f;
     [SerializeField] private float maxCastDelay = 0.75f;
 
+    [SerializeField] private Transform spawnPoint;
+
     [SerializeField] private GameObject wandPrefab;
     [SerializeField] private List<GameObject> wandModelPrefabs;
 
-    private Transform spawnPoint;
+    [SerializeField] private GameObject spawnEffectPrefab;
+    [SerializeField] private Transform effectLocation;
 
     void Start() {
-        spawnPoint = GetComponent<Transform>();
         SpawnNewWand();
     }
 
@@ -38,6 +40,8 @@ public class WandSpawner : MonoBehaviour {
             wandScript.SetCapacity(Random.Range(minCapacity, maxCapacity+1));
             wandScript.SetCastDelay(Random.Range(minCastDelay, maxCastDelay));
         }
+
+        Instantiate(spawnEffectPrefab, effectLocation);
     }
 
     public void OnButtonPress() {
