@@ -1687,6 +1687,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 837883216}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &437009351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5824510187379060028, guid: 261a59776c3e460359ba0c8de733ee1d, type: 3}
+  m_PrefabInstance: {fileID: 860722345}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &447594288
 GameObject:
   m_ObjectHideFlags: 0
@@ -3268,7 +3273,6 @@ GameObject:
   - component: {fileID: 837883216}
   - component: {fileID: 837883217}
   - component: {fileID: 837883218}
-  - component: {fileID: 837883219}
   - component: {fileID: 837883220}
   m_Layer: 0
   m_Name: EditTerminal
@@ -3307,9 +3311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab15ef0b49b8d88fa27c70e3799e07c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wandSocketInteractor: {fileID: 1485948866}
-  capacityLabel: {fileID: 1649520319}
-  castDelayLabel: {fileID: 1143359854}
   slotsBasePosition: {fileID: 426401191}
   spellSlotPrefab: {fileID: 290513354971893999, guid: 4ce26902f52eaf734ab1245ca9635143, type: 3}
   spellSlotSpacing: 0.25
@@ -3326,21 +3327,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellCubePrefab: {fileID: 5019688249724423454, guid: 4440368b70e2501caa3c211fe358dc3b, type: 3}
---- !u!114 &837883219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 837883215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 751c668c3ca9dc0f5bc4d9b6249ab5af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvasGroup: {fileID: 197283539}
-  canvasObject: {fileID: 197283534}
-  fadeDuration: 0.25
 --- !u!65 &837883220
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4158,6 +4144,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &987636922 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1365132098506396400, guid: 261a59776c3e460359ba0c8de733ee1d, type: 3}
+  m_PrefabInstance: {fileID: 860722345}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &997051005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4862,6 +4853,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d30761bb8f798b9e88db918ffd155ba, type: 3}
+--- !u!1 &1161497843 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -391268320553695201, guid: 261a59776c3e460359ba0c8de733ee1d, type: 3}
+  m_PrefabInstance: {fileID: 860722345}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1178641789
 GameObject:
   m_ObjectHideFlags: 0
@@ -6122,6 +6118,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d30761bb8f798b9e88db918ffd155ba, type: 3}
+--- !u!1 &1403572544 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3735102090226358198, guid: 261a59776c3e460359ba0c8de733ee1d, type: 3}
+  m_PrefabInstance: {fileID: 860722345}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1406791534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6691,6 +6692,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1485948865}
+  - component: {fileID: 1485948868}
+  - component: {fileID: 1485948869}
   - component: {fileID: 1485948866}
   - component: {fileID: 1485948867}
   m_Layer: 0
@@ -6748,8 +6751,8 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 837883217}
-        m_TargetAssemblyTypeName: EditTerminal, Assembly-CSharp
+      - m_Target: {fileID: 1485948868}
+        m_TargetAssemblyTypeName: WandSocket, Assembly-CSharp
         m_MethodName: OnWandSocketAttach
         m_Mode: 1
         m_Arguments:
@@ -6760,7 +6763,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 837883219}
+      - m_Target: {fileID: 1485948869}
         m_TargetAssemblyTypeName: CanvasFadeToggle, Assembly-CSharp
         m_MethodName: FadeIn
         m_Mode: 1
@@ -6775,8 +6778,8 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 837883217}
-        m_TargetAssemblyTypeName: EditTerminal, Assembly-CSharp
+      - m_Target: {fileID: 1485948868}
+        m_TargetAssemblyTypeName: WandSocket, Assembly-CSharp
         m_MethodName: OnWandSocketDetach
         m_Mode: 1
         m_Arguments:
@@ -6787,7 +6790,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 837883219}
+      - m_Target: {fileID: 1485948869}
         m_TargetAssemblyTypeName: CanvasFadeToggle, Assembly-CSharp
         m_MethodName: FadeOut
         m_Mode: 1
@@ -6833,6 +6836,42 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.3, y: 0.6, z: 0.3}
   m_Center: {x: 0, y: 0.21, z: 0}
+--- !u!114 &1485948868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485948864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7fee7e7556402a198fa26045f3c1e43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wandSocketInteractor: {fileID: 1485948866}
+  editTerminal: {fileID: 837883217}
+  capacityLabel: {fileID: 1649520319}
+  castDelayLabel: {fileID: 1143359854}
+  animatedToruses:
+  - {fileID: 1161497843}
+  - {fileID: 437009351}
+  - {fileID: 987636922}
+  - {fileID: 1403572544}
+--- !u!114 &1485948869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485948864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 751c668c3ca9dc0f5bc4d9b6249ab5af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 197283539}
+  canvasObject: {fileID: 197283534}
+  fadeDuration: 0.15
 --- !u!1 &1564517831
 GameObject:
   m_ObjectHideFlags: 0

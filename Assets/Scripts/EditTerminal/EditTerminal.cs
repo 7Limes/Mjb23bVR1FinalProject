@@ -1,14 +1,8 @@
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit.Interactables;
-using UnityEngine.XR.Interaction.Toolkit.Interactors;
 using System.Collections.Generic;
 using TMPro;
 
 public class EditTerminal : MonoBehaviour {
-
-    [SerializeField] private XRSocketInteractor wandSocketInteractor;
-    [SerializeField] private TextMeshProUGUI capacityLabel;
-    [SerializeField] private TextMeshProUGUI castDelayLabel;
     [SerializeField] private Transform slotsBasePosition;
     [SerializeField] private GameObject spellSlotPrefab;
     [SerializeField] private float spellSlotSpacing = 0.5f;
@@ -16,42 +10,19 @@ public class EditTerminal : MonoBehaviour {
 
 
     SpellCubeCreator spellCubeCreator;
-
-    GameObject attachedWandObject = null;
     Wand attachedWand = null;
 
     List<GameObject> slotObjects = new List<GameObject>();
 
-    public void OnWandSocketAttach() {
-        if (wandSocketInteractor.hasSelection) {
-            IXRSelectInteractable interactable = wandSocketInteractor.firstInteractableSelected;
-            attachedWandObject = (interactable as MonoBehaviour)?.gameObject;
-            attachedWand = attachedWandObject.GetComponent<Wand>();
-            attachedWand.SetIdleAnimation(true);
-            CreateSlots();
-            UpdateLabels();
-        }
-    }
-
-    public void OnWandSocketDetach() {
-        UpdateWandSpells();
-        ClearSlots();
-
-        attachedWand.SetIdleAnimation(false);
-        attachedWandObject = null;
-        attachedWand = null;
-    }
-
-    private void UpdateLabels() {
-        capacityLabel.SetText($"Capacity: {attachedWand.GetCapacity()}");
-        castDelayLabel.SetText($"Cast Delay: {attachedWand.GetCastDelay():0.00}s");
+    public void SetAttachedWand(Wand wand) {
+        attachedWand = wand;
     }
 
     void Start() {
         spellCubeCreator = GetComponent<SpellCubeCreator>();
     }
 
-    private void UpdateWandSpells() {
+    public void UpdateWandSpells() {
         for (int i = 0; i < slotObjects.Count; i++) {
             GameObject slotObject = slotObjects[i];
             SpellSlot spellSlotScript = slotObject.GetComponent<SpellSlot>();
@@ -61,7 +32,7 @@ public class EditTerminal : MonoBehaviour {
         attachedWand.UpdateSpellGroups();
     }
 
-    private void CreateSlots() {
+    public void CreateSlots() {
         int wandCapacity = attachedWand.GetCapacity();
         for (int i = 0; i < wandCapacity; i++) {
             GameObject slotObject = Instantiate(spellSlotPrefab, slotsBasePosition);
@@ -91,7 +62,7 @@ public class EditTerminal : MonoBehaviour {
         }
     }
 
-    private void ClearSlots() {
+    public void ClearSlots() {
         foreach (GameObject slotObject in slotObjects) {
             SpellSlot spellSlotScript = slotObject.GetComponent<SpellSlot>();
             GameObject spellCube = spellSlotScript.GetSpellCube();
