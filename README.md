@@ -14,6 +14,7 @@
 - https://freepbr.com/product/cloudy-veined-quartz/
 - https://freepbr.com/product/obsidian-pbr-material/
 - https://polyhaven.com/a/wood_planks
+- https://polyhaven.com/a/rough_wood
 
 ### Unity Asset Store
 
