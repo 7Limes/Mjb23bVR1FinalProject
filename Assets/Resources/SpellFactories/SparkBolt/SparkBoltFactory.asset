@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842156daae475c01391a2e3e1b84106d, type: 3}
   m_Name: SparkBoltFactory
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3731478976670700291, guid: e908651121bc93b379fcacd65dc269d3, type: 3}
+  prefab: {fileID: 9064156442032007797, guid: b42fb419afc1497209ed0b3b6702d422, type: 3}
   lifetime: 1
   lifetimeVariance: 0.1
   gravity: -0.1
   speed: 15
-  useRigidbodyPhysics: 1
   enableSubgroup: 0
   autoPayloadSpells:
   - {fileID: 11400000, guid: 8c44b4f49692ab42aa533cc558d071ba, type: 2}

@@ -11,7 +11,7 @@ public class SpeedUp : Modifier {
     public override void Apply(GameObject projectile) {
         var dynamicProjectile = projectile.GetComponent<DynamicProjectile>();
         if (dynamicProjectile != null) {
-            dynamicProjectile.rb.linearVelocity *= speedMultiplier;
+            dynamicProjectile.GetRigidbody().linearVelocity *= speedMultiplier;
         }
     }
 }

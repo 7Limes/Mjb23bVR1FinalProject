@@ -2,7 +2,7 @@ using UnityEngine;
 
 abstract public class DynamicProjectile : Projectile {
     protected float gravity;
-    public Rigidbody rb;
+    protected Rigidbody rb;
 
     public void Initialize(Vector3 velocity, float gravity) {
         rb = GetComponent<Rigidbody>();
@@ -13,6 +13,10 @@ abstract public class DynamicProjectile : Projectile {
 
         this.gravity = gravity;
         rb.linearVelocity = velocity;
+    }
+
+    public Rigidbody GetRigidbody() {
+        return rb;
     }
 
     protected override void FixedUpdate() {

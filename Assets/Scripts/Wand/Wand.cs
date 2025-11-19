@@ -99,7 +99,6 @@ public class Wand : MonoBehaviour {
     public void Cast() {
         if (isHeld && castDelayTimer == 0.0f) {
             if (groups.Count > 0) {
-                Debug.Log("Casting group " + groupIndex);
                 SpellGroup currentGroup = groups[groupIndex];
                 currentGroup.Cast(castPosition.position, castPosition.rotation);
                 castDelayTimer = castDelay + currentGroup.GetCastDelay();
@@ -107,7 +106,6 @@ public class Wand : MonoBehaviour {
                 groupIndex = (groupIndex + 1) % groups.Count;
             }
             else {
-                Debug.Log("Wand is empty.");
                 castDelayTimer = castDelay;
             }
         }
