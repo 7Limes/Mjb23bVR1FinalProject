@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285c7b56dff103ef4b6d7e62f1f793a3, type: 3}
+  m_Name: CopyQuadra
+  m_EditorClassIdentifier: 
+  spellID: copy_4
+  iconMaterial: {fileID: 2100000, guid: 1a0569c9ef062a851a3a5bc52ac4395a, type: 2}
+  spellFactory: {fileID: 11400000, guid: f75e91ca194549102b25ab567c63a15a, type: 2}
+  spellType: 1
+  spellName: Copy Quadra
+  spellDescription: Casts 4 copies of the next spell

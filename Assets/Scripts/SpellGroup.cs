@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public class SpellGroup {
+    const int MAX_COPIES = 200;
+
     private List<ProjectileFactory> projectiles;
     private List<Modifier> modifiers;
 
@@ -9,6 +11,7 @@ public class SpellGroup {
     private int spellIndex;
 
     private int castableCount;
+    private int copyCount;
 
     private Vector2 spread;
     private float castDelay;
@@ -19,6 +22,7 @@ public class SpellGroup {
         spells = new List<SpellEntry>();
         spellIndex = 0;
         castableCount = 0;
+        copyCount = 1;
         spread = Vector2.zero;
         castDelay = 0;
     }
@@ -29,6 +33,7 @@ public class SpellGroup {
         spells = spellList;
         spellIndex = startIndex;
         castableCount = 1;
+        copyCount = 1;
         spread = Vector2.zero;
         castDelay = 0;
     }
@@ -37,7 +42,15 @@ public class SpellGroup {
         while (castableCount > 0 && spellIndex < spells.Count) {
             SpellEntry spell = spells[spellIndex];
             if (spell != null) {
-                spell.AddToGroup(this);
+                int addIterations = copyCount;
+                if (addIterations == 0) {
+                    addIterations = 1;   
+                }
+                
+                copyCount = 0;
+                for (int i = 0; i < addIterations; i++) {
+                    spell.AddToGroup(this);
+                }
             }
             spellIndex++;
         }
@@ -91,6 +104,11 @@ public class SpellGroup {
 
     public void AddModifier(Modifier mod) {
         modifiers.Add(mod);
+    }
+
+    public void AddCopies(int copyAmount) {
+        copyCount += copyAmount;
+        copyCount = Mathf.Clamp(copyCount, 1, MAX_COPIES);
     }
 
     Quaternion RandomRotateWithSpread(Quaternion original, Vector2 spread) {
