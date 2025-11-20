@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Anchor
   - ProjectileNoCollide
+  - Enemy
   layers:
   - Default
   - TransparentFX

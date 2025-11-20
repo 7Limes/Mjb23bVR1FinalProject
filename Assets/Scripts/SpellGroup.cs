@@ -5,7 +5,7 @@ public class SpellGroup {
     const int MAX_COPIES = 200;
 
     private List<ProjectileFactory> projectiles;
-    private List<Modifier> modifiers;
+    private List<ProjectileModifier> modifiers;
 
     private List<SpellEntry> spells;
     private int spellIndex;
@@ -18,7 +18,7 @@ public class SpellGroup {
 
     public SpellGroup() {
         projectiles = new List<ProjectileFactory>();
-        modifiers = new List<Modifier>();
+        modifiers = new List<ProjectileModifier>();
         spells = new List<SpellEntry>();
         spellIndex = 0;
         castableCount = 0;
@@ -29,7 +29,7 @@ public class SpellGroup {
 
     public SpellGroup(List<SpellEntry> spellList, int startIndex) {
         projectiles = new List<ProjectileFactory>();
-        modifiers = new List<Modifier>();
+        modifiers = new List<ProjectileModifier>();
         spells = spellList;
         spellIndex = startIndex;
         castableCount = 1;
@@ -107,7 +107,7 @@ public class SpellGroup {
         castDelay += amount;
     }
 
-    public void AddModifier(Modifier mod) {
+    public void AddModifier(ProjectileModifier mod) {
         modifiers.Add(mod);
     }
 
@@ -134,8 +134,9 @@ public class SpellGroup {
             Quaternion spreadRotation = RandomRotateWithSpread(castRotation, totalSpread);
             GameObject projectileObj = projectile.Cast(castPosition, spreadRotation);
             foreach (var modifier in modifiers) {
-                modifier.Apply(projectileObj);
+                modifier.ApplyInitial(projectileObj);
             }
+            projectileObj.GetComponent<Projectile>().SetModifiers(modifiers);
         }
     }
 

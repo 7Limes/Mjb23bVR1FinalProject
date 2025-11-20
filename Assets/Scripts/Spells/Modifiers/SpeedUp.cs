@@ -1,10 +1,10 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SpeedUp", menuName = "Scriptable Objects/SpeedUp")]
-public class SpeedUp : Modifier {
+public class SpeedUp : ProjectileModifier {
     [SerializeField] private float speedMultiplier = 1.5f;
 
-    public override void Apply(GameObject projectile) {
+    public override void ApplyInitial(GameObject projectile) {
         var dynamicProjectile = projectile.GetComponent<DynamicProjectile>();
         if (dynamicProjectile != null) {
             dynamicProjectile.GetRigidbody().linearVelocity *= speedMultiplier;
