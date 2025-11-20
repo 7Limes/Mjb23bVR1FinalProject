@@ -16,6 +16,12 @@ public class WandSpawner : MonoBehaviour {
     [SerializeField] private GameObject spawnEffectPrefab;
     [SerializeField] private Transform effectLocation;
 
+    [SerializeField] private float spawnDistance = 0.15f;
+    [SerializeField] private float spawnDelay = 1.0f;
+
+    private GameObject currentWand = null;
+    private float spawnTimer = 0.0f;
+
     void Start() {
         SpawnNewWand();
     }
@@ -26,15 +32,15 @@ public class WandSpawner : MonoBehaviour {
             return;
         }
 
-        GameObject wand = Instantiate(wandPrefab, spawnPoint.position, spawnPoint.rotation);
+        currentWand = Instantiate(wandPrefab, spawnPoint.position, spawnPoint.rotation);
 
         // Create wand model
         int modelIndex = Random.Range(0, wandModelPrefabs.Count);
         GameObject wandModelPrefab = wandModelPrefabs[modelIndex];
-        GameObject wandModel = Instantiate(wandModelPrefab, wand.transform);
+        GameObject wandModel = Instantiate(wandModelPrefab, currentWand.transform);
         wandModel.transform.localRotation = Quaternion.Euler(0, 0, 0);
 
-        Wand wandScript = wand.GetComponent<Wand>();
+        Wand wandScript = currentWand.GetComponent<Wand>();
         if (wandScript != null) {
             wandScript.SetWandModel(wandModel);
             wandScript.SetCapacity(Random.Range(minCapacity, maxCapacity+1));
@@ -44,7 +50,20 @@ public class WandSpawner : MonoBehaviour {
         Instantiate(spawnEffectPrefab, effectLocation);
     }
 
-    public void OnButtonPress() {
-        SpawnNewWand();
+    void FixedUpdate() {
+        if (currentWand != null) {
+            float wandDistance = Vector3.Distance(spawnPoint.position, currentWand.transform.position);
+            if (wandDistance > spawnDistance) {
+                currentWand = null;
+                spawnTimer = spawnDelay;
+            }
+        }
+
+        if (spawnTimer > 0) {
+            spawnTimer = Mathf.MoveTowards(spawnTimer, 0.0f, Time.fixedDeltaTime);
+            if (spawnTimer == 0) {
+                SpawnNewWand();
+            }
+        }
     }
 }
