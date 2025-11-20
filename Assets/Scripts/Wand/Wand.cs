@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
+using UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics;
 
 public class Wand : MonoBehaviour {
     [SerializeField] private float rotateSpeed = 5f;
@@ -96,6 +97,11 @@ public class Wand : MonoBehaviour {
         }
     }
 
+    void CastHapticFeedback() {
+        var hapticPlayer = currentInteractor.transform.GetComponentInParent<HapticImpulsePlayer>();
+        hapticPlayer.SendHapticImpulse(1.0f, 0.25f);
+    }
+
     public void Cast() {
         if (isHeld && castDelayTimer == 0.0f) {
             if (groups.Count > 0) {
@@ -104,6 +110,7 @@ public class Wand : MonoBehaviour {
                 castDelayTimer = castDelay + currentGroup.GetCastDelay();
                 castDelayTimer = Mathf.Clamp(castDelayTimer, 0, 999);
                 groupIndex = (groupIndex + 1) % groups.Count;
+                CastHapticFeedback();
             }
             else {
                 castDelayTimer = castDelay;
