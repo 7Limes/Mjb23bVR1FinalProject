@@ -20,4 +20,4 @@ MonoBehaviour:
   spellDescription: 'Reduces the time between spell casts
 
 
-    Cast Delay: -0.25s'
+    Cast Delay: {castDelay}s'

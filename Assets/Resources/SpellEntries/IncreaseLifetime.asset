@@ -17,4 +17,7 @@ MonoBehaviour:
   spellFactory: {fileID: 11400000, guid: 25e07ab1752a328a7b7b4c7796a172aa, type: 2}
   spellType: 1
   spellName: Increase Lifetime
-  spellDescription: Increases the lifetime of a projectile
+  spellDescription: 'Increases the lifetime of a projectile
+
+
+    Lifetime: +{lifetimeAddition}s'

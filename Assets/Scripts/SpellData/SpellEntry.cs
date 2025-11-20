@@ -17,4 +17,11 @@ public class SpellEntry : ScriptableObject {
     public void AddToGroup(SpellGroup group) {
         spellFactory.AddToGroup(group);
     }
+
+    public string GetDescription() {
+        if (spellDescription == null) {
+            return "No description provided";
+        }
+        return StringFormatter.FormatWithObject(spellDescription, spellFactory);
+    }
 }

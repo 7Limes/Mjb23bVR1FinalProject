@@ -20,5 +20,5 @@ MonoBehaviour:
   spellDescription: 'Increases the speed of a projectile.
 
 
-    Speed Multiplier
-    : *1.5'
+    Speed Multiplier:
+    *{speedMultiplier}'

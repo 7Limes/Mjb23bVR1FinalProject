@@ -17,4 +17,7 @@ MonoBehaviour:
   spellFactory: {fileID: 11400000, guid: d3627e9eca6461d7888c3ab9552a11a4, type: 2}
   spellType: 1
   spellName: Reduce Lifetime
-  spellDescription: Decreases the lifetime of a projectile
+  spellDescription: 'Decreases the lifetime of a projectile
+
+
+    Lifetime: {lifetimeAddition}s'

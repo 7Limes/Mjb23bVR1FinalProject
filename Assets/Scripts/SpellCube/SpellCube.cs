@@ -29,7 +29,7 @@ public class SpellCube : MonoBehaviour {
         cubeMesh.GetComponent<MeshRenderer>().material = cubeMaterial;
 
         string spellName = spellEntry?.spellName ?? "Unnamed Spell";
-        string spellDescription = spellEntry?.spellDescription ?? "No description provided";
+        string spellDescription = spellEntry.GetDescription();
         spellNameText.SetText(spellName);
         spellDescriptionText.SetText(spellDescription);
     }
