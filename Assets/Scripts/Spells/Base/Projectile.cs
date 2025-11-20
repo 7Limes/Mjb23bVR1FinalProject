@@ -14,6 +14,10 @@ public class Projectile : MonoBehaviour {
         lifetime = newLifetime;
     }
 
+    public float GetLifetime() {
+        return lifetime;
+    }
+
     protected virtual void FixedUpdate() {
         if (lifetime != -1) {
             lifetime = Mathf.MoveTowards(lifetime, 0.0f, Time.fixedDeltaTime);
