@@ -128,9 +128,10 @@ public class SpellGroup {
         return original * horizontalRotation * verticalRotation;
     }
 
-    public void Cast(Vector3 castPosition, Quaternion castRotation) {
+    public void Cast(Vector3 castPosition, Quaternion castRotation, Vector2 addedSpread) {
+        Vector2 totalSpread = spread + addedSpread;
         foreach (var projectile in projectiles) {
-            Quaternion spreadRotation = RandomRotateWithSpread(castRotation, spread);
+            Quaternion spreadRotation = RandomRotateWithSpread(castRotation, totalSpread);
             GameObject projectileObj = projectile.Cast(castPosition, spreadRotation);
             foreach (var modifier in modifiers) {
                 modifier.Apply(projectileObj);

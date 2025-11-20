@@ -10,6 +10,7 @@ public class WandSocket : MonoBehaviour {
 
     [SerializeField] private TextMeshProUGUI capacityLabel;
     [SerializeField] private TextMeshProUGUI castDelayLabel;
+    [SerializeField] private TextMeshProUGUI spreadLabel;
 
     [SerializeField] private List<GameObject> animatedToruses = new List<GameObject>();
     [SerializeField] private float torusRotateSpeed = 0.1f;
@@ -17,8 +18,9 @@ public class WandSocket : MonoBehaviour {
     private bool wandIsAttached = false;
 
     private void UpdateLabels(Wand attachedWand) {
-        capacityLabel.SetText($"Capacity: {attachedWand.GetCapacity()}");
-        castDelayLabel.SetText($"Cast Delay: {attachedWand.GetCastDelay():0.00}s");
+        capacityLabel.SetText($"Capacity: {attachedWand.capacity}");
+        castDelayLabel.SetText($"Cast Delay: {attachedWand.castDelay:0.00}s");
+        spreadLabel.SetText($"Spread: {attachedWand.spread:0.0} degrees");
     }
 
     public void OnWandSocketAttach() {

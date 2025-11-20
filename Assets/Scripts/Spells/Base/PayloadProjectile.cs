@@ -24,7 +24,7 @@ public class PayloadProjectile : DynamicProjectile {
             Quaternion reflectedRotation = Quaternion.LookRotation(reflected);
 
             Vector3 castPosition = contact.point + normal * 0.2f;
-            payloadGroup?.Cast(castPosition, reflectedRotation);
+            payloadGroup.Cast(castPosition, reflectedRotation, Vector2.zero);
             castedPayload = true;
         }
 

@@ -33,7 +33,7 @@ public class EditTerminal : MonoBehaviour {
     }
 
     public void CreateSlots() {
-        int wandCapacity = attachedWand.GetCapacity();
+        int wandCapacity = attachedWand.capacity;
         for (int i = 0; i < wandCapacity; i++) {
             GameObject slotObject = Instantiate(spellSlotPrefab, slotsBasePosition);
 

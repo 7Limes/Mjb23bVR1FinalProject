@@ -2,11 +2,9 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public class WandSpawner : MonoBehaviour {
-    [SerializeField] private int minCapacity = 2;
-    [SerializeField] private int maxCapacity = 10;
-
-    [SerializeField] private float minCastDelay = 0.1f;
-    [SerializeField] private float maxCastDelay = 0.75f;
+    [SerializeField] private Vector2 capacityRange = new Vector2(2, 10);
+    [SerializeField] private Vector2 castDelayRange = new Vector2(0.1f, 0.75f);
+    [SerializeField] private Vector2 spreadRange = new Vector2(0.0f, 5.0f);
 
     [SerializeField] private Transform spawnPoint;
 
@@ -43,8 +41,9 @@ public class WandSpawner : MonoBehaviour {
         Wand wandScript = currentWand.GetComponent<Wand>();
         if (wandScript != null) {
             wandScript.SetWandModel(wandModel);
-            wandScript.SetCapacity(Random.Range(minCapacity, maxCapacity+1));
-            wandScript.SetCastDelay(Random.Range(minCastDelay, maxCastDelay));
+            wandScript.castDelay = Random.Range(castDelayRange.x, castDelayRange.y);
+            wandScript.spread = Random.Range(spreadRange.x, spreadRange.y);
+            wandScript.capacity = (int) Random.Range(capacityRange.x, capacityRange.y+1);
         }
 
         Instantiate(spawnEffectPrefab, effectLocation);

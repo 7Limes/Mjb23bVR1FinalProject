@@ -10,10 +10,11 @@ public class Wand : MonoBehaviour {
     [SerializeField] private float oscillateAmplitude = 0.05f;
 
     [SerializeField] private float holdDistance = 0.05f;  // The maximum distance at which the wand is considered "held"
-    [SerializeField] private float castDelay = 0.5f;
-    [SerializeField] private int capacity = 10;
-
     [SerializeField] private Transform castPosition;
+
+    public float castDelay = 0.5f;
+    public float spread = 0.0f;
+    public int capacity = 10;
 
     private GameObject wandModel;
     private Rigidbody rigidBody;
@@ -37,22 +38,6 @@ public class Wand : MonoBehaviour {
 
     public void SetIdleAnimation(bool enabled) {
         doIdleAnimation = enabled;
-    }
-
-    public void SetCapacity(int newCapacity) {
-        capacity = newCapacity;
-    }
-
-    public void SetCastDelay(float newCastDelay) {
-        castDelay = newCastDelay;
-    }
-
-    public int GetCapacity() {
-        return capacity;
-    }
-
-    public float GetCastDelay() {
-        return castDelay;
     }
  
     public SpellEntry GetSpell(int index) {
@@ -106,7 +91,8 @@ public class Wand : MonoBehaviour {
         if (isHeld && castDelayTimer == 0.0f) {
             if (groups.Count > 0) {
                 SpellGroup currentGroup = groups[groupIndex];
-                currentGroup.Cast(castPosition.position, castPosition.rotation);
+                Vector2 spreadVector = new Vector2(spread, spread);
+                currentGroup.Cast(castPosition.position, castPosition.rotation, spreadVector);
                 castDelayTimer = castDelay + currentGroup.GetCastDelay();
                 castDelayTimer = Mathf.Clamp(castDelayTimer, 0, 999);
                 groupIndex = (groupIndex + 1) % groups.Count;
