@@ -3,6 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Payload Projectile Factory", menuName = "Scriptable Objects/PayloadProjectileFactory")]
 public class PayloadProjectileFactory : DynamicProjectileFactory {
     [SerializeField] private bool enableSubgroup = true;
+    [SerializeField] private bool deliverOnExpire = false;
+
     protected SpellGroup payloadGroup = null;
 
     public override void AddToGroup(SpellGroup group) {
@@ -30,7 +32,7 @@ public class PayloadProjectileFactory : DynamicProjectileFactory {
         GameObject obj = base.Cast(castPosition, castRotation);
 
         var script = obj.GetComponent<PayloadProjectile>();
-        script.SetPayload(payloadGroup);
+        script.SetPayload(payloadGroup, deliverOnExpire);
 
         return obj;
     }
