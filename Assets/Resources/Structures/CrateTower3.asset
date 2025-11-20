@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e034fdf9acb2957fbf8bee056e55e6c, type: 3}
-  m_Name: Tower3
+  m_Name: CrateTower3
   m_EditorClassIdentifier: 
-  structureName: Tower 3
+  structureName: Crate Tower 3
   prefab: {fileID: 6023802233537007234, guid: 156d46f570886744d837086cdd46cecb, type: 3}
