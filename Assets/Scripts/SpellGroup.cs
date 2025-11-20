@@ -46,11 +46,16 @@ public class SpellGroup {
                 if (addIterations == 0) {
                     addIterations = 1;   
                 }
-                
+
                 copyCount = 0;
-                for (int i = 0; i < addIterations; i++) {
+                int savedCastableCount = castableCount;
+                int savedSpellIndex = spellIndex;
+                for (int i = 0; i < addIterations-1; i++) {
                     spell.AddToGroup(this);
+                    spellIndex = savedSpellIndex;
                 }
+                castableCount = savedCastableCount;
+                spell.AddToGroup(this);
             }
             spellIndex++;
         }
