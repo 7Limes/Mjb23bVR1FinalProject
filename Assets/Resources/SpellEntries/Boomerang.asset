@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 285c7b56dff103ef4b6d7e62f1f793a3, type: 3}
-  m_Name: Homing
+  m_Name: Boomerang
   m_EditorClassIdentifier: 
-  spellID: homing
-  iconMaterial: {fileID: 2100000, guid: 169574e7fac629ea29cd5ae144eeed52, type: 2}
-  spellFactory: {fileID: 11400000, guid: 51104ccd16928891b8a36f500ac84403, type: 2}
+  spellID: boomerang
+  iconMaterial: {fileID: 2100000, guid: 5e7ab9128a8bd860d9a357799b208f00, type: 2}
+  spellFactory: {fileID: 11400000, guid: 08d89f99ecb8652f2b6cf4fda249349e, type: 2}
   spellType: 1
-  spellName: Homing
-  spellDescription: Causes a projectile to home towards the nearest enemy
+  spellName: Boomerang
+  spellDescription: Causes a projectile to curve back towards you

@@ -2,6 +2,8 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Homing", menuName = "Scriptable Objects/Homing")]
 public class Homing : ProjectileModifier {
+    [SerializeField] private string targetTag = "Enemy";
+    
     [SerializeField] private float homingRadius = 10f;
     [SerializeField] private float homingForce = 1.5f;
     [SerializeField] private float maxSpeed = 20f;
@@ -9,9 +11,10 @@ public class Homing : ProjectileModifier {
     [SerializeField] private float damping = 0.5f;
 
     public override void ApplyInitial(GameObject projectile) {
-        if (projectile.GetComponent<EnemyFinder>() == null) {
-            var enemyFinder = projectile.AddComponent<EnemyFinder>();
+        if (projectile.GetComponent<TagFinder>() == null) {
+            var enemyFinder = projectile.AddComponent<TagFinder>();
             enemyFinder.SetDetectionRadius(homingRadius);
+            enemyFinder.SetTargetTag(targetTag);
         }
     }
 
@@ -21,8 +24,8 @@ public class Homing : ProjectileModifier {
             return;
         }
 
-        var enemyFinder = projectile.GetComponent<EnemyFinder>();
-        GameObject nearestEnemy = enemyFinder.GetNearestEnemy();
+        var enemyFinder = projectile.GetComponent<TagFinder>();
+        GameObject nearestEnemy = enemyFinder.GetNearestObject();
         if (nearestEnemy != null) {
             Debug.Log("nearest enemy: " + nearestEnemy.name);
             Transform enemyTransform = nearestEnemy.transform;
