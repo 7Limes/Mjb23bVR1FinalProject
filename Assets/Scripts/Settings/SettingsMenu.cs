@@ -41,4 +41,8 @@ public class SettingsMenu : MonoBehaviour {
     public void UpdateFlick(Toggle toggle) {
         settings.flickToCastEnabled = toggle.isOn;
     }
+
+    public void UpdateAutoCast(Toggle toggle) {
+        settings.autoCastEnabled = toggle.isOn;
+    }
 }

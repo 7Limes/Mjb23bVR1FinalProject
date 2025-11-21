@@ -24,6 +24,8 @@ public class Wand : MonoBehaviour {
 
     private bool isGrabbed = false;  // Whether the wand has been grabbed ("selected")
     private bool isHeld = false;     // Whether the wand is actually in the player's hand
+    private bool triggerPressed = false;
+    private bool prevTriggerPressed = false; // The state of the trigger on the last tick
     private bool doIdleAnimation = true;
 
     private float castDelayTimer = 0.0f;
@@ -31,6 +33,8 @@ public class Wand : MonoBehaviour {
     private List<SpellEntry> spells = new List<SpellEntry>();
     private List<SpellGroup> groups = new List<SpellGroup>();
     private int groupIndex = 0;
+
+    private GlobalSettings settings;
 
     public void SetWandModel(GameObject model) {
         wandModel = model;
@@ -58,11 +62,20 @@ public class Wand : MonoBehaviour {
     public void OnRelease() {
         isGrabbed = false;
         isHeld = false;
+        triggerPressed = false;
         doIdleAnimation = true;
         currentInteractor = null;
         wandModel.transform.localPosition = Vector3.zero;
         wandModel.transform.localRotation = Quaternion.Euler(0, 0, 0);
         transform.rotation = Quaternion.Euler(0, 0, 0);
+    }
+
+    public void OnTriggerPress() {
+        triggerPressed = true;
+    }
+
+    public void OnTriggerRelease() {
+        triggerPressed = false;
     }
 
     public void UpdateSpellGroups() {
@@ -107,6 +120,8 @@ public class Wand : MonoBehaviour {
     void Start() {
         rigidBody = GetComponent<Rigidbody>();
 
+        settings = Resources.Load<GlobalSettings>("GlobalSettings");
+
         animationTimeOffset = Random.Range(0.0f, 10f);
 
         // Fill spells list with null to indicate empty
@@ -140,5 +155,18 @@ public class Wand : MonoBehaviour {
                 isHeld = distance < holdDistance;
             }
         }
+
+        if (settings.autoCastEnabled) {
+            if (triggerPressed) {
+                Cast();
+            }
+        }
+        else {
+            if (!prevTriggerPressed && triggerPressed) {
+                Cast();
+            }
+            prevTriggerPressed = triggerPressed;
+        }
+
     }
 }
