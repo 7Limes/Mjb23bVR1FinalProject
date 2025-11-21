@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 285c7b56dff103ef4b6d7e62f1f793a3, type: 3}
-  m_Name: TeleportBolt
+  m_Name: Return
   m_EditorClassIdentifier: 
-  spellID: teleport_bolt
-  iconMaterial: {fileID: 2100000, guid: ea029e07356e0b4a191c362313079f14, type: 2}
-  spellFactory: {fileID: 11400000, guid: 7f11c59d3cdf22536b26a2a5f3983748, type: 2}
+  spellID: return
+  iconMaterial: {fileID: 2100000, guid: b78f2417299be666ab449f7a1e7e07e8, type: 2}
+  spellFactory: {fileID: 11400000, guid: 3612fa29c8dc6fe4cb0b40275edbd881, type: 2}
   spellType: 0
-  spellName: Teleport Bolt
-  spellDescription: A magical bolt that moves you wherever it ends up flying
+  spellName: Return
+  spellDescription: Returns you to where you cast this spell after a short time
