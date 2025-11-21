@@ -717,6 +717,7 @@ GameObject:
   - component: {fileID: 171758965}
   - component: {fileID: 171758964}
   - component: {fileID: 171758963}
+  - component: {fileID: 171758966}
   m_Layer: 0
   m_Name: DestroyBox
   m_TagString: Untagged
@@ -774,6 +775,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &171758966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171758962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42fc36683e8a2bb398a6b4f3aa0eb0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportPoint: {fileID: 1055468764}
+  whitelistedTags:
+  - Player
 --- !u!1001 &179712524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5529,6 +5545,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d30761bb8f798b9e88db918ffd155ba, type: 3}
+--- !u!1 &1055468763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1055468764}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1055468764
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055468763}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.607, z: -5.584}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1064014431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4808617596370765781, guid: 1d30761bb8f798b9e88db918ffd155ba, type: 3}
@@ -11132,19 +11179,20 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 879952898}
   - {fileID: 1293365296}
+  - {fileID: 246081754}
+  - {fileID: 306987780}
   - {fileID: 863897852}
+  - {fileID: 879952898}
   - {fileID: 279886636}
   - {fileID: 837883216}
   - {fileID: 2114991369}
   - {fileID: 1867357757}
-  - {fileID: 171758965}
-  - {fileID: 246081754}
-  - {fileID: 306987780}
   - {fileID: 1185913182}
   - {fileID: 1745371345}
   - {fileID: 1188894818}
   - {fileID: 2037778934}
   - {fileID: 1246083828}
   - {fileID: 501038043}
+  - {fileID: 171758965}
+  - {fileID: 1055468764}
