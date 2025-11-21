@@ -16,6 +16,7 @@ public class SpellCube : MonoBehaviour {
 
     private SpellEntry spellEntry = null;
     private Rigidbody rb;
+    private BoxCollider boxCollider;
 
     private bool isSuspended = true;
 
@@ -38,10 +39,20 @@ public class SpellCube : MonoBehaviour {
         isSuspended = isEnabled;
     }
 
+    public void OnGrab() {
+        boxCollider.enabled = false;
+    }
+
+
+    public void OnStopGrab() {
+        boxCollider.enabled = true;
+    }
+
     void Start() {
         playerCamera = Camera.main;
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = isSuspended;
+        boxCollider = GetComponent<BoxCollider>();
 
         // Apply random rotation
         transform.Rotate(new Vector3(

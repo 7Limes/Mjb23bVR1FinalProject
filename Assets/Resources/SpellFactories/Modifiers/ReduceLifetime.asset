@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 450c4af6ceb219c9ca7cb4170f76dadf, type: 3}
   m_Name: ReduceLifetime
   m_EditorClassIdentifier: 
-  lifetimeAddition: -0.75
+  lifetimeAddition: -0.33

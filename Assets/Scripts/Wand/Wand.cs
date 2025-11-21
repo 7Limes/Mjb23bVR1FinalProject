@@ -18,6 +18,7 @@ public class Wand : MonoBehaviour {
 
     private GameObject wandModel;
     private Rigidbody rigidBody;
+    private BoxCollider boxCollider;
     private IXRSelectInteractor currentInteractor = null;
 
     private float animationTimeOffset = 0.0f;
@@ -57,6 +58,7 @@ public class Wand : MonoBehaviour {
         doIdleAnimation = false;
         currentInteractor = GetComponent<XRGrabInteractable>().firstInteractorSelecting;
         castDelayTimer = castDelay;
+        boxCollider.enabled = false;
     }
 
     public void OnRelease() {
@@ -68,6 +70,7 @@ public class Wand : MonoBehaviour {
         wandModel.transform.localPosition = Vector3.zero;
         wandModel.transform.localRotation = Quaternion.Euler(0, 0, 0);
         transform.rotation = Quaternion.Euler(0, 0, 0);
+        boxCollider.enabled = true;
     }
 
     public void OnTriggerPress() {
@@ -109,7 +112,7 @@ public class Wand : MonoBehaviour {
                 castDelayTimer = castDelay + currentGroup.GetCastDelay();
                 castDelayTimer = Mathf.Clamp(castDelayTimer, 0, 999);
                 groupIndex = (groupIndex + 1) % groups.Count;
-                HapticImpulse(1.0f, 0.2f);
+                HapticImpulse(0.75f, 0.15f);
             }
             else {
                 castDelayTimer = castDelay;
@@ -120,6 +123,7 @@ public class Wand : MonoBehaviour {
 
     void Start() {
         rigidBody = GetComponent<Rigidbody>();
+        boxCollider = GetComponent<BoxCollider>();
 
         settings = Resources.Load<GlobalSettings>("GlobalSettings");
 
