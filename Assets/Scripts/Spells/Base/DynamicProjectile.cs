@@ -19,9 +19,17 @@ abstract public class DynamicProjectile : Projectile {
         return rb;
     }
 
+    public float GetGravity() {
+        return gravity;
+    }
+    
+    public void SetGravity(float newGravity) {
+        gravity = newGravity;
+    }
+
     protected override void FixedUpdate() {
         if (!rb.isKinematic) {
-            rb.linearVelocity += new Vector3(0, gravity, 0);
+            rb.AddForce(new Vector3(0, gravity, 0));
         }
 
         base.FixedUpdate();

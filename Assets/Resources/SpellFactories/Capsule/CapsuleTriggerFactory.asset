@@ -15,8 +15,8 @@ MonoBehaviour:
   prefab: {fileID: 1975313497227065341, guid: b05a4e632c269c0508646bc9040c1e4f, type: 3}
   lifetime: -1
   lifetimeVariance: 0
-  gravity: 0
+  gravity: -8
   speed: 8
-  useRigidbodyPhysics: 1
   enableSubgroup: 1
+  deliverOnExpire: 0
   breakForce: 4
