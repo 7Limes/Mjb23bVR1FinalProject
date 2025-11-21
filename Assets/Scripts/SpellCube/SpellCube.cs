@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class SpellCube : MonoBehaviour {
     [SerializeField] private GameObject iconMesh;
@@ -43,6 +45,19 @@ public class SpellCube : MonoBehaviour {
         boxCollider.enabled = false;
     }
 
+    public void SendCanvasHaptic() {
+        var currentInteractor = GetComponent<XRGrabInteractable>()?.firstInteractorSelecting;
+        if (currentInteractor == null) {
+            return;
+        }
+
+        var hapticPlayer = currentInteractor.transform.GetComponentInParent<HapticImpulsePlayer>();
+        if (hapticPlayer == null) {
+            return;
+        }
+
+        hapticPlayer.SendHapticImpulse(0.4f, 0.1f);
+    }
 
     public void OnStopGrab() {
         boxCollider.enabled = true;
