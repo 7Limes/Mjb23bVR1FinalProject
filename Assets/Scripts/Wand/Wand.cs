@@ -95,9 +95,9 @@ public class Wand : MonoBehaviour {
         }
     }
 
-    void CastHapticFeedback() {
+    void HapticImpulse(float amplitude, float duration) {
         var hapticPlayer = currentInteractor.transform.GetComponentInParent<HapticImpulsePlayer>();
-        hapticPlayer.SendHapticImpulse(1.0f, 0.25f);
+        hapticPlayer.SendHapticImpulse(amplitude, duration);
     }
 
     public void Cast() {
@@ -109,10 +109,11 @@ public class Wand : MonoBehaviour {
                 castDelayTimer = castDelay + currentGroup.GetCastDelay();
                 castDelayTimer = Mathf.Clamp(castDelayTimer, 0, 999);
                 groupIndex = (groupIndex + 1) % groups.Count;
-                CastHapticFeedback();
+                HapticImpulse(1.0f, 0.2f);
             }
             else {
                 castDelayTimer = castDelay;
+                HapticImpulse(1.0f, 0.5f);
             }
         }
     }
