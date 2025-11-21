@@ -478,6 +478,7 @@ GameObject:
   - component: {fileID: 82796853368684461}
   - component: {fileID: 5392987358619582043}
   - component: {fileID: 9150783738646826794}
+  - component: {fileID: -1484520726515066681}
   m_Layer: 0
   m_Name: SpellCube
   m_TagString: Untagged
@@ -598,36 +599,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5934363424344723839}
-        m_TargetAssemblyTypeName: SpellCube, Assembly-CSharp
-        m_MethodName: OnGrab
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3586548776979617933}
         m_TargetAssemblyTypeName: CanvasFadeToggle, Assembly-CSharp
         m_MethodName: FadeOut
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 5934363424344723839}
-        m_TargetAssemblyTypeName: SpellCube, Assembly-CSharp
-        m_MethodName: OnStopGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -785,6 +762,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-1484520726515066681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5019688249724423454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e343fd914c1fc43af8ce297216ad07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whitelistedTags:
+  - Player
 --- !u!1 &5807904156961694893
 GameObject:
   m_ObjectHideFlags: 0
