@@ -12,11 +12,5 @@ public class AutoPayloadProjectileFactory : PayloadProjectileFactory {
         }
 
         base.AddToGroup(group);
-    }   
-
-    public override GameObject Cast(Vector3 castPosition, Quaternion castRotation) {
-        GameObject obj = base.Cast(castPosition, castRotation);
-
-        return obj;
     }
 }
