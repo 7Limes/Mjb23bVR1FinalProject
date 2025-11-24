@@ -42,19 +42,19 @@ public class SpellGroup {
         while (castableCount > 0 && spellIndex < spells.Count) {
             SpellEntry spell = spells[spellIndex];
             if (spell != null) {
-                int addIterations = copyCount;
-                if (addIterations == 0) {
-                    addIterations = 1;   
-                }
-
+                int copyIterations = copyCount-1;
                 copyCount = 0;
                 int savedCastableCount = castableCount;
                 int savedSpellIndex = spellIndex;
-                for (int i = 0; i < addIterations-1; i++) {
+
+                // Cast n-1 copies of the spell
+                for (int i = 0; i < copyIterations; i++) {
                     spell.AddToGroup(this);
                     spellIndex = savedSpellIndex;
                 }
                 castableCount = savedCastableCount;
+
+                // Cast a final spell to ensure all fields are normal
                 spell.AddToGroup(this);
             }
             spellIndex++;
