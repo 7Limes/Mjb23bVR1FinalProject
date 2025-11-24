@@ -72,7 +72,10 @@ public class SpellCube : MonoBehaviour {
         Vector3 worldUpOffset = Vector3.up * oscillateY;
         Vector3 localOffset = iconMesh.transform.parent.InverseTransformDirection(worldUpOffset);
         iconMesh.transform.localPosition = localOffset;
-        iconMesh.transform.rotation = playerCamera.transform.rotation;
+
+        Vector3 iconRotation = playerCamera.transform.rotation.eulerAngles;
+        iconRotation.z = 0;
+        iconMesh.transform.eulerAngles = iconRotation;
 
         spellInfoTarget.LookAt(playerCamera.transform);
         spellInfoTarget.Rotate(0, 180, 0);
