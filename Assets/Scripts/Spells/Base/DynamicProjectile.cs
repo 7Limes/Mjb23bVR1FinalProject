@@ -1,10 +1,11 @@
 using UnityEngine;
 
-abstract public class DynamicProjectile : Projectile {
+public class DynamicProjectile : Projectile {
     protected float gravity;
     protected Rigidbody rb;
+    protected bool expireOnCollision = true;
 
-    public void Initialize(Vector3 velocity, float gravity) {
+    public void Initialize(Vector3 velocity, float gravity, bool expireOnCollision) {
         rb = GetComponent<Rigidbody>();
         if (rb == null) {
             Debug.LogError("Could not find Rigidbody on dynamic projectile. Please add one.");
@@ -12,6 +13,7 @@ abstract public class DynamicProjectile : Projectile {
         }
 
         this.gravity = gravity;
+        this.expireOnCollision = expireOnCollision;
         rb.linearVelocity = velocity;
     }
 
@@ -40,6 +42,8 @@ abstract public class DynamicProjectile : Projectile {
             return;
         }
 
-        OnExpire();
+        if (expireOnCollision) {
+            OnExpire();
+        }
     }
 }

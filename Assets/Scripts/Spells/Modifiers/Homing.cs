@@ -27,7 +27,6 @@ public class Homing : ProjectileModifier {
         var enemyFinder = projectile.GetComponent<TagFinder>();
         GameObject nearestEnemy = enemyFinder.GetNearestObject();
         if (nearestEnemy != null) {
-            Debug.Log("nearest enemy: " + nearestEnemy.name);
             Transform enemyTransform = nearestEnemy.transform;
 
             Vector3 direction = (enemyTransform.position - projectile.transform.position).normalized;

@@ -9,9 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3050beb43b367996bb14405a173cfaa, type: 3}
+  m_Script: {fileID: 11500000, guid: 14bceda6bad1ef5538767868882abcc5, type: 3}
   m_Name: MagicPlatformFactory
   m_EditorClassIdentifier: 
   prefab: {fileID: 1808996433760115008, guid: 525a0087edac28e14a52799cb73b9fae, type: 3}
   lifetime: 15
   lifetimeVariance: 0
+  gravity: 0
+  speed: 0
+  expireOnCollision: 0
+  fixedRotation: {x: 90, y: -1, z: 0}
