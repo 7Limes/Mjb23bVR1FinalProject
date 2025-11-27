@@ -7732,7 +7732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8806329115733545877, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: XRRig
       objectReference: {fileID: 0}
     - target: {fileID: 8806329115733545878, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11142,6 +11142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whitelistedTags:
   - Player
+  - XRRig
 --- !u!1 &2009967479
 GameObject:
   m_ObjectHideFlags: 0
