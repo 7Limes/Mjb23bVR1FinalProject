@@ -3,6 +3,7 @@ using UnityEngine;
 abstract public class ProjectileModifier : SpellFactory {
     public override void AddToGroup(SpellGroup group) {
         group.AddModifier(this);
+        base.AddToGroup(group);
     }
     
     // Applies to `projectile` once when it's created

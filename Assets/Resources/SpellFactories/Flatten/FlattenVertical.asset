@@ -9,6 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5165d8f329cf87384ba2058c02b09952, type: 3}
+  m_Script: {fileID: 11500000, guid: b7a3000df90edf9e389a36524518147e, type: 3}
   m_Name: FlattenVertical
   m_EditorClassIdentifier: 
+  castDelayChange: 0
+  spreadChange: 0
+  addSpread: {x: -360, y: 0}

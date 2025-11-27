@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a3000df90edf9e389a36524518147e, type: 3}
   m_Name: FlattenHorizontal
   m_EditorClassIdentifier: 
+  castDelayChange: 0
+  spreadChange: 0
+  addSpread: {x: 0, y: -360}

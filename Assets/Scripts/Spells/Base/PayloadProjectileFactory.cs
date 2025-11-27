@@ -2,7 +2,11 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Payload Projectile Factory", menuName = "Scriptable Objects/PayloadProjectileFactory")]
 public class PayloadProjectileFactory : DynamicProjectileFactory {
+    [Header("Payload Settings")]
+    [Tooltip("Whether this projectile should capture a subgroup. (Enable for trigger spells)")]
     [SerializeField] private bool enableSubgroup = true;
+
+    [Tooltip("Whether this projectile should deliver its payload on expiration.")]
     [SerializeField] private bool deliverOnExpire = false;
 
     protected SpellGroup payloadGroup = null;
@@ -25,6 +29,7 @@ public class PayloadProjectileFactory : DynamicProjectileFactory {
         factory.payloadGroup = payload;
 
         group.AddProjectile(factory);
+        ApplyGeneralStatChanges(group);
         group.DecrementCastable();
     }
 

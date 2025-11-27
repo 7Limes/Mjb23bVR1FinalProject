@@ -6,5 +6,6 @@ public class MulticastFactory : SpellFactory {
     public override void AddToGroup(SpellGroup group) {
         group.AddMulticast(multicastAmount);
         group.DecrementCastable();
+        base.AddToGroup(group);
     }
 }

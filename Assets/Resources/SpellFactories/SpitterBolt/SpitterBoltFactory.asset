@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842156daae475c01391a2e3e1b84106d, type: 3}
   m_Name: SpitterBoltFactory
   m_EditorClassIdentifier: 
+  castDelayChange: -0.02
+  spreadChange: 1
   prefab: {fileID: 7158977557385241188, guid: 6feccad1d5e99eb7bad9dcdf4d4e068a, type: 3}
   lifetime: 0.5
   lifetimeVariance: 0.05
