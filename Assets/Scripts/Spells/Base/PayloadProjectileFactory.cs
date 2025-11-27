@@ -32,6 +32,10 @@ public class PayloadProjectileFactory : DynamicProjectileFactory {
         GameObject obj = base.Cast(castPosition, castRotation);
 
         var script = obj.GetComponent<PayloadProjectile>();
+        if (script == null) {
+            Debug.LogError($"Could not find PayloadProjectile component on prefab {obj.name}");
+            return null;
+        }
         script.SetPayload(payloadGroup, deliverOnExpire);
 
         return obj;

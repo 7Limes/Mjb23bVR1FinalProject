@@ -10,6 +10,11 @@ public class DynamicProjectileFactory : ProjectileFactory {
         GameObject obj = base.Cast(castPosition, castRotation);
 
         var script = obj.GetComponent<DynamicProjectile>();
+        if (script == null) {
+            Debug.LogError($"Could not find DynamicProjectile component on prefab {obj.name}");
+            return null;
+        }
+
         Vector3 projVelocity = castRotation * Vector3.forward * speed;
         script.Initialize(projVelocity, gravity, expireOnCollision);
 
