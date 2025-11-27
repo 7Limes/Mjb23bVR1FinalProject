@@ -60,3 +60,9 @@ such as ProjectileFactory, which produces projectile spells.
 ### Models
 
 - https://poly.pizza/m/vlVx279xut
+
+
+### Audio
+
+- https://niiiemand.itch.io/niiiemands-explosion-sfx
+- https://lmglolo.itch.io/free-fps-sfx
