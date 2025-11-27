@@ -67,3 +67,4 @@ such as ProjectileFactory, which produces projectile spells.
 - https://niiiemand.itch.io/niiiemands-explosion-sfx
 - https://lmglolo.itch.io/free-fps-sfx
 - https://freesound.org/people/caileykehoe/sounds/444181/
+- https://freesound.org/people/elliott.klein/sounds/189630/
