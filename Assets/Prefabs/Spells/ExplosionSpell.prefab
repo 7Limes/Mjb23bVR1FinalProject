@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1466902040679964277}
   - component: {fileID: 7733630917651502609}
   - component: {fileID: 1692618966525461018}
+  - component: {fileID: 185558205963841842}
   - component: {fileID: 9063595252479173436}
   - component: {fileID: 9114333112241630491}
   m_Layer: 10
@@ -60,8 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d23f4bb85490223f7a65f57bd0a2f2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sphereCollider: {fileID: 185558205963841842}
   forceStrength: 40
-  radius: 1.5
   forceMode: 1
   duration: 0.5
   falloffExponent: 2
@@ -69,8 +70,27 @@ MonoBehaviour:
   excludedLayers:
     serializedVersion: 2
     m_Bits: 1024
-  showGizmo: 1
-  gizmoColor: {r: 1, g: 0.5, b: 0, a: 0.3}
+--- !u!135 &185558205963841842
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383609312662471101}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &9063595252479173436
 AudioSource:
   m_ObjectHideFlags: 0
@@ -185,6 +205,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ef0c50a6b349a02d8a6f400e2cd4c061, type: 3}
   - {fileID: 8300000, guid: dcd7a4253f09764d1a985131c14b3076, type: 3}
   - {fileID: 8300000, guid: 42906a66b0deeae8eb72b413fd6d29b4, type: 3}
+  playOnStart: 1
+  disableRepeats: 1
 --- !u!1001 &2284343185408559943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -261,12 +283,20 @@ PrefabInstance:
       propertyPath: prewarm
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 198207014375249716, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
+      propertyPath: scalingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 198263872644927810, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198263872644927810, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
       propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198263872644927810, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
+      propertyPath: scalingMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198656289721292014, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
@@ -277,12 +307,20 @@ PrefabInstance:
       propertyPath: prewarm
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 198656289721292014, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
+      propertyPath: scalingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 198698117513318312, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198698117513318312, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
       propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198698117513318312, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
+      propertyPath: scalingMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

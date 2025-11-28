@@ -4913,6 +4913,7 @@ GameObject:
   - component: {fileID: 6077129578221607035}
   - component: {fileID: 8808968110466344422}
   - component: {fileID: 4830550414242252551}
+  - component: {fileID: 4239126627352470573}
   - component: {fileID: 4542804463792953708}
   - component: {fileID: 8852751662991328156}
   - component: {fileID: 2130663167955434762}
@@ -9832,8 +9833,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d23f4bb85490223f7a65f57bd0a2f2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sphereCollider: {fileID: 4239126627352470573}
   forceStrength: 5
-  radius: 0.5
   forceMode: 1
   duration: 0.5
   falloffExponent: 2
@@ -9841,8 +9842,27 @@ MonoBehaviour:
   excludedLayers:
     serializedVersion: 2
     m_Bits: 1024
-  showGizmo: 1
-  gizmoColor: {r: 1, g: 0.5, b: 0, a: 0.3}
+--- !u!135 &4239126627352470573
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878711192140978616}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4542804463792953708
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1379491694010665706}
   - component: {fileID: 725822574509775666}
   - component: {fileID: -7017193794868939091}
+  - component: {fileID: 8453332147815389581}
   m_Layer: 10
   m_Name: PinkHitEffect
   m_TagString: ProjectileNoCollide
@@ -4929,8 +4930,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d23f4bb85490223f7a65f57bd0a2f2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sphereCollider: {fileID: 8453332147815389581}
   forceStrength: 5
-  radius: 0.5
   forceMode: 1
   duration: 0.5
   falloffExponent: 2
@@ -4938,8 +4939,6 @@ MonoBehaviour:
   excludedLayers:
     serializedVersion: 2
     m_Bits: 1024
-  showGizmo: 1
-  gizmoColor: {r: 1, g: 0.5, b: 0, a: 0.3}
 --- !u!114 &-7017193794868939091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4952,6 +4951,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6256362c2f57e7afa16e9ac041fa923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &8453332147815389581
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112469436992543450}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4608464000948305788
 GameObject:
   m_ObjectHideFlags: 0

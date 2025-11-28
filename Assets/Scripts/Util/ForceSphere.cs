@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using Unity.XR.CoreUtils;
 
 public class ForceSphere : MonoBehaviour {
+    [SerializeField] private SphereCollider sphereCollider;
+
     [SerializeField] private float forceStrength = 100f;
-    [SerializeField] private float radius = 5f;
     [SerializeField] private ForceMode forceMode = ForceMode.Force;
     [SerializeField] private float duration = 0.5f;
 
@@ -16,12 +17,14 @@ public class ForceSphere : MonoBehaviour {
 
     [SerializeField] private LayerMask excludedLayers;
 
-    [SerializeField] private bool showGizmo = true;
-
-    [SerializeField] private Color gizmoColor = new Color(1f, 0.5f, 0f, 0.3f);
-
     private HashSet<Rigidbody> affectedRigidbodies = new HashSet<Rigidbody>();
     private float deactivateTimer = 0.0f;
+
+    private void Awake() {
+        if (sphereCollider == null) {
+            Debug.LogError("ForceSphere: Could not find SphereCollider component");
+        }
+    }
 
     private void FixedUpdate() {
         ApplyForceToNearbyRigidbodies();
@@ -33,8 +36,15 @@ public class ForceSphere : MonoBehaviour {
     }
 
     private void ApplyForceToNearbyRigidbodies() {
+        if (sphereCollider == null)
+            return;
+
+        // Get radius from the SphereCollider, accounting for scale
+        float radius = sphereCollider.radius * Mathf.Max(transform.lossyScale.x, transform.lossyScale.y, transform.lossyScale.z);
+        Vector3 center = transform.TransformPoint(sphereCollider.center);
+
         // Find all colliders within the sphere radius
-        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+        Collider[] colliders = Physics.OverlapSphere(center, radius);
 
         foreach (Collider col in colliders) {
             Rigidbody rb = col.attachedRigidbody;
@@ -55,7 +65,7 @@ public class ForceSphere : MonoBehaviour {
                 continue;
 
             // Calculate direction from sphere center to rigidbody
-            Vector3 direction = rb.position - transform.position;
+            Vector3 direction = rb.position - center;
             float distance = direction.magnitude;
 
             // Skip if exactly at center to avoid division by zero
@@ -78,17 +88,5 @@ public class ForceSphere : MonoBehaviour {
                 affectedRigidbodies.Add(rb);
             }
         }
-    }
-
-    private void OnDrawGizmos() {
-        if (!showGizmo)
-            return;
-
-        Gizmos.color = gizmoColor;
-        Gizmos.DrawSphere(transform.position, radius);
-
-        // Draw wireframe for better visibility
-        Gizmos.color = new Color(gizmoColor.r, gizmoColor.g, gizmoColor.b, 1f);
-        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }
