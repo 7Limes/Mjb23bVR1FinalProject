@@ -4,6 +4,7 @@ public class DynamicProjectile : Projectile {
     protected float gravity;
     protected Rigidbody rb;
     protected bool expireOnCollision = true;
+    protected bool expiredFromCollision = false;
 
     public void Initialize(Vector3 velocity, float gravity, bool expireOnCollision) {
         rb = GetComponent<Rigidbody>();
@@ -29,6 +30,14 @@ public class DynamicProjectile : Projectile {
         gravity = newGravity;
     }
 
+    public void SetExpireOnCollision(bool enable) {
+        expireOnCollision = enable;
+    }
+
+    protected override bool ShouldExpire() {
+        return expiredFromCollision || base.ShouldExpire();
+    }
+
     protected override void FixedUpdate() {
         if (!rb.isKinematic) {
             rb.AddForce(new Vector3(0, gravity, 0));
@@ -38,12 +47,8 @@ public class DynamicProjectile : Projectile {
     }
 
     protected virtual void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.CompareTag("ProjectileNoCollide")) {
-            return;
-        }
-
         if (expireOnCollision) {
-            OnExpire();
+            expiredFromCollision = true;
         }
     }
 }

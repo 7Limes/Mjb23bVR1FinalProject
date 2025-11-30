@@ -69,7 +69,7 @@ MonoBehaviour:
   applyOnce: 1
   excludedLayers:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1152
 --- !u!135 &185558205963841842
 SphereCollider:
   m_ObjectHideFlags: 0

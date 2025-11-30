@@ -9,6 +9,18 @@ public class LifetimeFactory : ProjectileModifier {
         if (projectileScript != null) {
             float newLifetime = projectileScript.GetLifetime() + lifetimeAddition;
             projectileScript.SetLifetime(newLifetime);
+
+            // Adjust particle durations
+            if (projectile.CompareTag("ChangeParticleLifetime")) {
+                var particles = projectile.GetComponentsInChildren<ParticleSystem>();
+                foreach (var particle in particles) {
+                    particle.Stop();
+                    var main = particle.main;
+                    main.duration = newLifetime;
+                    main.startLifetime = newLifetime;
+                    particle.Play();
+                }
+            }
         }
     }
 }

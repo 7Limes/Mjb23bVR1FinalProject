@@ -31,10 +31,6 @@ public class PayloadProjectile : DynamicProjectile {
     }
 
     protected override void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.CompareTag("ProjectileNoCollide")) {
-            return;
-        }
-
         ContactPoint contact = collision.GetContact(0);
         Vector3 normal = contact.normal;
         Vector3 castPosition = contact.point + normal * 0.2f;
@@ -43,7 +39,7 @@ public class PayloadProjectile : DynamicProjectile {
         Quaternion reflectedRotation = Quaternion.LookRotation(reflected);
 
         CastPayload(castPosition, reflectedRotation);
-
-        base.OnExpire();
+        
+        base.OnCollisionEnter(collision);
     }
 }

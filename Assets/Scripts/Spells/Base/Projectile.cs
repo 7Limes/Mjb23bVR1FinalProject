@@ -5,7 +5,11 @@ public class Projectile : MonoBehaviour {
     protected float lifetime;
     private List<ProjectileModifier> modifiers;
 
-    protected virtual void OnExpire() {
+    protected virtual bool ShouldExpire() {
+        return lifetime == 0;
+    }
+
+    protected virtual void OnExpire() {  
         Destroy(gameObject);
     }
 
@@ -28,9 +32,10 @@ public class Projectile : MonoBehaviour {
     protected virtual void FixedUpdate() {
         if (lifetime != -1) {
             lifetime = Mathf.MoveTowards(lifetime, 0.0f, Time.fixedDeltaTime);
-            if (lifetime == 0) {
-                OnExpire();
-            }
+        }
+
+        if (ShouldExpire()) {
+            OnExpire();
         }
 
         if (modifiers != null) {

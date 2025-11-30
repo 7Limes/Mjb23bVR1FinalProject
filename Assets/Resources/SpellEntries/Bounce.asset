@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285c7b56dff103ef4b6d7e62f1f793a3, type: 3}
+  m_Name: Bounce
+  m_EditorClassIdentifier: 
+  spellID: bounce
+  iconMaterial: {fileID: 2100000, guid: 9daf32550e8ea82f48b48ef0698b86fb, type: 2}
+  spellFactory: {fileID: 11400000, guid: b64d398e81745758899d9053f071388e, type: 2}
+  spellType: 1
+  spellName: Bounce
+  spellDescription: Increases the restitution of a projectile

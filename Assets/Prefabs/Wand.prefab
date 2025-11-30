@@ -78,9 +78,9 @@ GameObject:
   - component: {fileID: 6542567380366026996}
   - component: {fileID: 4316108684749996340}
   - component: {fileID: -4242194096241642825}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wand
-  m_TagString: ProjectileNoCollide
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
