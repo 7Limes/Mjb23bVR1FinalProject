@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 using UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics;
+using System;
 
 public class Wand : MonoBehaviour {
     [SerializeField] private float rotateSpeed = 5f;
@@ -50,6 +51,20 @@ public class Wand : MonoBehaviour {
 
     public void SetSpell(SpellEntry spellEntry, int index) {
         spells[index] = spellEntry;
+    }
+
+    public void SetSpells(List<SpellEntry> newSpells) {
+        spells.Clear();
+        foreach (SpellEntry entry in newSpells) {
+            spells.Add(entry);
+        }
+
+        capacity = Math.Max(capacity, newSpells.Count);
+
+        // Pad with nulls
+        while (spells.Count < capacity) {
+            spells.Add(null);
+        }
     }
     
     public void OnGrab() {
@@ -123,10 +138,10 @@ public class Wand : MonoBehaviour {
         
         settings = Resources.Load<GlobalSettings>("GlobalSettings");
 
-        animationTimeOffset = Random.Range(0.0f, 10f);
+        animationTimeOffset = UnityEngine.Random.Range(0.0f, 10f);
 
         // Fill spells list with null to indicate empty
-        for (int i = 0; i < capacity; i++) {
+        while (spells.Count < capacity) {
             spells.Add(null);
         }
     }

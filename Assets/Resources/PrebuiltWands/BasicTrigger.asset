@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2086f0dd896c03e77bd2a7d40394c007, type: 3}
   m_Name: BasicTrigger
   m_EditorClassIdentifier: 
-  wandName: Basic Projectiles
+  wandName: Basic Trigger
   castDelay: 0.5
   spread: 0.7
   capacity: 4
