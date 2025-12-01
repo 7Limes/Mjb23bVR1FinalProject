@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2086f0dd896c03e77bd2a7d40394c007, type: 3}
+  m_Name: EfficientTeleport
+  m_EditorClassIdentifier: 
+  wandName: Efficient Teleport
+  castDelay: 0.4
+  spread: 0.3
+  capacity: 6
+  spells:
+  - {fileID: 11400000, guid: fc252d3189a076563a50c98fe5ca3608, type: 2}
+  - {fileID: 11400000, guid: b3a4fea758a3a8115844658991ab2495, type: 2}
+  - {fileID: 11400000, guid: fc252d3189a076563a50c98fe5ca3608, type: 2}
+  - {fileID: 11400000, guid: b6db945c0da538d918bb7b4bbb7e4354, type: 2}
+  - {fileID: 11400000, guid: a0032bc2ab1f9d39da582129e42ea489, type: 2}
+  - {fileID: 11400000, guid: 3f7d57077f5eb5572addf4ffc142b721, type: 2}

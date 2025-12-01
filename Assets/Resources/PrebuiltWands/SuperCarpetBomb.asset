@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2086f0dd896c03e77bd2a7d40394c007, type: 3}
+  m_Name: SuperCarpetBomb
+  m_EditorClassIdentifier: 
+  wandName: Super Carpet Bomb
+  castDelay: 0.8
+  spread: 1.5
+  capacity: 13
+  spells:
+  - {fileID: 11400000, guid: fc252d3189a076563a50c98fe5ca3608, type: 2}
+  - {fileID: 11400000, guid: a0032bc2ab1f9d39da582129e42ea489, type: 2}
+  - {fileID: 11400000, guid: 48b43444ffafd290eb4d0a3159f3cd4b, type: 2}
+  - {fileID: 11400000, guid: d4ab6bedd4dc5c242abc1f3897704bd2, type: 2}
+  - {fileID: 11400000, guid: b92d95e6baeaa45a195dc6b724b8ea16, type: 2}
+  - {fileID: 11400000, guid: 2f3c9ebc54744af09923cdb4fae1aaa5, type: 2}
+  - {fileID: 11400000, guid: fc252d3189a076563a50c98fe5ca3608, type: 2}
+  - {fileID: 11400000, guid: b92d95e6baeaa45a195dc6b724b8ea16, type: 2}
+  - {fileID: 11400000, guid: b92d95e6baeaa45a195dc6b724b8ea16, type: 2}
+  - {fileID: 11400000, guid: aaa53b8ef5a5461c5aab6e8d253f86e7, type: 2}
+  - {fileID: 11400000, guid: bd5e42fc78c40c3de883e270d1d75741, type: 2}
+  - {fileID: 11400000, guid: c13b171f8e7ec78fcaed38454a71146e, type: 2}
+  - {fileID: 11400000, guid: b343fec18d16354ebb5e4ac63976fa8e, type: 2}

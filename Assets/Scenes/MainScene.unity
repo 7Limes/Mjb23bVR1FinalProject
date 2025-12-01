@@ -1512,7 +1512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc83d86228f4b0b08c33a9a3dfef18d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  capacityRange: {x: 2, y: 10}
+  capacityRange: {x: 3, y: 16}
   castDelayRange: {x: 0.1, y: 0.75}
   spreadRange: {x: 0, y: 5}
   spawnPoint: {fileID: 1207103245}

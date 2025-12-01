@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SparkBoltFactory
   m_EditorClassIdentifier: 
   castDelayChange: 0.05
-  spreadChange: -0.25
+  spreadChange: 0
   prefab: {fileID: 9064156442032007797, guid: b42fb419afc1497209ed0b3b6702d422, type: 3}
   lifetime: 1.5
   lifetimeVariance: 0.1
