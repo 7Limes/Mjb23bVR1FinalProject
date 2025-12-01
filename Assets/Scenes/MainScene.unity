@@ -1841,7 +1841,12 @@ MonoBehaviour:
   iconsPerRow: 8
   prebuiltWands:
   - {fileID: 11400000, guid: 6f7ba265578e02e9e815a8d93a84ae48, type: 2}
+  - {fileID: 11400000, guid: dc5e8fa6d626a594c824ead8e1aae7db, type: 2}
   - {fileID: 11400000, guid: 67a371a4ebc646b5caf2d84fb9f0e3aa, type: 2}
+  - {fileID: 11400000, guid: 64cbaea15233ef9489972b901cf7aea9, type: 2}
+  - {fileID: 11400000, guid: 4192381adf339474d911dd52de06cf19, type: 2}
+  - {fileID: 11400000, guid: a118c0fa40c7c6d4eb37b0a79420b688, type: 2}
+  - {fileID: 11400000, guid: efc5933c798340f4c9c3c8fad5658e0e, type: 2}
   - {fileID: 11400000, guid: 5c33873d726241eaca3a9d2bcec2f609, type: 2}
   - {fileID: 11400000, guid: 4dec8d488c250302a958f7d705914d18, type: 2}
   - {fileID: 11400000, guid: e415340183293687698135ef8a86ce44, type: 2}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2086f0dd896c03e77bd2a7d40394c007, type: 3}
+  m_Name: CopyTrigger
+  m_EditorClassIdentifier: 
+  wandName: Copy Trigger
+  castDelay: 0.6
+  spread: 5
+  capacity: 3
+  spells:
+  - {fileID: 11400000, guid: b6db945c0da538d918bb7b4bbb7e4354, type: 2}
+  - {fileID: 11400000, guid: aaa53b8ef5a5461c5aab6e8d253f86e7, type: 2}
+  - {fileID: 11400000, guid: b343fec18d16354ebb5e4ac63976fa8e, type: 2}

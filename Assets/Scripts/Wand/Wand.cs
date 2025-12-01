@@ -10,7 +10,6 @@ public class Wand : MonoBehaviour {
     [SerializeField] private float oscillateSpeed = 1.0f;
     [SerializeField] private float oscillateAmplitude = 0.05f;
 
-    [SerializeField] private float holdDistance = 0.05f;  // The maximum distance at which the wand is considered "held"
     [SerializeField] private Transform castPosition;
 
     public float castDelay = 0.5f;
@@ -24,7 +23,6 @@ public class Wand : MonoBehaviour {
     private float animationTimeOffset = 0.0f;
 
     private bool isGrabbed = false;  // Whether the wand has been grabbed ("selected")
-    private bool isHeld = false;     // Whether the wand is actually in the player's hand
     private bool triggerPressed = false;
     private bool prevTriggerPressed = false; // The state of the trigger on the last tick
     private bool doIdleAnimation = true;
@@ -76,7 +74,6 @@ public class Wand : MonoBehaviour {
 
     public void OnRelease() {
         isGrabbed = false;
-        isHeld = false;
         triggerPressed = false;
         doIdleAnimation = true;
         currentInteractor = null;
@@ -116,7 +113,7 @@ public class Wand : MonoBehaviour {
     }
 
     public void Cast() {
-        if (isHeld && castDelayTimer == 0.0f) {
+        if (isGrabbed && castDelayTimer == 0.0f) {
             if (groups.Count > 0) {
                 SpellGroup currentGroup = groups[groupIndex];
                 Vector2 spreadVector = new Vector2(spread, spread);
@@ -162,14 +159,6 @@ public class Wand : MonoBehaviour {
     void FixedUpdate() {
         if (castDelayTimer > 0) {
             castDelayTimer = Mathf.MoveTowards(castDelayTimer, 0.0f, Time.fixedDeltaTime);
-        }
-        
-        if (isGrabbed) {
-            // Update held status
-            if (currentInteractor != null) {
-                float distance = Vector3.Distance(currentInteractor.transform.position, transform.position);
-                isHeld = distance < holdDistance;
-            }
         }
 
         if (settings.autoCastEnabled) {

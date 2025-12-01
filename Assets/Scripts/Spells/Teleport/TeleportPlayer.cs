@@ -8,10 +8,5 @@ public class TeleportPlayer : Projectile {
             caster.transform.position = transform.position;
         }
     }
-
-    protected override void FixedUpdate() {
-        Debug.Log("TeleportPlayer lifetime: " + lifetime);
-        base.FixedUpdate();
-    }
 }
 
