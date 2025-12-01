@@ -814,6 +814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whitelistedTags:
   - Player
+  - XRRig
 --- !u!65 &171758964
 BoxCollider:
   m_ObjectHideFlags: 0
