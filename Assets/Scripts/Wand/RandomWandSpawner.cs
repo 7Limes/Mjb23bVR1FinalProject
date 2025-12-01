@@ -1,15 +1,12 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class WandSpawner : MonoBehaviour {
+public class RandomWandSpawner : MonoBehaviour {
     [SerializeField] private Vector2 capacityRange = new Vector2(2, 10);
     [SerializeField] private Vector2 castDelayRange = new Vector2(0.1f, 0.75f);
     [SerializeField] private Vector2 spreadRange = new Vector2(0.0f, 5.0f);
 
     [SerializeField] private Transform spawnPoint;
-
-    [SerializeField] private GameObject wandPrefab;
-    [SerializeField] private List<GameObject> wandModelPrefabs;
 
     [SerializeField] private GameObject spawnEffectPrefab;
     [SerializeField] private Transform effectLocation;
@@ -17,35 +14,25 @@ public class WandSpawner : MonoBehaviour {
     [SerializeField] private float spawnDistance = 0.15f;
     [SerializeField] private float spawnDelay = 1.0f;
 
+    private WandCreator wandCreator;
+
     private GameObject currentWand = null;
     private float spawnTimer = 0.0f;
+
+
+    void Awake() {
+        wandCreator = GetComponent<WandCreator>();
+    }
 
     void Start() {
         SpawnNewWand();
     }
 
     void SpawnNewWand() {
-        if (wandModelPrefabs == null || wandModelPrefabs.Count == 0) {
-            Debug.LogWarning("Wand model list is empty.");
-            return;
-        }
-
-        currentWand = Instantiate(wandPrefab, spawnPoint.position, spawnPoint.rotation);
-
-        // Create wand model
-        int modelIndex = Random.Range(0, wandModelPrefabs.Count);
-        GameObject wandModelPrefab = wandModelPrefabs[modelIndex];
-        GameObject wandModel = Instantiate(wandModelPrefab, currentWand.transform);
-        wandModel.transform.localRotation = Quaternion.Euler(0, 0, 0);
-
-        Wand wandScript = currentWand.GetComponent<Wand>();
-        if (wandScript != null) {
-            wandScript.SetWandModel(wandModel);
-            wandScript.castDelay = Random.Range(castDelayRange.x, castDelayRange.y);
-            wandScript.spread = Random.Range(spreadRange.x, spreadRange.y);
-            wandScript.capacity = (int) Random.Range(capacityRange.x, capacityRange.y+1);
-        }
-
+        int capacity = (int) Random.Range(capacityRange.x, capacityRange.y+1);
+        float castDelay = Random.Range(castDelayRange.x, castDelayRange.y);
+        float spread = Random.Range(spreadRange.x, spreadRange.y);
+        currentWand = wandCreator.CreateWand(spawnPoint.position, spawnPoint.rotation, capacity, castDelay, spread);
         Instantiate(spawnEffectPrefab, effectLocation);
     }
 

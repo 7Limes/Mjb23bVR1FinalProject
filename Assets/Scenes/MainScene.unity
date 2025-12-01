@@ -1493,6 +1493,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 279886636}
+  - component: {fileID: 279886637}
   - component: {fileID: 279886632}
   m_Layer: 0
   m_Name: WandSpawner
@@ -1517,33 +1518,6 @@ MonoBehaviour:
   castDelayRange: {x: 0.1, y: 0.75}
   spreadRange: {x: 0, y: 5}
   spawnPoint: {fileID: 1207103245}
-  wandPrefab: {fileID: 8431600529432964056, guid: 778ccdf9d3da36cc8ad0a94553aab037, type: 3}
-  wandModelPrefabs:
-  - {fileID: 171316, guid: 14a1089dfc8b2f949937da50bf38bc90, type: 3}
-  - {fileID: 197502, guid: b45691375aa24164dbfa7ad14ebec8f2, type: 3}
-  - {fileID: 105532, guid: afbde1d23e194df4ebd0a82acfcca0dc, type: 3}
-  - {fileID: 160236, guid: f05ca6457085e0f428373f98413918ea, type: 3}
-  - {fileID: 120960, guid: f974ad7c294dd994db976cbd37ed92e1, type: 3}
-  - {fileID: 115338, guid: d9a3ec0dc2aae4e43af8b98e0eeb7662, type: 3}
-  - {fileID: 139140, guid: a672d883412876f44995d03608c806db, type: 3}
-  - {fileID: 199532, guid: 61dfa9230f6150741a861dd249a933ef, type: 3}
-  - {fileID: 170008, guid: a5132481e1eaddb4e93b7cd8def7b311, type: 3}
-  - {fileID: 102834, guid: e9035ef32e00e094fa30b792f7375a57, type: 3}
-  - {fileID: 121470, guid: 289062a2b299f714980c64eaaa5623c5, type: 3}
-  - {fileID: 117502, guid: 2b46cc393735f634f89cb88a9e97aaa7, type: 3}
-  - {fileID: 152116, guid: 002ce902530453c4f8c8289934f2578a, type: 3}
-  - {fileID: 173016, guid: 6af1ada55fbfe1c4f8e894084451d932, type: 3}
-  - {fileID: 114100, guid: f860e21d40912044096cc8d6b2501579, type: 3}
-  - {fileID: 107642, guid: 408d43af6e2bac94da16afdd10f63f0f, type: 3}
-  - {fileID: 106404, guid: ca8bafd9a86d1c84a9a66e519b492835, type: 3}
-  - {fileID: 152040, guid: 12c69a31240dca742abe09b6c9abc1f0, type: 3}
-  - {fileID: 180010, guid: 2e52ab7b27833a546a0f62de87d98a15, type: 3}
-  - {fileID: 140182, guid: 7fa17baa3b5675444b8ceb73ad0fd39d, type: 3}
-  - {fileID: 129130, guid: 7e4fe71e8701ed147ac48614044e1c01, type: 3}
-  - {fileID: 155580, guid: 2ec0a21ef68f64a46864ad388da793c4, type: 3}
-  - {fileID: 161354, guid: 5def597caa15aea42ac3983f8dac7ad9, type: 3}
-  - {fileID: 164894, guid: af9661a118d78d34498796cfeae92dfb, type: 3}
-  - {fileID: 165888, guid: 0c91618feef20c948a5f1566ab1d8275, type: 3}
   spawnEffectPrefab: {fileID: 4746253469085936881, guid: ce7c2c6628050cdb8b12a62a0b61a914, type: 3}
   effectLocation: {fileID: 677861205}
   spawnDistance: 0.15
@@ -1567,6 +1541,19 @@ Transform:
   - {fileID: 1944391999}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &279886637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279886631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 247583d7652ff74919848a047e35a505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wandPrefab: {fileID: 8431600529432964056, guid: 778ccdf9d3da36cc8ad0a94553aab037, type: 3}
 --- !u!4 &280285992 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4808617596370765781, guid: 1d30761bb8f798b9e88db918ffd155ba, type: 3}
