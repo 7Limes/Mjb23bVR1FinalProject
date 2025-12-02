@@ -47,10 +47,6 @@ public class EditTerminal : MonoBehaviour {
 
             float shiftAmount = (3 - wandCapacity / slotsPerRow) * (spellSlotSpacing / 2);
             slotPosition.y -= shiftAmount;
-            // if (wandCapacity <= slotsPerRow) {
-            //     // Shift down if there's only 1 row
-            //     slotPosition.y -= spellSlotSpacing / 2;
-            // }
 
             slotObject.transform.localPosition = slotPosition;
 
