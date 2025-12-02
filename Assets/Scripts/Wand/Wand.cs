@@ -115,15 +115,21 @@ public class Wand : MonoBehaviour {
     public void Cast() {
         if (isGrabbed && castDelayTimer == 0.0f) {
             if (groups.Count > 0) {
-                SpellGroup currentGroup = groups[groupIndex];
-                Vector2 spreadVector = new Vector2(spread, spread);
-                currentGroup.Cast(castPosition.position, castPosition.rotation, spreadVector);
-                castDelayTimer = castDelay + currentGroup.GetCastDelay();
-                castDelayTimer = Mathf.Clamp(castDelayTimer, 0, 999);
-                groupIndex = (groupIndex + 1) % groups.Count;
-                HapticImpulse(0.75f, 0.15f);
+                // Wand is not empty
+                SpellGroup firstGroup = groups[groupIndex];
+                int concurrentCasts = firstGroup.GetConcurrentCasts();
+                for (int i = 0; i < concurrentCasts; i++) {
+                    SpellGroup currentGroup = groups[groupIndex];
+                    Vector2 spreadVector = new Vector2(spread, spread);
+                    currentGroup.Cast(castPosition.position, castPosition.rotation, spreadVector);
+                    castDelayTimer = castDelay + currentGroup.GetCastDelay();
+                    castDelayTimer = Mathf.Clamp(castDelayTimer, 0, 999);
+                    groupIndex = (groupIndex + 1) % groups.Count;
+                    HapticImpulse(0.75f, 0.15f);
+                }
             }
             else {
+                // Wand is empty
                 castDelayTimer = castDelay;
                 HapticImpulse(1.0f, 0.5f);
             }

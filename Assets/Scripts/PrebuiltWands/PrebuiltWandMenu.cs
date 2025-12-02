@@ -10,6 +10,7 @@ public class PrebuiltWandMenu : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI nameLabel;
     [SerializeField] private TextMeshProUGUI castDelayLabel;
     [SerializeField] private TextMeshProUGUI spreadLabel;
+    [SerializeField] private TextMeshProUGUI descriptionLabel;
 
     [Header("Spell Icons")]
     [SerializeField] private Transform iconsBasePosition;
@@ -43,6 +44,7 @@ public class PrebuiltWandMenu : MonoBehaviour {
         nameLabel.SetText(currentPrebuilt.wandName);
         castDelayLabel.SetText($"Cast Delay: {currentPrebuilt.castDelay:0.00}s");
         spreadLabel.SetText($"Spread: {currentPrebuilt.spread:0.0} degrees");
+        descriptionLabel.SetText(currentPrebuilt.wandDescription);
     }
 
     void UpdateSpellImages() {

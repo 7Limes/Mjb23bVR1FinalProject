@@ -10,21 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2086f0dd896c03e77bd2a7d40394c007, type: 3}
-  m_Name: SuperCarpetBomb
+  m_Name: MegaCarpetBomb
   m_EditorClassIdentifier: 
-  wandName: Super Carpet Bomb
-  wandDescription: 
-  castDelay: 1
-  spread: 0.7
-  capacity: 13
+  wandName: Mega Carpet Bomb
+  wandDescription: 'Warning: This thing may crash your game. Proceed with caution.'
+  castDelay: 5
+  spread: 1
+  capacity: 14
   spells:
+  - {fileID: 11400000, guid: b92d95e6baeaa45a195dc6b724b8ea16, type: 2}
+  - {fileID: 11400000, guid: 2c9e819e7ca5b10c694727001881b261, type: 2}
   - {fileID: 11400000, guid: fc252d3189a076563a50c98fe5ca3608, type: 2}
   - {fileID: 11400000, guid: a0032bc2ab1f9d39da582129e42ea489, type: 2}
   - {fileID: 11400000, guid: 48b43444ffafd290eb4d0a3159f3cd4b, type: 2}
   - {fileID: 11400000, guid: d4ab6bedd4dc5c242abc1f3897704bd2, type: 2}
   - {fileID: 11400000, guid: b92d95e6baeaa45a195dc6b724b8ea16, type: 2}
   - {fileID: 11400000, guid: 2f3c9ebc54744af09923cdb4fae1aaa5, type: 2}
-  - {fileID: 11400000, guid: fc252d3189a076563a50c98fe5ca3608, type: 2}
   - {fileID: 11400000, guid: b92d95e6baeaa45a195dc6b724b8ea16, type: 2}
   - {fileID: 11400000, guid: b92d95e6baeaa45a195dc6b724b8ea16, type: 2}
   - {fileID: 11400000, guid: aaa53b8ef5a5461c5aab6e8d253f86e7, type: 2}

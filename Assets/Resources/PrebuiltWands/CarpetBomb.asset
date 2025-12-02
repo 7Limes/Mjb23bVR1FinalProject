@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CarpetBomb
   m_EditorClassIdentifier: 
   wandName: Carpet Bomb
+  wandDescription: Cast directly upwards for best results.
   castDelay: 0.8
   spread: 1.5
   capacity: 10

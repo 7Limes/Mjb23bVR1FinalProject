@@ -5,6 +5,9 @@ using System.Collections.Generic;
 public class PrebuiltWand : ScriptableObject {
     public string wandName = "Unnamed Wand";
 
+    [TextArea(3, 10)]
+    public string wandDescription = "";
+
     [Header("Wand Stats")]
     public float castDelay = 0.5f;
     public float spread = 0.0f;

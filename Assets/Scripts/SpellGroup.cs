@@ -12,30 +12,29 @@ public class SpellGroup {
 
     private int castableCount;
     private int copyCount;
+    private int concurrentCastCount;
 
     private Vector2 spread;
     private float castDelay;
 
-    public SpellGroup() {
-        projectiles = new List<ProjectileFactory>();
-        modifiers = new List<ProjectileModifier>();
-        spells = new List<SpellEntry>();
-        spellIndex = 0;
-        castableCount = 0;
-        copyCount = 1;
-        spread = Vector2.zero;
-        castDelay = 0;
-    }
-
-    public SpellGroup(List<SpellEntry> spellList, int startIndex) {
+    void Initialize(List<SpellEntry> spellList, int startIndex, int castables) {
         projectiles = new List<ProjectileFactory>();
         modifiers = new List<ProjectileModifier>();
         spells = spellList;
         spellIndex = startIndex;
-        castableCount = 1;
+        castableCount = castables;
         copyCount = 1;
         spread = Vector2.zero;
         castDelay = 0;
+        concurrentCastCount = 1;
+    }
+
+    public SpellGroup() {
+        Initialize(new List<SpellEntry>(), 0, 0);
+    }
+
+    public SpellGroup(List<SpellEntry> spellList, int startIndex) {
+        Initialize(spellList, startIndex, 1);
     }
 
     public void Build() {
@@ -114,6 +113,14 @@ public class SpellGroup {
     public void AddCopies(int copyAmount) {
         copyCount += copyAmount;
         copyCount = Mathf.Clamp(copyCount, 1, MAX_COPIES);
+    }
+
+    public int GetConcurrentCasts() {
+        return concurrentCastCount;
+    }
+
+    public void AddConcurrentCasts(int amount) {
+        concurrentCastCount += amount;
     }
 
     Quaternion RandomRotateWithSpread(Quaternion original, Vector2 spread) {

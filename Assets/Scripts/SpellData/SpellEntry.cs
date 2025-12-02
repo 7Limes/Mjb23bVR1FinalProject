@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum SpellType {Projectile, Modifier, StaticProjectile, Multicast};
+public enum SpellType {Projectile, Modifier, StaticProjectile, Multicast, Other};
 
 [CreateAssetMenu(fileName = "Spell Entry", menuName = "Scriptable Objects/SpellEntry")]
 public class SpellEntry : ScriptableObject {
