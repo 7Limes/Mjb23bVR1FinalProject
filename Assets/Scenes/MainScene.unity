@@ -1650,7 +1650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc83d86228f4b0b08c33a9a3dfef18d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  capacityRange: {x: 3, y: 16}
+  capacityRange: {x: 3, y: 15}
   castDelayRange: {x: 0.1, y: 0.75}
   spreadRange: {x: 0, y: 5}
   spawnDelay: 1
@@ -1848,6 +1848,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4192381adf339474d911dd52de06cf19, type: 2}
   - {fileID: 11400000, guid: a118c0fa40c7c6d4eb37b0a79420b688, type: 2}
   - {fileID: 11400000, guid: efc5933c798340f4c9c3c8fad5658e0e, type: 2}
+  - {fileID: 11400000, guid: 1f5d030f2f928c80e961528c9dc033ec, type: 2}
   - {fileID: 11400000, guid: 5c33873d726241eaca3a9d2bcec2f609, type: 2}
   - {fileID: 11400000, guid: 4dec8d488c250302a958f7d705914d18, type: 2}
   - {fileID: 11400000, guid: 2424d3a35a5fd03339f8a3d01ac4537c, type: 2}
@@ -2856,7 +2857,7 @@ Transform:
   m_GameObject: {fileID: 426401190}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 1.07, y: 0.9, z: 0}
+  m_LocalPosition: {x: 1.07, y: 1.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5607,6 +5608,7 @@ MonoBehaviour:
   slotsBasePosition: {fileID: 426401191}
   spellSlotPrefab: {fileID: 290513354971893999, guid: 4ce26902f52eaf734ab1245ca9635143, type: 3}
   spellSlotSpacing: 0.25
+  slotsPerRow: 10
 --- !u!114 &837883218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8218,6 +8220,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 086ad51ea8c808655aac03847999969a, type: 2}
   - {fileID: 11400000, guid: ec1e338c266a464059ac00443eada00a, type: 2}
   - {fileID: 11400000, guid: 3ff9dc3da65c8ab54a7363b07f802398, type: 2}
+  - {fileID: 11400000, guid: bca0a7166cefea231b1c2c60e8d1a785, type: 2}
 --- !u!1001 &1196530926
 PrefabInstance:
   m_ObjectHideFlags: 0

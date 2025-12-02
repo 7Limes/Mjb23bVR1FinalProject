@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e034fdf9acb2957fbf8bee056e55e6c, type: 3}
+  m_Name: MovingEnemies
+  m_EditorClassIdentifier: 
+  structureName: Moving Enemies
+  prefab: {fileID: 8002639547418495685, guid: 22179b4efc1ba55e29781d1b2eba537a, type: 3}

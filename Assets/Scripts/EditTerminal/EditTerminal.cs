@@ -6,7 +6,7 @@ public class EditTerminal : MonoBehaviour {
     [SerializeField] private Transform slotsBasePosition;
     [SerializeField] private GameObject spellSlotPrefab;
     [SerializeField] private float spellSlotSpacing = 0.5f;
-    [SerializeField] private readonly int slotsPerRow = 8;
+    [SerializeField] private int slotsPerRow = 8;
 
 
     SpellCubeCreator spellCubeCreator;
@@ -45,10 +45,12 @@ public class EditTerminal : MonoBehaviour {
             slotPosition.x += i % slotsPerRow * spellSlotSpacing;
             slotPosition.y -= i / slotsPerRow * spellSlotSpacing;
 
-            if (wandCapacity <= slotsPerRow) {
-                // Shift down if there's only 1 row
-                slotPosition.y -= spellSlotSpacing / 2;
-            }
+            float shiftAmount = (3 - wandCapacity / slotsPerRow) * (spellSlotSpacing / 2);
+            slotPosition.y -= shiftAmount;
+            // if (wandCapacity <= slotsPerRow) {
+            //     // Shift down if there's only 1 row
+            //     slotPosition.y -= spellSlotSpacing / 2;
+            // }
 
             slotObject.transform.localPosition = slotPosition;
 
