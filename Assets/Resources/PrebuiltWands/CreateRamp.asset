@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2086f0dd896c03e77bd2a7d40394c007, type: 3}
+  m_Name: CreateRamp
+  m_EditorClassIdentifier: 
+  wandName: Create Ramp
+  wandDescription: 
+  castDelay: 0.25
+  spread: 0.7
+  capacity: 6
+  spells:
+  - {fileID: 11400000, guid: fc252d3189a076563a50c98fe5ca3608, type: 2}
+  - {fileID: 11400000, guid: a0032bc2ab1f9d39da582129e42ea489, type: 2}
+  - {fileID: 11400000, guid: 21f0218c92be7257ebf6a21cbecf5bc3, type: 2}
+  - {fileID: 11400000, guid: b6db945c0da538d918bb7b4bbb7e4354, type: 2}
+  - {fileID: 11400000, guid: f1a839cf30cbb4301833a267380e6e90, type: 2}
+  - {fileID: 11400000, guid: 306a7cda4dbb7d9aabc3c3ae46678920, type: 2}
