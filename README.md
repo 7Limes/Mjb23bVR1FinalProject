@@ -34,6 +34,12 @@ Naturally, both the SpellFactory and Projectile classes are extended via inherit
 such as ProjectileFactory, which produces projectile spells.
 
 
+## Screenshots
+
+![Editing table](Screenshots/table.png)
+![All available spells](Screenshots/spells.png)
+![Explosion](Screenshots/explosion.png)
+
 ## Sources
 
 ### Materials
